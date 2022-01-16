@@ -1,0 +1,4739 @@
+Denominazione Insegnamento: AGRIFOOD FINANCING
+Codice Insegnamento: DEM0015
+CFU Insegnamento: 6
+Docente
+MARCO LERRO (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: AGRIFOOD VALUE CHAIN
+Codice Insegnamento: 403108
+CFU Insegnamento: 6
+Docente
+CONCETTA NAZZARO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ALGEBRA LINEARE
+Codice Insegnamento: 671102
+CFU Insegnamento: 6
+Docente
+GIUSEPPE MANFREDI (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: ANALISI DELLE SERIE STORICHE
+Codice Insegnamento: 67196
+CFU Insegnamento: 6
+Docente
+SIMONA PACILLO (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: ANALISI ECONOMICA DEL DIRITTO
+Codice Insegnamento: 904710
+CFU Insegnamento: 6
+Docente
+ANNAMARIA NIFO SARRAPOCHIELLO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: ANALISI MULTIVARIATA DEI DATI
+Codice Insegnamento: 40305
+CFU Insegnamento: 6
+Docente
+PIETRO AMENTA (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ANALISI STATISTICA DI DATI MULTIDIMENSIONALI
+Codice Insegnamento: 70960
+CFU Insegnamento: 9
+Docente
+BIAGIO SIMONETTI (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: BILANCI E DETERMINAZIONI DI SINTESI
+Codice Insegnamento: 261171
+CFU Insegnamento: 9
+Docente
+PAOLO ESPOSITO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: BUSINESS PLANNING
+Codice Insegnamento: 261041
+CFU Insegnamento: 6
+Docente
+ANGELO RIVIEZZO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: CALCOLO DELLE PROBABILITÀ E LABORATORIO DI PROBABILITÀ
+Codice Insegnamento: 671101
+CFU Insegnamento: 9
+Docente
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: CLINICA LEGALE DI DIRITTO DEL LAVORO
+Codice Insegnamento: 904725
+CFU Insegnamento: 6
+Docente
+ROSARIO SANTUCCI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: COMPETENZE PER LA CREAZIONE D'IMPRESA
+Codice Insegnamento: 403118
+CFU Insegnamento: 9
+Docente
+GILDA ANTONELLI (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: CORPORATE FINANCE
+Codice Insegnamento: 40332
+CFU Insegnamento: 9
+Docente
+ARTURO CAPASSO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: CORPORATE GOVERNANCE
+Codice Insegnamento: 40311
+CFU Insegnamento: 9
+Docente
+ARTURO CAPASSO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: CORPORATE STRATEGY
+Codice Insegnamento: 40303
+CFU Insegnamento: 9
+Docente
+OLIMPIA MEGLIO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: DEMOGRAFIA
+Codice Insegnamento: 67152
+CFU Insegnamento: 9
+Docente
+PAOLA MANCINI (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: DEMOGRAFIA CORSO PROGREDITO
+Codice Insegnamento: 70967
+CFU Insegnamento: 6
+Docente
+PAOLA MANCINI (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: DIGITAL MEDIA CONTRACTING AND REGULATION
+Codice Insegnamento: 904722
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIGNITÁ, VALORE E TUTELE
+Codice Insegnamento: 904732
+CFU Insegnamento: 6
+Docente
+PIERPAOLO FORTE (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO AMMINISTRATIVO
+Codice Insegnamento: M202003
+CFU Insegnamento: 9
+Docente
+FRANCESCO ROTA (Tit.)
+PIERPAOLO FORTE
+Codice Corso Di Studio: M202
+Denominazione Corso Di Studio: MISURAZIONE E VALUTAZIONE DELLE PERFORMANCE NELLE AMMINISTRAZIONI PUBBLICHE
+
+
+Denominazione Insegnamento: DIRITTO AMMINISTRATIVO
+Codice Insegnamento: 403117
+CFU Insegnamento: 6
+Docente
+FRANCESCO ROTA (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: DIRITTO AMMINISTRATIVO
+Codice Insegnamento: 904369
+CFU Insegnamento: 12
+Docente
+PIERPAOLO FORTE (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO BANCARIO E ASSICURATIVO
+Codice Insegnamento: 260136
+CFU Insegnamento: 12
+Docente
+MANLIO LUBRANO DI SCORPANIELLO (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: DIRITTO BANCARIO E DELLE ASSICURAZIONI
+Codice Insegnamento: 709113
+CFU Insegnamento: 9
+Docente
+MANLIO LUBRANO DI SCORPANIELLO (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: DIRITTO CIVILE
+Codice Insegnamento: 904494
+CFU Insegnamento: 11
+Docente
+ANTONELLA TARTAGLIA POLCINI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO CIVILE AVANZATO
+Codice Insegnamento: 904707
+CFU Insegnamento: 9
+Docente
+GASPARE POERIO LISELLA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO COMMERCIALE
+Codice Insegnamento: 904663
+CFU Insegnamento: 9
+Docente
+MANLIO LUBRANO DI SCORPANIELLO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO COMMERCIALE, SOCIETARIO E FALLIMENTARE
+Codice Insegnamento: 261070
+CFU Insegnamento: 9
+Docente
+MANLIO LUBRANO DI SCORPANIELLO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: DIRITTO COMPARATO
+Codice Insegnamento: 904664
+CFU Insegnamento: 9
+Docente
+KATIA FIORENZA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO CONTRATTUALE EUROPEO E TRANSNAZIONALE
+Codice Insegnamento: 904611
+CFU Insegnamento: 9
+Docente
+CAMILLA CREA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO COSTITUZIONALE
+Codice Insegnamento: 904662
+CFU Insegnamento: 6
+Docente
+VINCENZO CASAMASSIMA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DEGLI STRUMENTI FINANZIARI
+Codice Insegnamento: 904498
+CFU Insegnamento: 6
+Docente
+STEFANO ADDABBO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DEI CONTRATTI
+Codice Insegnamento: 904613
+CFU Insegnamento: 6
+Docente
+ROSANNA PAGLIUCA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DEI DATI E DELL'INTELLIGENZA ARTIFICIALE
+Codice Insegnamento: 904723
+CFU Insegnamento: 6
+Docente
+PAOLO BONINI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DEI MERCATI FINANZIARI E DELL'INTERMEDIAZIONE BANCARIA
+Codice Insegnamento: 40386
+CFU Insegnamento: 9
+Docente
+STEFANO ADDABBO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: DIRITTO DEL COMMERCIO INTERNAZIONALE DEI PRODOTTI AGRICOLI
+Codice Insegnamento: 904572
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DEL GOVERNO DEL TERRITORIO
+Codice Insegnamento: 904571
+CFU Insegnamento: 6
+Docente
+VINCENZO CASAMASSIMA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DEL LAVORO
+Codice Insegnamento: 261024
+CFU Insegnamento: 6
+Docente
+MARIO CERBONE (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: DIRITTO DEL LAVORO
+Codice Insegnamento: 904136
+CFU Insegnamento: 12
+Docente
+ROSARIO SANTUCCI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DEL LAVORO AVANZATO
+Codice Insegnamento: 904708
+CFU Insegnamento: 9
+Docente
+GAETANO NATULLO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DEL LAVORO E DELLA PREVIDENZA SOCIALE
+Codice Insegnamento: 40341
+CFU Insegnamento: 9
+Docente
+PAOLA SARACINI (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: DIRITTO DEL LAVORO EUROPEO
+Codice Insegnamento: 904610
+CFU Insegnamento: 9
+Docente
+GAETANO NATULLO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DELLE CRISI DI IMPRESA
+Codice Insegnamento: 40322
+CFU Insegnamento: 9
+Docente
+MANUEL FRANCHI (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: DIRITTO DELLE ORGANIZZAZIONI INTERNAZIONALI
+Codice Insegnamento: 904545
+CFU Insegnamento: 9
+Docente
+ROBERTO VIRZO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DELL'UNIONE EUROPEA
+Codice Insegnamento: 904665
+CFU Insegnamento: 9
+Docente
+KATIA FIORENZA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DI FAMIGLIA
+Codice Insegnamento: 904578
+CFU Insegnamento: 6
+Docente
+GASPARE POERIO LISELLA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO DOGANALE EUROPEO E COMPARATO
+Codice Insegnamento: 904704
+CFU Insegnamento: 9
+Docente
+KATIA FIORENZA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO E LETTERATURA
+Codice Insegnamento: 904585
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO INTERNAZIONALE
+Codice Insegnamento: 904668
+CFU Insegnamento: 9
+Docente
+ROBERTO VIRZO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO PENALE
+Codice Insegnamento: 904492
+CFU Insegnamento: 15
+Docente
+FLAVIO ARGIRO' (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO PRIVATO
+Codice Insegnamento: 260103
+CFU Insegnamento: 9
+Docente
+ROBERTA MONGILLO (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: DIRITTO PROCESSUALE CIVILE 2
+Codice Insegnamento: 904148
+CFU Insegnamento: 8
+Docente
+FRANCESCO SAVERIO DAMIANI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO PROCESSUALE CIVILE
+Codice Insegnamento: 904669
+CFU Insegnamento: 14
+Docente
+ERNESTO FABIANI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO PROCESSUALE CIVILE
+Codice Insegnamento: 904669
+CFU Insegnamento: 14
+Docente
+FRANCESCO SAVERIO DAMIANI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO PROCESSUALE CIVILE
+Codice Insegnamento: 904669
+CFU Insegnamento: 14
+Docente
+FRANCESCO SAVERIO DAMIANI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO PROCESSUALE PENALE
+Codice Insegnamento: DEM0022
+CFU Insegnamento: 14
+Docente
+ANTONIA ANTONELLA MARANDOLA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO TRIBUTARIO
+Codice Insegnamento: 261025
+CFU Insegnamento: 6
+Docente
+PAOLO PURI (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: DIRITTO TRIBUTARIO
+Codice Insegnamento: 904497
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: DIRITTO TRIBUTARIO D'IMPRESA
+Codice Insegnamento: 403116
+CFU Insegnamento: 6
+Docente
+PAOLO PURI (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ECONOMETRIA
+Codice Insegnamento: 40391
+CFU Insegnamento: 6
+Docente
+GUIDO TORTORELLA ESPOSITO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ECONOMIA APPLICATA
+Codice Insegnamento: 70987
+CFU Insegnamento: 6
+Docente
+ANNAMARIA NIFO SARRAPOCHIELLO (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: ECONOMIA AZIENDALE
+Codice Insegnamento: 260100
+CFU Insegnamento: 9
+Docente
+ROBERTO IANNELLI (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: ECONOMIA AZIENDALE
+Codice Insegnamento: 904701
+CFU Insegnamento: 9
+Docente
+FABIO MICHELE AMATUCCI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: ECONOMIA DEGLI INTERMEDIARI FINANZIARI
+Codice Insegnamento: 261028
+CFU Insegnamento: 6
+Docente
+ANTONELLA MALINCONICO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: ECONOMIA DEGLI INTERMEDIARI FINANZIARI
+Codice Insegnamento: 67155
+CFU Insegnamento: 6
+Docente
+ANTONELLA MALINCONICO (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: ECONOMIA DEGLI INTERMEDIARI FINANZIARI
+Codice Insegnamento: 67155
+CFU Insegnamento: 6
+Docente
+ANTONELLA MALINCONICO (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: ECONOMIA DEGLI INTERMEDIARI FINANZIARI
+Codice Insegnamento: 260133
+CFU Insegnamento: 9
+Docente
+ANTONELLA MALINCONICO (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: ECONOMIA DEI MERCATI AGROALIMENTARI
+Codice Insegnamento: 40343
+CFU Insegnamento: 6
+Docente
+MARIAROSARIA SIMEONE (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ECONOMIA DELLE AZIENDE DI CREDITO
+Codice Insegnamento: 260131
+CFU Insegnamento: 9
+Docente
+EUGENIO VIRGUTI (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: ECONOMIA DELLE IMPRESE E DEI MERCATI
+Codice Insegnamento: 40301
+CFU Insegnamento: 9
+Docente
+GUIDO TORTORELLA ESPOSITO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ECONOMIA DEL SETTORE PUBBLICO
+Codice Insegnamento: M202005
+CFU Insegnamento: 4
+Docente
+DOMENICO SCALERA (Tit.)
+RICCARDO REALFONZO
+Codice Corso Di Studio: M202
+Denominazione Corso Di Studio: MISURAZIONE E VALUTAZIONE DELLE PERFORMANCE NELLE AMMINISTRAZIONI PUBBLICHE
+
+
+Denominazione Insegnamento: ECONOMIA DEL TURISMO
+Codice Insegnamento: 261154
+CFU Insegnamento: 9
+Docente
+CARMEN VITA (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: ECONOMIA E FINANZA DELLE ASSICURAZIONI E DELLA PREVIDENZA
+Codice Insegnamento: 67160
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: ECONOMIA E POLITICA DEI MERCATI MONETARI E FINANZIARI
+Codice Insegnamento: 403110
+CFU Insegnamento: 6
+Docente
+RICCARDO REALFONZO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ECONOMIA E POLITICA DEI MERCATI MONETARI E FINANZIARI
+Codice Insegnamento: 403110
+CFU Insegnamento: 6
+Docente
+RICCARDO REALFONZO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ECONOMIA E POLITICA DEI MERCATI MONETARI E FINANZIARI
+Codice Insegnamento: 403112
+CFU Insegnamento: 15
+Docente
+GIUSEPPE FONTANA (Tit.)
+RICCARDO REALFONZO
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ECONOMIA E POLITICA DELLO SVILUPPO RURALE
+Codice Insegnamento: 262150
+CFU Insegnamento: 9
+Docente
+CONCETTA NAZZARO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: ECONOMIA E POLITICHE DEL TERRITORIO
+Codice Insegnamento: 40337
+CFU Insegnamento: 6
+Docente
+ANGELA CRESTA (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ECONOMIA INTERNAZIONALE
+Codice Insegnamento: 261010
+CFU Insegnamento: 9
+Docente
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: ECONOMIA MONETARIA E CREDITIZIA
+Codice Insegnamento: 260116
+CFU Insegnamento: 6
+Docente
+GIUSEPPE FONTANA (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: ECONOMIA POLITICA
+Codice Insegnamento: 904479
+CFU Insegnamento: 9
+Docente
+ANNAMARIA NIFO SARRAPOCHIELLO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: ECONOMIA POLITICA
+Codice Insegnamento: 67157
+CFU Insegnamento: 9
+Docente
+DOMENICO SCALERA (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: ELEMENTI DI DIRITTO AMMINISTRATIVO E REGOLAZIONE DEI MERCATI
+Codice Insegnamento: 260126
+CFU Insegnamento: 6
+Docente
+NICOLA DI MODUGNO (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: ELEMENTI DI INFORMATICA
+Codice Insegnamento: 260104
+CFU Insegnamento: 3
+Docente
+SALVATORE RAMPONE (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: ELEMENTI DI INFORMATICA
+Codice Insegnamento: 261007
+CFU Insegnamento: 3
+Docente
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: FILOSOFIA DEL DIRITTO
+Codice Insegnamento: 904477
+CFU Insegnamento: 9
+Docente
+LAURA ANITA SANTA ZAVATTA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: FINANZA AZIENDALE
+Codice Insegnamento: 260124
+CFU Insegnamento: 9
+Docente
+MATTEO ROSSI (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: FINANZA AZIENDALE
+Codice Insegnamento: 261026
+CFU Insegnamento: 9
+Docente
+MATTEO ROSSI (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: FINANZA AZIENDALE E PRODOTTI FINANZIARI
+Codice Insegnamento: 709110
+CFU Insegnamento: 15
+Docente
+MATTEO ROSSI (Tit.)
+ANTONELLA MALINCONICO
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: FINANZA E SOCIETÀ
+Codice Insegnamento: 260119
+CFU Insegnamento: 6
+Docente
+FRANCESCO VESPASIANO (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: FONDAMENTI DI ECONOMIA POLITICA
+Codice Insegnamento: 261001
+CFU Insegnamento: 9
+Docente
+RICCARDO REALFONZO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: GEOGRAFIA DEL COMMERCIO INTERNAZIONALE
+Codice Insegnamento: 40393
+CFU Insegnamento: 6
+Docente
+ILARIA GRECO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: GEOGRAFIA DEL TURISMO
+Codice Insegnamento: 261160
+CFU Insegnamento: 6
+Docente
+ILARIA GRECO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: GEOGRAFIA ECONOMICA E POLITICA
+Codice Insegnamento: 261169
+CFU Insegnamento: 9
+Docente
+ANGELA CRESTA (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: GIUSTIZIA AMMINISTRATIVA
+Codice Insegnamento: DEM0023
+CFU Insegnamento: 6
+Docente
+FRANCESCO ROTA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: HUMAN RELATIONS AND PERFORMANCE MANAGEMENT
+Codice Insegnamento: M202004
+CFU Insegnamento: 6
+Docente
+GILDA ANTONELLI (Tit.)
+VINCENZA ESPOSITO
+Codice Corso Di Studio: M202
+Denominazione Corso Di Studio: MISURAZIONE E VALUTAZIONE DELLE PERFORMANCE NELLE AMMINISTRAZIONI PUBBLICHE
+
+
+Denominazione Insegnamento: INFORMATICA
+Codice Insegnamento: 671120
+CFU Insegnamento: 6
+Docente
+SALVATORE RAMPONE (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: INFORMATICA GIURIDICA
+Codice Insegnamento: 904481
+CFU Insegnamento: 6
+Docente
+NICOLA LETTIERI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: INFORMATICA PER LE APPLICAZIONI ECONOMICHE
+Codice Insegnamento: 40309
+CFU Insegnamento: 3
+Docente
+SALVATORE RAMPONE (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: INFORMATICA PER LE APPLICAZIONI ECONOMICHE
+Codice Insegnamento: 671122
+CFU Insegnamento: 6
+Docente
+SALVATORE RAMPONE (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: INFORMATICA PER LE APPLICAZIONI ECONOMICHE
+Codice Insegnamento: 40309
+CFU Insegnamento: 3
+Docente
+SALVATORE RAMPONE (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: INFORMATICA PER LE APPLICAZIONI ECONOMICHE
+Codice Insegnamento: 40309
+CFU Insegnamento: 3
+Docente
+SALVATORE RAMPONE (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: ISTITUZIONI DI DIRITTO PRIVATO
+Codice Insegnamento: 904661
+CFU Insegnamento: 14
+Docente
+VINCENZO VERDICCHIO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: ISTITUZIONI DI DIRITTO PUBBLICO
+Codice Insegnamento: 904726
+CFU Insegnamento: 6
+Docente
+FRANCESCO ROTA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: ISTITUZIONI DI DIRITTO PUBBLICO
+Codice Insegnamento: 261006
+CFU Insegnamento: 6
+Docente
+PIERPAOLO FORTE (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: ISTITUZIONI E STORIA DEL DIRITTO ROMANO
+Codice Insegnamento: 904457
+CFU Insegnamento: 14
+Docente
+AGLAIA MCCLINTOCK (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: LEGISLAZIONE DEL TURISMO
+Codice Insegnamento: 261168
+CFU Insegnamento: 6
+Docente
+ANTONIO DI FEDE (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: LINGUA INGLESE
+Codice Insegnamento: 260107
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: LINGUA INGLESE
+Codice Insegnamento: 261036
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: LINGUA INGLESE
+Codice Insegnamento: 261151
+CFU Insegnamento: 9
+Docente
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: LINGUA INGLESE
+Codice Insegnamento: 70993
+CFU Insegnamento: 3
+Docente
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: LINGUA INGLESE
+Codice Insegnamento: 261036
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: LINGUA INGLESE PER LA COMUNICAZIONE ECONOMICA
+Codice Insegnamento: 40329
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: LINGUA INGLESE PER LA COMUNICAZIONE GIURIDICA
+Codice Insegnamento: 904489
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: LINGUA INGLESE PER LA COMUNICAZIONE GIURIDICA AVANZATA
+Codice Insegnamento: 904706
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: LINGUA SPAGNOLA
+Codice Insegnamento: 261038
+CFU Insegnamento: 6
+Docente
+AURORA ELISA PERROTTA GENES (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: LINGUA SPAGNOLA
+Codice Insegnamento: 261153
+CFU Insegnamento: 9
+Docente
+AURORA ELISA PERROTTA GENES (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: LINGUA SPAGNOLA
+Codice Insegnamento: 261038
+CFU Insegnamento: 6
+Docente
+AURORA ELISA PERROTTA GENES (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: LINGUA SPAGNOLA PER LA COMUNICAZIONE GIURIDICA
+Codice Insegnamento: 904606
+CFU Insegnamento: 9
+Docente
+DANIELA NATALE (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: MANAGEMENT
+Codice Insegnamento: 904603
+CFU Insegnamento: 9
+Docente
+OLIMPIA MEGLIO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: MANAGEMENT DELLA CONOSCENZA E DELL'INNOVAZIONE
+Codice Insegnamento: 403105
+CFU Insegnamento: 9
+Docente
+MIRELLA MIGLIACCIO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: MANAGEMENT DELLE IMPRESE AGROALIMENTARI
+Codice Insegnamento: 403109
+CFU Insegnamento: 6
+Docente
+VITTORIA MARINO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: MANAGEMENT DELLE IMPRESE DI SERVIZI
+Codice Insegnamento: 261158
+CFU Insegnamento: 9
+Docente
+VITTORIA MARINO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: MANAGEMENT DELLE ORGANIZZAZIONI NON PROFIT
+Codice Insegnamento: 261170
+CFU Insegnamento: 6
+Docente
+GILDA ANTONELLI (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: MANAGEMENT E MARKETING INTERNAZIONALE
+Codice Insegnamento: 403103
+CFU Insegnamento: 9
+Docente
+RICCARDO RESCINITI (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: MANAGEMENT PUBBLICO
+Codice Insegnamento: M202001
+CFU Insegnamento: 3
+Docente
+OLIMPIA MEGLIO (Tit.)
+MATTEO ROSSI
+ANGELO RIVIEZZO
+Codice Corso Di Studio: M202
+Denominazione Corso Di Studio: MISURAZIONE E VALUTAZIONE DELLE PERFORMANCE NELLE AMMINISTRAZIONI PUBBLICHE
+
+
+Denominazione Insegnamento: MARKETING
+Codice Insegnamento: 261017
+CFU Insegnamento: 9
+Docente
+RICCARDO RESCINITI (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: MARKETING STRATEGICO
+Codice Insegnamento: 40317
+CFU Insegnamento: 6
+Docente
+ANGELO RIVIEZZO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: MATEMATICA APPLICATA
+Codice Insegnamento: 40306
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: MATEMATICA ATTUARIALE E LABORATORIO DI CALCOLO ATTUARIALE
+Codice Insegnamento: 67162
+CFU Insegnamento: 12
+Docente
+NICOLINO ETTORE D'ORTONA (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: MATEMATICA AVANZATA
+Codice Insegnamento: 67183
+CFU Insegnamento: 6
+Docente
+ANTONIO VIOLI (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: MATEMATICA FINANZIARIA
+Codice Insegnamento: 261013
+CFU Insegnamento: 6
+Docente
+ANTONIO VIOLI (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: MATEMATICA FINANZIARIA
+Codice Insegnamento: 260117
+CFU Insegnamento: 9
+Docente
+ANTONIO VIOLI (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: MATEMATICA FINANZIARIA
+Codice Insegnamento: 261013
+CFU Insegnamento: 6
+Docente
+ANTONIO VIOLI (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: MATEMATICA FINANZIARIA E LABORATORIO DI CALCOLO FINANZIARIO
+Codice Insegnamento: 67148
+CFU Insegnamento: 12
+Docente
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: MATEMATICA GENERALE
+Codice Insegnamento: 671100
+CFU Insegnamento: 9
+Docente
+GABRIELLA MARCARELLI (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: MEDICINA LEGALE E CRIMINOLOGIA
+Codice Insegnamento: 904729
+CFU Insegnamento: 9
+Docente
+GIUSEPPE VACCHIANO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: MERCATI FINANZIARI E FINTECH
+Codice Insegnamento: 260132
+CFU Insegnamento: 12
+Docente
+MATTEO ROSSI (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: METODI MATEMATICI PER L'ECONOMIA E LA FINANZA
+Codice Insegnamento: 261149
+CFU Insegnamento: 12
+Docente
+MARIA GRAZIA OLIVIERI (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: METODI MATEMATICI PER L'ECONOMIA E LA FINANZA
+Codice Insegnamento: 261004
+CFU Insegnamento: 9
+Docente
+MARIA GRAZIA OLIVIERI (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: METODI MATEMATICI PER L'ECONOMIA E LA FINANZA
+Codice Insegnamento: 261004
+CFU Insegnamento: 9
+Docente
+MARIA GRAZIA OLIVIERI (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: METODI MATEMATICI PER L'ECONOMIA E LA FINANZA
+Codice Insegnamento: 260101
+CFU Insegnamento: 9
+Docente
+ANTONIO VIOLI (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: METODI STATISTICI PER LA VALUTAZIONE
+Codice Insegnamento: 403107
+CFU Insegnamento: 6
+Docente
+BIAGIO SIMONETTI (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: METODI STATISTICI PER LA VALUTAZIONE DELLA PERFORMANCE
+Codice Insegnamento: M202009
+CFU Insegnamento: 6
+Docente
+ANNA CLARA MONTI (Tit.)
+ANTONIO LUCADAMO
+BIAGIO SIMONETTI
+SIMONA PACILLO
+PIETRO AMENTA
+Codice Corso Di Studio: M202
+Denominazione Corso Di Studio: MISURAZIONE E VALUTAZIONE DELLE PERFORMANCE NELLE AMMINISTRAZIONI PUBBLICHE
+
+
+Denominazione Insegnamento: METODI STATISTICI PER L'ECONOMIA
+Codice Insegnamento: 671119
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: MODELLI DI VALUTAZIONE E PROCEDURE DECISIONALI
+Codice Insegnamento: 70983
+CFU Insegnamento: 6
+Docente
+MASSIMO SQUILLANTE (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: MODELLI E TECNICHE DI INTELLIGENZA ARTIFICIALE PER IL DIRITTO
+Codice Insegnamento: 904720
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: MODELLI MATEMATICI PER I MERCATI FINANZIARI
+Codice Insegnamento: 70962
+CFU Insegnamento: 6
+Docente
+GIUSEPPE MELISI (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: MODELLI STATISTICI
+Codice Insegnamento: 67195
+CFU Insegnamento: 9
+Docente
+ANTONIO LUCADAMO (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: NEGOZIAZIONE E MEDIAZIONE DEI CONFLITTI
+Codice Insegnamento: 904715
+CFU Insegnamento: 6
+Docente
+ANTONELLA TARTAGLIA POLCINI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: ORDINAMENTO GIUDIZIARIO
+Codice Insegnamento: 904573
+CFU Insegnamento: 6
+Docente
+ENNIO CAVUOTO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: ORDINAMENTO GIUDIZIARIO ITALIANO E COMPARATO
+Codice Insegnamento: 904705
+CFU Insegnamento: 9
+Docente
+ENNIO CAVUOTO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: ORGANIZZAZIONE AZIENDALE
+Codice Insegnamento: 261027
+CFU Insegnamento: 9
+Docente
+VINCENZA ESPOSITO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: ORGANIZZAZIONE AZIENDALE
+Codice Insegnamento: 260135
+CFU Insegnamento: 6
+Docente
+VINCENZA ESPOSITO (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: ORGANIZZAZIONE DEL LAVORO
+Codice Insegnamento: 904711
+CFU Insegnamento: 6
+Docente
+VINCENZA ESPOSITO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: ORGANIZZAZIONE E GESTIONE DELLE RISORSE UMANE
+Codice Insegnamento: 403115
+CFU Insegnamento: 6
+Docente
+GILDA ANTONELLI (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: POLITICA ECONOMICA
+Codice Insegnamento: 260115
+CFU Insegnamento: 6
+Docente
+EMILIANO BRANCACCIO (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: POLITICA ECONOMICA
+Codice Insegnamento: 261034
+CFU Insegnamento: 9
+Docente
+EMILIANO BRANCACCIO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: POLITICA ECONOMICA
+Codice Insegnamento: 261034
+CFU Insegnamento: 9
+Docente
+EMILIANO BRANCACCIO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: POLITICA ECONOMICA II
+Codice Insegnamento: 40388
+CFU Insegnamento: 6
+Docente
+EMILIANO BRANCACCIO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: POLITICHE PER LA SICUREZZA ALIMENTARE
+Codice Insegnamento: 904590
+CFU Insegnamento: 6
+Docente
+CONCETTA NAZZARO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: POTERI, OBBLIGHI E VALUTAZIONE DELLE PERFORMANCE DEI DIRIGENTI PUBBLICI
+Codice Insegnamento: M202006
+CFU Insegnamento: 6
+Docente
+ROSARIO SANTUCCI (Tit.)
+GAETANO NATULLO
+PAOLA SARACINI
+MARIO CERBONE
+Codice Corso Di Studio: M202
+Denominazione Corso Di Studio: MISURAZIONE E VALUTAZIONE DELLE PERFORMANCE NELLE AMMINISTRAZIONI PUBBLICHE
+
+
+Denominazione Insegnamento: PRINCIPI DI MANAGEMENT
+Codice Insegnamento: 671106
+CFU Insegnamento: 6
+Docente
+MIRELLA MIGLIACCIO (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: PROCESSI STOCASTICI PER LE ASSICURAZIONI E LA FINANZA
+Codice Insegnamento: 70965
+CFU Insegnamento: 6
+Docente
+ANTONIO LUCADAMO (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: PROGRAMMAZIONE, CONTROLLO E CONTABILITÁ NELLE AMMINISTRAZIONI PUBBLICHE
+Codice Insegnamento: M202008
+CFU Insegnamento: 8
+Docente
+ROBERTO IANNELLI (Tit.)
+FABIO MICHELE AMATUCCI
+PAOLO ESPOSITO
+GUIDO MIGLIACCIO
+Codice Corso Di Studio: M202
+Denominazione Corso Di Studio: MISURAZIONE E VALUTAZIONE DELLE PERFORMANCE NELLE AMMINISTRAZIONI PUBBLICHE
+
+
+Denominazione Insegnamento: PROGRAMMAZIONE E CONTROLLO
+Codice Insegnamento: 40302
+CFU Insegnamento: 9
+Docente
+FABIO MICHELE AMATUCCI (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: PROTEZIONE DEI DATI, DIRITTO E TECNOLOGIA
+Codice Insegnamento: 904733
+CFU Insegnamento: 6
+Docente
+CAMILLA CREA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: RAGIONERIA BANCARIA
+Codice Insegnamento: 40380
+CFU Insegnamento: 9
+Docente
+GUIDO MIGLIACCIO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: RAGIONERIA DELLE IMPRESE TURISTICHE
+Codice Insegnamento: 261157
+CFU Insegnamento: 9
+Docente
+GUIDO MIGLIACCIO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: RAGIONERIA GENERALE ED APPLICATA I
+Codice Insegnamento: DEM0013
+CFU Insegnamento: 12
+Docente
+PAOLO ESPOSITO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: RAGIONERIA GENERALE ED APPLICATA I
+Codice Insegnamento: 260110
+CFU Insegnamento: 6
+Docente
+PAOLO ESPOSITO (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: RAGIONERIA GENERALE ED APPLICATA I
+Codice Insegnamento: DEM0013
+CFU Insegnamento: 12
+Docente
+PAOLO ESPOSITO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: RAPPORTO DI LAVORO E RELAZIONI SINDACALI NEL SETTORE DEL CREDITO E NELLA FINANZA
+Codice Insegnamento: DEM0010
+CFU Insegnamento: 6
+Docente
+PAOLA SARACINI (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: REQUISITI DI BASE DI MATEMATICA
+Codice Insegnamento: FORM_M
+CFU Insegnamento: 3
+Docente
+MARIA GRAZIA OLIVIERI (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: REQUISITI DI BASE DI MATEMATICA
+Codice Insegnamento: FORM_M
+CFU Insegnamento: 3
+Docente
+MARIA GRAZIA OLIVIERI (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: REVISIONE CONTABILE, BILANCI, RAGIONERIA E DEONTOLOGIA PROFESSIONALE
+Codice Insegnamento: 261172
+CFU Insegnamento: 9
+Docente
+MARIA CARMELA SERLUCA (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: REVISIONE LEGALE E TECNICA PROFESSIONALE
+Codice Insegnamento: DEM0008
+CFU Insegnamento: 9
+Docente
+MARIA CARMELA SERLUCA (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: RISK MANAGEMENT, BILANCI BANCARI, ASSICURATIVI E DI SOSTENIBILITA'
+Codice Insegnamento: 671121
+CFU Insegnamento: 6
+Docente
+ROBERTO IANNELLI (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: SCIENZA DELLE FINANZE
+Codice Insegnamento: 904700
+CFU Insegnamento: 9
+Docente
+DOMENICO SCALERA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: SOCIOLOGIA DELLA COMUNICAZIONE
+Codice Insegnamento: 261161
+CFU Insegnamento: 6
+Docente
+FRANCESCO VESPASIANO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: SOCIOLOGIA DELL'INNOVAZIONE E DELLA CONOSCENZA
+Codice Insegnamento: 40313
+CFU Insegnamento: 6
+Docente
+FRANCESCO VESPASIANO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: SOCIOLOGIA E METODI DELLA RICERCA SOCIALE
+Codice Insegnamento: 70988
+CFU Insegnamento: 6
+Docente
+MONICA SIMEONI (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: STATISTICA
+Codice Insegnamento: 67190
+CFU Insegnamento: 9
+Docente
+ANNA CLARA MONTI (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: STATISTICA
+Codice Insegnamento: 261012
+CFU Insegnamento: 9
+Docente
+PIETRO AMENTA (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: STATISTICA
+Codice Insegnamento: 260111
+CFU Insegnamento: 9
+Docente
+BIAGIO SIMONETTI (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: STATISTICA COMPUTAZIONALE
+Codice Insegnamento: 671116
+CFU Insegnamento: 6
+Docente
+STEFANO MARIA PAGNOTTA (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: STATISTICA E TECNICA ASSICURATIVA
+Codice Insegnamento: 67163
+CFU Insegnamento: 9
+Docente
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: STORIA DELLE DOTTRINE POLITICHE
+Codice Insegnamento: 904364
+CFU Insegnamento: 6
+Docente
+GAETANO PECORA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: STORIA DELL'ESPERIENZA GIURIDICA
+Codice Insegnamento: 904366
+CFU Insegnamento: 14
+Docente
+CRISTINA CIANCIO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: STORIA DELLE TEORIE MONETARIE
+Codice Insegnamento: 40392
+CFU Insegnamento: 6
+Docente
+GUIDO TORTORELLA ESPOSITO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: STORIA DELL'IMPRESA
+Codice Insegnamento: 40321
+CFU Insegnamento: 6
+Docente
+VITTORIA FERRANDINO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: STORIA DEL PENSIERO POLITICO NELL'EUROPA OCCIDENTALE
+Codice Insegnamento: 904730
+CFU Insegnamento: 9
+Docente
+GAETANO PECORA (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: STORIA ECONOMICA
+Codice Insegnamento: 261002
+CFU Insegnamento: 9
+Docente
+VITTORIA FERRANDINO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: STORIA ECONOMICA
+Codice Insegnamento: 260130
+CFU Insegnamento: 6
+Docente
+VITTORIA FERRANDINO (Tit.)
+Codice Corso Di Studio: 260
+Denominazione Corso Di Studio: ECONOMIA BANCARIA E FINANZIARIA
+
+
+Denominazione Insegnamento: STORIA ECONOMICA
+Codice Insegnamento: 261064
+CFU Insegnamento: 6
+Docente
+VITTORIA FERRANDINO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: STORIA ECONOMICA
+Codice Insegnamento: 261064
+CFU Insegnamento: 6
+Docente
+VITTORIA FERRANDINO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: STORIA ECONOMICA DEL TURISMO
+Codice Insegnamento: 261162
+CFU Insegnamento: 6
+Docente
+ROSA DEL PRETE (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: STRATEGIA
+Codice Insegnamento: 261018
+CFU Insegnamento: 6
+Docente
+ANGELO RIVIEZZO (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: STRUMENTI FINANZIARI
+Codice Insegnamento: 40387
+CFU Insegnamento: 9
+Docente
+ANTONELLA MALINCONICO (Tit.)
+Codice Corso Di Studio: 403
+Denominazione Corso Di Studio: ECONOMIA E MANAGEMENT
+
+
+Denominazione Insegnamento: TECNICA ATTUARIALE DELLE ASSICURAZIONI CONTRO I DANNI
+Codice Insegnamento: 70958
+CFU Insegnamento: 9
+Docente
+GIUSEPPE MELISI (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: TECNICA ATTUARIALE DELLE ASSICURAZIONI SOCIALI
+Codice Insegnamento: 70963
+CFU Insegnamento: 9
+Docente
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: TECNICA ATTUARIALE DELLE ASSICURAZIONI SULLA VITA
+Codice Insegnamento: 70959
+CFU Insegnamento: 9
+Docente
+GIULIANO BEVIVINO (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: TECNICHE DI REDAZIONE DEGLI ATTI SOCIETARI
+Codice Insegnamento: 904713
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: TECNICHE DI SCRITTURA GIURIDICA NELLA PRATICA PENALE
+Codice Insegnamento: 904724
+CFU Insegnamento: 6
+Docente
+MARIO GRIFFO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: TECNICHE STATISTICHE PER IL DATA MINING E I BIG DATA
+Codice Insegnamento: DEM0007
+CFU Insegnamento: 9
+Docente
+ANTONIO LUCADAMO (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: TEORIA DEI CAMPIONI
+Codice Insegnamento: 671117
+CFU Insegnamento: 6
+Docente
+FABRIZIO FARINA (Tit.)
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: TEORIA DELL'INFERENZA STATISTICA
+Codice Insegnamento: DEM0009
+CFU Insegnamento: 12
+Docente
+ANNA CLARA MONTI (Tit.)
+SIMONA PACILLO
+Codice Corso Di Studio: 671
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: TEORIA DEL RISCHIO
+Codice Insegnamento: 70964
+CFU Insegnamento: 9
+Docente
+NICOLINO ETTORE D'ORTONA (Tit.)
+Codice Corso Di Studio: 709
+Denominazione Corso Di Studio: SCIENZE STATISTICHE E ATTUARIALI
+
+
+Denominazione Insegnamento: TEORIA E PRATICA DEL PROCESSO CIVILE IN AMBIENTI SIMULATI
+Codice Insegnamento: 904718
+CFU Insegnamento: 6
+Docente
+ERNESTO FABIANI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: TEORIA E PRATICA DEL PROCESSO CIVILE IN AMBIENTI SIMULATI
+Codice Insegnamento: 904609
+CFU Insegnamento: 9
+Docente
+ERNESTO FABIANI (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: TEORIA E SISTEMI DI SUPPORTO DELLE DECISIONI
+Codice Insegnamento: M202007
+CFU Insegnamento: 10
+Docente
+GABRIELLA MARCARELLI (Tit.)
+MASSIMO SQUILLANTE
+ANTONIO VIOLI
+Codice Corso Di Studio: M202
+Denominazione Corso Di Studio: MISURAZIONE E VALUTAZIONE DELLE PERFORMANCE NELLE AMMINISTRAZIONI PUBBLICHE
+
+
+Denominazione Insegnamento: TEORIE E METODI DELL'ECONOMIA POLITICA
+Codice Insegnamento: 261068
+CFU Insegnamento: 9
+Docente
+CARMEN VITA (Tit.)
+Codice Corso Di Studio: 261
+Denominazione Corso Di Studio: ECONOMIA AZIENDALE
+
+
+Denominazione Insegnamento: TUTELA DELLA SALUTE E DELLA SICUREZZA AGROALIMENTARE
+Codice Insegnamento: 904731
+CFU Insegnamento: 9
+Docente
+GIUSEPPE VACCHIANO (Tit.)
+Codice Corso Di Studio: 904
+Denominazione Corso Di Studio: GIURISPRUDENZA
+
+
+Denominazione Insegnamento: TUTELA E DISCIPLINA DEI DATI PERSONALI
+Codice Insegnamento: M202002
+CFU Insegnamento: 3
+Docente
+ANTONELLA TARTAGLIA POLCINI (Tit.)
+VINCENZO VERDICCHIO
+Codice Corso Di Studio: M202
+Denominazione Corso Di Studio: MISURAZIONE E VALUTAZIONE DELLE PERFORMANCE NELLE AMMINISTRAZIONI PUBBLICHE
+
+
+Denominazione Insegnamento: ALGEBRA LINEARE, GEOMETRIA E RICERCA OPERATIVA
+Codice Insegnamento: 86486
+CFU Insegnamento: 9
+Docente
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: ALGORITMI E STRUTTURE DATI
+Codice Insegnamento: 863110
+CFU Insegnamento: 6
+Docente
+ANDREA DI SORBO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: ANALISI E SIMULAZIONE DEI PROCESSI DI COMBUSTIONE
+Codice Insegnamento: 39809
+CFU Insegnamento: 6
+Docente
+FRANCESCO SAVERIO MARRA (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: ARCHITETTURA DEI CALCOLATORI
+Codice Insegnamento: 86310
+CFU Insegnamento: 9
+Docente
+UMBERTO VILLANO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: ARCHITETTURA TECNICA
+Codice Insegnamento: 86144
+CFU Insegnamento: 9
+Docente
+AGOSTINO CATALANO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: ARCHITETTURE E SISTEMI SOFTWARE DISTRIBUITI
+Codice Insegnamento: 39902
+CFU Insegnamento: 9
+Docente
+EUGENIO ZIMEO (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: ASPETTI NORMATIVI,TECNICI ED ECONOMICI PER LA REALIZZAZIONE DELLE OPERE CIVILI
+Codice Insegnamento: 39618
+CFU Insegnamento: 6
+Docente
+RAFFAELE LUPACCHINI (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: AUTOMAZIONE DEI SISTEMI ELETTRICI
+Codice Insegnamento: DIN0015
+CFU Insegnamento: 6
+Docente
+DOMENICO VILLACCI (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: AUTOMAZIONE INDUSTRIALE
+Codice Insegnamento: 86328
+CFU Insegnamento: 6
+Docente
+ORESTE RICCARDO NATALE (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: BASI DI DATI
+Codice Insegnamento: 86311
+CFU Insegnamento: 6
+Docente
+ANIELLO CIMITILE (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: BIOINTERAZIONE E COMPATIBILITÀ ELETTROMAGNETICA
+Codice Insegnamento: 86281
+CFU Insegnamento: 6
+Docente
+VINCENZO PIERRO (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: CARTOGRAFIA E TOPOGRAFIA
+Codice Insegnamento: 86143
+CFU Insegnamento: 6
+Docente
+ROSSELLA NOCERA (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: CHIMICA
+Codice Insegnamento: 86404
+CFU Insegnamento: 6
+Docente
+FRANCESCO PEPE (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: CIRCUITI ELETTRONICI PROGRAMMABILI
+Codice Insegnamento: 39740
+CFU Insegnamento: 9
+Docente
+MARCO PISCO (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: CLIMATOLOGIA DELL'AMBIENTE COSTRUITO
+Codice Insegnamento: 86199
+CFU Insegnamento: 9
+Docente
+GIOVANNA LA FIANZA (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: CLIMATOLOGIA DELL'AMBIENTE COSTRUITO
+Codice Insegnamento: 86116
+CFU Insegnamento: 6
+Docente
+GERARDO MARIA MAURO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: COMPLEMENTI DI CAMPI ELETTROMAGNETICI
+Codice Insegnamento: 39760
+CFU Insegnamento: 6
+Docente
+FELICE PINTO (Tit.)
+VINCENZO PIERRO
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: COMPLEMENTI DI ELETTROTECNICA
+Codice Insegnamento: 39829
+CFU Insegnamento: 9
+Docente
+DANIELE DAVINO (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: COMPLEMENTI DI MATEMATICA
+Codice Insegnamento: 39643
+CFU Insegnamento: 6
+Docente
+MENITA CAROZZA (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: COMPORTAMENTO DINAMICO E ANALISI DELLE STRUTTURE
+Codice Insegnamento: 39602
+CFU Insegnamento: 9
+Docente
+LUIGI DI SARNO (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: COMPUTAZIONE PERVASIVA
+Codice Insegnamento: 86325
+CFU Insegnamento: 6
+Docente
+MARIO LUCA BERNARDI (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: CONTROLLI AUTOMATICI
+Codice Insegnamento: 86215
+CFU Insegnamento: 6
+Docente
+LUIGI IANNELLI (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: CONTROLLI AVANZATI E APPLICAZIONI
+Codice Insegnamento: 39753
+CFU Insegnamento: 12
+Docente
+LUIGI GLIELMO (Tit.)
+SILVIO BACCARI
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: CONTROLLO DEI SISTEMI DINAMICI
+Codice Insegnamento: 39705
+CFU Insegnamento: 9
+Docente
+CARMEN DEL VECCHIO (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: COSTRUZIONI IDRAULICHE
+Codice Insegnamento: 86118
+CFU Insegnamento: 9
+Docente
+NICOLA FONTANA (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: COSTRUZIONI IN MURATURA IN ZONA SISMICA
+Codice Insegnamento: 39607
+CFU Insegnamento: 6
+Docente
+GIUSEPPE MADDALONI (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: DATA SCIENCE
+Codice Insegnamento: 39944
+CFU Insegnamento: 9
+Docente
+ANTONIO PECCHIA (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: DINAMICA DEI TERRENI E OPERE GEOTECNICHE
+Codice Insegnamento: 39611
+CFU Insegnamento: 12
+Docente
+ARMANDO LUCIO SIMONELLI (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: DINAMICA E CONTROLLO DI SISTEMI E PROCESSI ENERGETICI
+Codice Insegnamento: DIN0014
+CFU Insegnamento: 6
+Docente
+GAETANO CONTINILLO (Tit.)
+ERASMO MANCUSI
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: DISEGNO DELL'ARCHITETTURA
+Codice Insegnamento: 86189
+CFU Insegnamento: 9
+Docente
+PIERO BARLOZZINI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: DISEGNO DEL TERRITORIO
+Codice Insegnamento: 86187
+CFU Insegnamento: 6
+Docente
+DONATELLA CIALDEA (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: DISEGNO E TIPOLOGIE COSTRUTTIVE
+Codice Insegnamento: 86105
+CFU Insegnamento: 9
+Docente
+GIANCARLO PACILLO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: DISEGNO E TIPOLOGIE COSTRUTTIVE
+Codice Insegnamento: 86105
+CFU Insegnamento: 9
+Docente
+GIANCARLO PACILLO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: DISEGNO E TIPOLOGIE COSTRUTTIVE
+Codice Insegnamento: 86105
+CFU Insegnamento: 9
+Docente
+GIANCARLO PACILLO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: DISINQUINAMENTO DI EFFLUENTI DA PROCESSI ENERGETICI
+Codice Insegnamento: 86439
+CFU Insegnamento: 6
+Docente
+CLAUDIO TREGAMBI (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: ECONOMIA E ORGANIZZAZIONE AZIENDALE
+Codice Insegnamento: 86206
+CFU Insegnamento: 6
+Docente
+MATTEO SAVINO (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: ECONOMIA E ORGANIZZAZIONE AZIENDALE
+Codice Insegnamento: 86206
+CFU Insegnamento: 6
+Docente
+ANNACHIARA PALMIERI (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: ELABORAZIONE DEI SEGNALI E DELLE INFORMAZIONI DI MISURA
+Codice Insegnamento: 39703
+CFU Insegnamento: 9
+Docente
+LUCA DE VITO (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: ELABORAZIONE STATISTICA DEI SEGNALI
+Codice Insegnamento: DIN0003
+CFU Insegnamento: 9
+Docente
+CARMELA GALDI (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: ELEMENTI DI BIM NELLA PROGETTAZIONE DI STRUTTURE E INFRASTRUTTURE
+Codice Insegnamento: 861134
+CFU Insegnamento: 6
+Docente
+ALESSANDRA DE ANGELIS (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: ELEMENTI DI INFORMATICA
+Codice Insegnamento: 86401
+CFU Insegnamento: 9
+Docente
+GIUSEPPE ANTONIO DI LUCCA (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: ELEMENTI DI INFORMATICA
+Codice Insegnamento: 86101
+CFU Insegnamento: 6
+Docente
+GIUSEPPE ANTONIO DI LUCCA (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: ELEMENTI DI INGEGNERIA STRUTTURALE
+Codice Insegnamento: 86418
+CFU Insegnamento: 6
+Docente
+CIRO DEL VECCHIO (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: ELEMENTI DI INTELLIGENZA ARTIFICIALE
+Codice Insegnamento: 86326
+CFU Insegnamento: 6
+Docente
+MASSIMILIANO DI PENTA (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: ELETTRONICA
+Codice Insegnamento: 86309
+CFU Insegnamento: 9
+Docente
+ANDREA CUSANO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: ELETTRONICA ANALOGICA
+Codice Insegnamento: 86210
+CFU Insegnamento: 9
+Docente
+MARCO CONSALES (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: ELETTRONICA DEI SISTEMI INTEGRATI DIGITALI
+Codice Insegnamento: 39725
+CFU Insegnamento: 9
+Docente
+GIOVANNI VITO PERSIANO (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: ELETTRONICA DIGITALE
+Codice Insegnamento: 86216
+CFU Insegnamento: 6
+Docente
+GIOVANNI VITO PERSIANO (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: ELETTRONICA PER LE TELECOMUNICAZIONI
+Codice Insegnamento: 86244
+CFU Insegnamento: 6
+Docente
+ARMANDO RICCIARDI (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: ELETTROTECNICA
+Codice Insegnamento: 86356
+CFU Insegnamento: 6
+Docente
+DANIELE DAVINO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: ELETTROTECNICA
+Codice Insegnamento: 86409
+CFU Insegnamento: 9
+Docente
+VINCENZO PAOLO LOSCHIAVO (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: ELETTROTECNICA
+Codice Insegnamento: 86213
+CFU Insegnamento: 9
+Docente
+DANIELE DAVINO (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: ENERGETICA APPLICATA
+Codice Insegnamento: 39808
+CFU Insegnamento: 9
+Docente
+MAURIZIO SASSO (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: ENERGETICA/TECNOLOGIE DELLE FONTI RINNOVABILI
+Codice Insegnamento: 86417
+CFU Insegnamento: 12
+Docente
+MAURIZIO SASSO (Tit.)
+CARLO ROSELLI
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: EVOLUZIONE E QUALITÀ DEL SOFTWARE
+Codice Insegnamento: 39939
+CFU Insegnamento: 9
+Docente
+LERINA AVERSANO (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: FISICA
+Codice Insegnamento: 86104
+CFU Insegnamento: 9
+Docente
+MARIA PRINCIPE (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: FISICA
+Codice Insegnamento: 86355
+CFU Insegnamento: 12
+Docente
+ANTONIO FEOLI (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: FISICA GENERALE
+Codice Insegnamento: 86405
+CFU Insegnamento: 12
+Docente
+STEFANIA PETRACCA (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: FISICA
+Codice Insegnamento: 86239
+CFU Insegnamento: 12
+Docente
+MARIA PRINCIPE (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: FISICA TECNICA
+Codice Insegnamento: 86413
+CFU Insegnamento: 9
+Docente
+ROSA FRANCESCA DE MASI (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: FISICA TECNICA
+Codice Insegnamento: 86117
+CFU Insegnamento: 9
+Docente
+CARLO ROSELLI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: FISICA TECNICA
+Codice Insegnamento: 86192
+CFU Insegnamento: 6
+Docente
+FRANCESCO TARIELLO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: FONDAMENTI DELLA MISURAZIONE
+Codice Insegnamento: 86406
+CFU Insegnamento: 9
+Docente
+EULALIA BALESTRIERI (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: FONDAMENTI DI CAMPI ELETTROMAGNETICI
+Codice Insegnamento: 86217
+CFU Insegnamento: 9
+Docente
+VINCENZO PIERRO (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: FONDAMENTI DI INFRASTRUTTURE VIARIE
+Codice Insegnamento: 86111
+CFU Insegnamento: 6
+Docente
+VITTORIO DE RISO DI CARPINONE (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: FONDAMENTI DI TELECOMUNICAZIONI
+Codice Insegnamento: 86314
+CFU Insegnamento: 9
+Docente
+MAURIZIO DI BISCEGLIE (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: FONDAZIONI E OPERE DI SOSTEGNO
+Codice Insegnamento: 86121
+CFU Insegnamento: 9
+Docente
+STEFANIA SICA (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: GEOMETRIA E ALGEBRA
+Codice Insegnamento: 86203
+CFU Insegnamento: 6
+Docente
+ARTURO STABILE (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: GEOTECNICA E FONDAZIONI
+Codice Insegnamento: 86196
+CFU Insegnamento: 12
+Docente
+FILIPPO SANTUCCI DE MAGISTRIS (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: GEOTECNICA PER LA DIFESA DEL TERRITORIO
+Codice Insegnamento: 39619
+CFU Insegnamento: 6
+Docente
+ARMANDO LUCIO SIMONELLI (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: GESTIONE DELLE MACCHINE A FLUIDO E SISTEMI ENERGETICI
+Codice Insegnamento: 39807
+CFU Insegnamento: 9
+Docente
+EMMA FROSINA (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: GESTIONE DELL'INNOVAZIONE E DEI PROGETTI
+Codice Insegnamento: 39903
+CFU Insegnamento: 6
+Docente
+ANNACHIARA PALMIERI (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: GOVERNO DELLE TRASFORMAZIONI TERRITORIALI
+Codice Insegnamento: 39646
+CFU Insegnamento: 9
+Docente
+ROMANO FISTOLA (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: IDRAULICA
+Codice Insegnamento: 86113
+CFU Insegnamento: 6
+Docente
+GUSTAVO MARINI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: IDRAULICA
+Codice Insegnamento: 86113
+CFU Insegnamento: 6
+Docente
+BRUNO MOLINO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: IMPIANTI CHIMICI
+Codice Insegnamento: 39862
+CFU Insegnamento: 12
+Docente
+PIETRO BARESCHINO (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: IMPIANTI CHIMICI PER L'ENERGIA
+Codice Insegnamento: 86415
+CFU Insegnamento: 9
+Docente
+FRANCESCO PEPE (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: IMPIANTI DI CLIMATIZZAZIONE ED EDILIZIA BIOCLIMATICA
+Codice Insegnamento: 39609
+CFU Insegnamento: 9
+Docente
+SILVIA RUGGIERO (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: IMPIANTI INDUSTRIALI
+Codice Insegnamento: 86419
+CFU Insegnamento: 9
+Docente
+MATTEO SAVINO (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: INDAGINI E CARATTERIZZAZIONE GEOTECNICA DEL SOTTOSUOLO
+Codice Insegnamento: 86136
+CFU Insegnamento: 6
+Docente
+STEFANIA SICA (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: INGEGNERIA DEI SISTEMI DI TRASPORTO
+Codice Insegnamento: 86112
+CFU Insegnamento: 12
+Docente
+MARIANO GALLO (Tit.)
+MARIO MARINELLI
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: INGEGNERIA DEL SOFTWARE
+Codice Insegnamento: 86317
+CFU Insegnamento: 9
+Docente
+GERARDO CANFORA (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: INGEGNERIA DEL SOFTWARE
+Codice Insegnamento: 39762
+CFU Insegnamento: 9
+Docente
+MASSIMILIANO DI PENTA (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: INGLESE
+Codice Insegnamento: 86108
+CFU Insegnamento: 3
+Docente
+ELENA INTORCIA (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: INGLESE
+Codice Insegnamento: 86307
+CFU Insegnamento: 3
+Docente
+ELENA INTORCIA (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: INGLESE
+Codice Insegnamento: 86407
+CFU Insegnamento: 3
+Docente
+ELENA INTORCIA (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: LABORATORIO DI CALCOLO NUMERICO
+Codice Insegnamento: 39803
+CFU Insegnamento: 3
+Docente
+GERARDO MARIA MAURO (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: LABORATORIO DI CAMPI ELETTROMAGNETICI
+Codice Insegnamento: 86274
+CFU Insegnamento: 6
+Docente
+GIUSEPPE CASTALDI (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: LABORATORIO DI COMUNICAZIONI E SISTEMI SATELLITARI
+Codice Insegnamento: DIN0004
+CFU Insegnamento: 12
+Docente
+MAURIZIO DI BISCEGLIE (Tit.)
+ITALO GHIDINI
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: LABORATORIO DI ELETTRONICA PER L'AUTOMAZIONE
+Codice Insegnamento: 86273
+CFU Insegnamento: 9
+Docente
+ANDREA CUSANO (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: LABORATORIO DI MICROONDE E ANTENNE
+Codice Insegnamento: 39757
+CFU Insegnamento: 12
+Docente
+GIUSEPPE CASTALDI (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: LABORATORIO DI MISURE PER LE TELECOMUNICAZIONI
+Codice Insegnamento: 86276
+CFU Insegnamento: 9
+Docente
+EULALIA BALESTRIERI (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: LABORATORIO DI OPTOELETTRONICA E FOTONICA
+Codice Insegnamento: 39761
+CFU Insegnamento: 9
+Docente
+GIUSEPPE QUERO (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: LABORATORIO DI PROGETTAZIONE ARCHITETTONICA
+Codice Insegnamento: 86154
+CFU Insegnamento: 6
+Docente
+STEFANO PANUNZI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: LABORATORIO DI STRUMENTAZIONE ELETTRONICA DI MISURA
+Codice Insegnamento: 86275
+CFU Insegnamento: 6
+Docente
+FRANCESCO PICARIELLO (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: LINGUAGGI DI PROGRAMMAZIONE E COMPILATORI
+Codice Insegnamento: 39908
+CFU Insegnamento: 9
+Docente
+MARIA TORTORELLA (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: MACCHINE A FLUIDO
+Codice Insegnamento: 86411
+CFU Insegnamento: 6
+Docente
+EMMA FROSINA (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: MATEMATICA
+Codice Insegnamento: 86403
+CFU Insegnamento: 12
+Docente
+TULLIO CECCHERINI SILBERSTEIN (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: MATEMATICA
+Codice Insegnamento: 86103
+CFU Insegnamento: 12
+Docente
+MENITA CAROZZA (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: MATEMATICA 2
+Codice Insegnamento: 86208
+CFU Insegnamento: 9
+Docente
+CIRO MARMOLINO (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: MATEMATICA
+Codice Insegnamento: 86302
+CFU Insegnamento: 12
+Docente
+ARTURO STABILE (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: MATEMATICA
+Codice Insegnamento: 86302
+CFU Insegnamento: 12
+Docente
+GIUSEPPE CARDONE (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: MATEMATICA PER L'INGEGNERIA DELL'INFORMAZIONE
+Codice Insegnamento: 86345
+CFU Insegnamento: 9
+Docente
+PASQUALE AVELLA (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: MECCANICA APPLICATA ALLE MACCHINE
+Codice Insegnamento: 86414
+CFU Insegnamento: 6
+Docente
+MARCO CLAUDIO DE SIMONE (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: MECCANICA RAZIONALE
+Codice Insegnamento: DIN0011
+CFU Insegnamento: 6
+Docente
+VALENTINA FASANO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: MECCANICA RAZIONALE
+Codice Insegnamento: DIN0010
+CFU Insegnamento: 6
+Docente
+MICHELINA MONACO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: METODI MATEMATICI PER L'INGEGNERIA
+Codice Insegnamento: 39745
+CFU Insegnamento: 6
+Docente
+GIUSEPPE CARDONE (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: MICROONDE E ANTENNE
+Codice Insegnamento: 39742
+CFU Insegnamento: 9
+Docente
+VINCENZO GALDI (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: MISURE ELETTRONICHE
+Codice Insegnamento: 86315
+CFU Insegnamento: 6
+Docente
+PASQUALE DAPONTE (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: MISURE ELETTRONICHE
+Codice Insegnamento: 86211
+CFU Insegnamento: 9
+Docente
+PASQUALE DAPONTE (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: MISURE PER L'AUTOMAZIONE E LA PRODUZIONE INDUSTRIALE
+Codice Insegnamento: 39712
+CFU Insegnamento: 9
+Docente
+SERGIO RAPUANO (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: MISURE SULLE RETI
+Codice Insegnamento: DIN0001
+CFU Insegnamento: 9
+Docente
+LUCA DE VITO (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: MODELLAZIONE DI PROBLEMI GEOTECNICI
+Codice Insegnamento: 39645
+CFU Insegnamento: 6
+Docente
+STEFANIA SICA (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: MODELLI DI REATTORI CHIMICI
+Codice Insegnamento: 86497
+CFU Insegnamento: 6
+Docente
+ERASMO MANCUSI (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: MODELLISTICA E CONTROLLO DEI SISTEMI ELETTRONICI DI POTENZA
+Codice Insegnamento: 39752
+CFU Insegnamento: 6
+Docente
+FRANCESCO VASCA (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: MODELLISTICA E OTTIMIZZAZIONE DI SISTEMI E PROCESSI ENERGETICI
+Codice Insegnamento: 39811
+CFU Insegnamento: 6
+Docente
+GAETANO CONTINILLO (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: NOZIONI GIURIDICHE FONDAMENTALI
+Codice Insegnamento: 86153
+CFU Insegnamento: 6
+Docente
+RUGGIERO DIPACE (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: OPTOELETTRONICA E FOTONICA
+Codice Insegnamento: 39739
+CFU Insegnamento: 9
+Docente
+MARCO PISCO (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: PIANIFICAZIONE E GESTIONE DEI SISTEMI ELETTRICI PER L'ENERGIA
+Codice Insegnamento: DIN0012
+CFU Insegnamento: 12
+Docente
+ALFREDO VACCARO (Tit.)
+DOMENICO VILLACCI
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: PIANIFICAZIONE E POLITICA DEI TRASPORTI
+Codice Insegnamento: 39644
+CFU Insegnamento: 6
+Docente
+MARIANO GALLO (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: PRINCIPI DI GEOTECNICA
+Codice Insegnamento: 86115
+CFU Insegnamento: 6
+Docente
+ARMANDO LUCIO SIMONELLI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: PROCESSI DI COMBUSTIONE
+Codice Insegnamento: 86498
+CFU Insegnamento: 6
+Docente
+GAETANO CONTINILLO (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: PROGETTAZIONE ARCHITETTONICA
+Codice Insegnamento: 86162
+CFU Insegnamento: 9
+Docente
+STEFANO PANUNZI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: PROGETTAZIONE ASSISTITA DI OPERE IDRAULICHE
+Codice Insegnamento: 39651
+CFU Insegnamento: 6
+Docente
+NICOLA FONTANA (Tit.)
+GUSTAVO MARINI
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: PROGETTAZIONE DI EDIFICI IN ZONA SISMICA IN C.A. E ACCIAIO
+Codice Insegnamento: 39610
+CFU Insegnamento: 12
+Docente
+LUIGI DI SARNO (Tit.)
+ALESSANDRA DE ANGELIS
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: PROGETTAZIONE DIGITALE
+Codice Insegnamento: 86383
+CFU Insegnamento: 6
+Docente
+RICCARDO PECORI (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: PROGETTAZIONE DIGITALE
+Codice Insegnamento: 86383
+CFU Insegnamento: 6
+Docente
+FRANCO FRATTOLILLO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: PROGETTAZIONE DI OPERE IDRAULICHE
+Codice Insegnamento: 39629
+CFU Insegnamento: 9
+Docente
+NICOLA FONTANA (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: PROGETTAZIONE DI PONTI
+Codice Insegnamento: 39666
+CFU Insegnamento: 6
+Docente
+MARIA ROSARIA PECCE (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: PROGETTAZIONE SOFTWARE DEFINED RADIO
+Codice Insegnamento: 39751
+CFU Insegnamento: 6
+Docente
+MAURIZIO DI BISCEGLIE (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: PROGETTAZIONE TERRITORIALE DEL PAESAGGIO
+Codice Insegnamento: 86166
+CFU Insegnamento: 6
+Docente
+LUCIANO DE BONIS (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: PROGETTO DI COSTRUZIONI IDRAULICHE
+Codice Insegnamento: 861100
+CFU Insegnamento: 6
+Docente
+GUSTAVO MARINI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: PROGRAMMAZIONE 1
+Codice Insegnamento: 86301
+CFU Insegnamento: 12
+Docente
+FRANCO FRATTOLILLO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: PROGRAMMAZIONE 1
+Codice Insegnamento: 86301
+CFU Insegnamento: 12
+Docente
+CORRADO AARON VISAGGIO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: PROGRAMMAZIONE 2
+Codice Insegnamento: 86214
+CFU Insegnamento: 9
+Docente
+MARIA TORTORELLA (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: PROGRAMMAZIONE DI SISTEMI IN RETE
+Codice Insegnamento: 86316
+CFU Insegnamento: 9
+Docente
+EUGENIO ZIMEO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: PROPAGAZIONE WIRED E WIRELESS
+Codice Insegnamento: 39743
+CFU Insegnamento: 9
+Docente
+VINCENZO GALDI (Tit.)
+Codice Corso Di Studio: 397
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: QUALITA' E MISURE
+Codice Insegnamento: 86282
+CFU Insegnamento: 6
+Docente
+EULALIA BALESTRIERI (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: REQUISITI DI BASE DI MATEMATICA
+Codice Insegnamento: FORM_M
+CFU Insegnamento: 6
+Docente
+GIUSEPPE CASTALDI (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: REQUISITI DI BASE DI MATEMATICA
+Codice Insegnamento: FORM_M
+CFU Insegnamento: 6
+Docente
+SILVIA LIBERATA ULLO (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: RETI DI TELECOMUNICAZIONI
+Codice Insegnamento: 86280
+CFU Insegnamento: 6
+Docente
+SILVIA LIBERATA ULLO (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: RICERCA OPERATIVA
+Codice Insegnamento: 39904
+CFU Insegnamento: 6
+Docente
+PASQUALE AVELLA (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: RISPARMIO ENERGETICO IN EDILIZIA
+Codice Insegnamento: 39806
+CFU Insegnamento: 9
+Docente
+ROSA FRANCESCA DE MASI (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: SCIENZA DELLE COSTRUZIONI
+Codice Insegnamento: 86193
+CFU Insegnamento: 9
+Docente
+CARLO CALLARI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: SCIENZA DELLE COSTRUZIONI
+Codice Insegnamento: 86114
+CFU Insegnamento: 9
+Docente
+MICHELINA MONACO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: SCIENZA E TECNOLOGIA DEI MATERIALI
+Codice Insegnamento: 86107
+CFU Insegnamento: 9
+Docente
+STEFANO ACIERNO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: SICUREZZA DELLE RETI E DEI SISTEMI SOFTWARE
+Codice Insegnamento: 39914
+CFU Insegnamento: 9
+Docente
+CORRADO AARON VISAGGIO (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: SISTEMI CONCORRENTI
+Codice Insegnamento: 39901
+CFU Insegnamento: 9
+Docente
+UMBERTO VILLANO (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: SISTEMI DI CONTROLLO DIGITALE
+Codice Insegnamento: 86330
+CFU Insegnamento: 6
+Docente
+GIOVANNI FIENGO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: SISTEMI DINAMICI
+Codice Insegnamento: 86312
+CFU Insegnamento: 9
+Docente
+LUIGI GLIELMO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: SISTEMI DI PRODUZIONE
+Codice Insegnamento: 86323
+CFU Insegnamento: 6
+Docente
+MATTEO SAVINO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: SISTEMI DISCRETI
+Codice Insegnamento: 39905
+CFU Insegnamento: 9
+Docente
+LUIGI IANNELLI (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: SISTEMI ELETTRICI DI TRASPORTO
+Codice Insegnamento: 39858
+CFU Insegnamento: 9
+Docente
+ALFREDO VACCARO (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: SISTEMI ELETTRICI INDUSTRIALI
+Codice Insegnamento: 86416
+CFU Insegnamento: 9
+Docente
+ALFREDO VACCARO (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: SISTEMI ELETTRICI PER L'ENERGIA
+Codice Insegnamento: 86410
+CFU Insegnamento: 9
+Docente
+DOMENICO VILLACCI (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: SISTEMI INFORMATIVI AZIENDALI
+Codice Insegnamento: 86327
+CFU Insegnamento: 6
+Docente
+LERINA AVERSANO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: SISTEMI MULTIAGENTE
+Codice Insegnamento: 39946
+CFU Insegnamento: 9
+Docente
+FRANCESCO VASCA (Tit.)
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: SOFTWARE DI MISURA
+Codice Insegnamento: 86324
+CFU Insegnamento: 6
+Docente
+SERGIO RAPUANO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: STORIA DELL'ARCHITETTURA
+Codice Insegnamento: 86146
+CFU Insegnamento: 6
+Docente
+ROBERTO PARISI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: STORIA DELL'INDUSTRIA
+Codice Insegnamento: 39819
+CFU Insegnamento: 6
+Docente
+ROSA DEL PRETE (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: TECNICA DEL CONTROLLO AMBIENTALE
+Codice Insegnamento: 86440
+CFU Insegnamento: 6
+Docente
+ROSA FRANCESCA DE MASI (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: TECNICA DEL FREDDO
+Codice Insegnamento: DIN0013
+CFU Insegnamento: 6
+Docente
+ELISA MARRASSO (Tit.)
+Codice Corso Di Studio: 398
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: TECNICA DELLE COSTRUZIONI
+Codice Insegnamento: 86147
+CFU Insegnamento: 12
+Docente
+GIOVANNI FABBROCINO (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: TECNICA DELLE COSTRUZIONI 1
+Codice Insegnamento: 86120
+CFU Insegnamento: 9
+Docente
+GIUSEPPE MADDALONI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: TECNICA DELLE COSTRUZIONI 2
+Codice Insegnamento: 86119
+CFU Insegnamento: 9
+Docente
+GIUSEPPE MADDALONI (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: TECNICA URBANISTICA
+Codice Insegnamento: 86106
+CFU Insegnamento: 9
+Docente
+ROMANO FISTOLA (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: TECNICA URBANISTICA
+Codice Insegnamento: 86106
+CFU Insegnamento: 9
+Docente
+LUCIANO DE BONIS (Tit.)
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: TECNOLOGIE DEI SISTEMI DI AUTOMAZIONE
+Codice Insegnamento: 86329
+CFU Insegnamento: 6
+Docente
+PAOLO RUBINO (Tit.)
+Codice Corso Di Studio: 863
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: TECNOLOGIE INNOVATIVE PER LA MOBILITA'
+Codice Insegnamento: 861130
+CFU Insegnamento: 6
+Docente
+MARIANO GALLO (Tit.)
+MARIO MARINELLI
+Codice Corso Di Studio: 861
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: TEORIA E ELABORAZIONE DEI SEGNALI
+Codice Insegnamento: DIN0002
+CFU Insegnamento: 12
+Docente
+CARMELA GALDI (Tit.)
+SILVIA LIBERATA ULLO
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: TERMOFLUIDODINAMICA E TRASMISSIONE DEL CALORE
+Codice Insegnamento: 86412
+CFU Insegnamento: 6
+Docente
+GERARDO MARIA MAURO (Tit.)
+Codice Corso Di Studio: 864
+Denominazione Corso Di Studio: INGEGNERIA ENERGETICA
+
+
+Denominazione Insegnamento: TRASMISSIONI NUMERICHE
+Codice Insegnamento: 86218
+CFU Insegnamento: 6
+Docente
+CARMELA GALDI (Tit.)
+Codice Corso Di Studio: 862
+Denominazione Corso Di Studio: INGEGNERIA ELETTRONICA PER L'AUTOMAZIONE E LE TELECOMUNICAZIONI
+
+
+Denominazione Insegnamento: TRASPORTI FERROVIARI, AEREI E NAVALI
+Codice Insegnamento: 39620
+CFU Insegnamento: 6
+Docente
+MARIO MARINELLI (Tit.)
+Codice Corso Di Studio: 396
+Denominazione Corso Di Studio: INGEGNERIA CIVILE
+
+
+Denominazione Insegnamento: VIDEOGIOCHI E REALTA' VIRTUALE
+Codice Insegnamento: 39945
+CFU Insegnamento: 9
+Docente
+MASSIMILIANO DI PENTA (Tit.)
+GIOVANNI CATURANO
+Codice Corso Di Studio: 399
+Denominazione Corso Di Studio: INGEGNERIA INFORMATICA
+
+
+Denominazione Insegnamento: ANALISI E MITIGAZIONE DEL RISCHIO DA FRANA
+Codice Insegnamento: 51007
+CFU Insegnamento: 9
+Docente
+PAOLA REVELLINO (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: ANALISI STATISTICA DEI DATI BIOLOGICI E PROGRAMMAZIONE AVANZATA
+Codice Insegnamento: 50902
+CFU Insegnamento: 12
+Docente
+STEFANO MARIA PAGNOTTA (Tit.)
+LUIGI CERULO
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: ANATOMIA PATOLOGICA
+Codice Insegnamento: 506128
+CFU Insegnamento: 6
+Docente
+ROSARIA SCIARRILLO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: ANATOMIA UMANA
+Codice Insegnamento: 17214
+CFU Insegnamento: 6
+Docente
+ROSARIA SCIARRILLO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: ARCHEOMETRIA
+Codice Insegnamento: 51019
+CFU Insegnamento: 6
+Docente
+CELESTINO GRIFA (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: BASI FARMACOLOGICHE DELLA TERAPIA
+Codice Insegnamento: 50613
+CFU Insegnamento: 6
+Docente
+LORELLA MARIA TERESA CANZONIERO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: BASI GENETICHE DELLE MALATTIE
+Codice Insegnamento: 50605
+CFU Insegnamento: 8
+Docente
+PASQUALE VITO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: BIOCHIMICA
+Codice Insegnamento: 17109
+CFU Insegnamento: 9
+Docente
+ANGELO LUPO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: BIOCHIMICA
+Codice Insegnamento: 17209
+CFU Insegnamento: 9
+Docente
+FRANCESCO PAOLO MANCINI (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: BIOCHIMICA APPLICATA E CLINICA
+Codice Insegnamento: 50602
+CFU Insegnamento: 10
+Docente
+ALBERTO ZULLO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: BIOCHIMICA CLINICA
+Codice Insegnamento: 17275
+CFU Insegnamento: 6
+Docente
+MARCELLA NUNZIATO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: BIOCHIMICA DEGLI ALIMENTI
+Codice Insegnamento: 17412
+CFU Insegnamento: 6
+Docente
+ANGELO LUPO (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: BIOCHIMICA E FISIOLOGIA DELLA NUTRIZIONE
+Codice Insegnamento: 506108
+CFU Insegnamento: 14
+Docente
+FRANCESCO PAOLO MANCINI (Tit.)
+FERNANDO GOGLIA
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: BIOINFORMATICA
+Codice Insegnamento: 17119
+CFU Insegnamento: 6
+Docente
+FRANCESCO NAPOLITANO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: BIOINFORMATICA AVANZATA
+Codice Insegnamento: 50609
+CFU Insegnamento: 6
+Docente
+FRANCESCA PIA CARUSO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: BIOLOGIA
+Codice Insegnamento: 17401
+CFU Insegnamento: 6
+Docente
+MARINA PAOLUCCI (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: BIOLOGIA APPLICATA
+Codice Insegnamento: 171216
+CFU Insegnamento: 9
+Docente
+CONCETTA AMBROSINO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: BIOLOGIA CELLULARE
+Codice Insegnamento: 171208
+CFU Insegnamento: 12
+Docente
+MARINA PAOLUCCI (Tit.)
+CARMINE GUARINO
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: BIOLOGIA COMPUTAZIONALE
+Codice Insegnamento: 50918
+CFU Insegnamento: 12
+Docente
+LUIGI CERULO (Tit.)
+TERESA MARIA ROSARIA NOVIELLO
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: BIOLOGIA DEL DIFFERENZIAMENTO CELLULARE
+Codice Insegnamento: 50925
+CFU Insegnamento: 8
+Docente
+CONCETTA AMBROSINO (Tit.)
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: BIOLOGIA DELLE PIANTE ALIMENTARI
+Codice Insegnamento: 17406
+CFU Insegnamento: 6
+Docente
+CARMINE GUARINO (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: BIOLOGIA DELLO SVILUPPO
+Codice Insegnamento: 50668
+CFU Insegnamento: 6
+Docente
+ROBERTA IMPERATORE (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: BIOLOGIA E SISTEMATICA VEGETALE
+Codice Insegnamento: 17207
+CFU Insegnamento: 9
+Docente
+CARMINE GUARINO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: BIOLOGIA MOLECOLARE
+Codice Insegnamento: 171218
+CFU Insegnamento: 9
+Docente
+MASSIMO PANCIONE (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: BIOLOGIA MOLECOLARE
+Codice Insegnamento: 17212
+CFU Insegnamento: 9
+Docente
+LINA SABATINO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: BIOLOGIA MOLECOLARE APPLICATA ALLA DIAGNOSTICA
+Codice Insegnamento: 50611
+CFU Insegnamento: 8
+Docente
+VITTORIO COLANTUONI (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: BIOLOGIA MOLECOLARE II
+Codice Insegnamento: 17115
+CFU Insegnamento: 6
+Docente
+MASSIMO PANCIONE (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: BIOTECNOLOGIE APPLICATE ALLE RISORSE ALIMENTARI
+Codice Insegnamento: 506118
+CFU Insegnamento: 6
+Docente
+ETTORE VARRICCHIO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: BIOTECNOLOGIE INDUSTRIALI
+Codice Insegnamento: 17191
+CFU Insegnamento: 12
+Docente
+GIUSEPPE GRAZIANO (Tit.)
+ANGELO LUPO
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: Botanica ambientale ed applicata
+Codice Insegnamento: 172127
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: CARATTERIZZAZIONE E BONIFICA DEI SITI CONTAMINATI
+Codice Insegnamento: 51005
+CFU Insegnamento: 9
+Docente
+DOMENICO CICCHELLA (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: CHIMICA
+Codice Insegnamento: 17402
+CFU Insegnamento: 9
+Docente
+ROBERTA SPADACCINI (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: CHIMICA ANALITICA
+Codice Insegnamento: 17405
+CFU Insegnamento: 6
+Docente
+GIUSEPPE GRAZIANO (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: CHIMICA FISICA
+Codice Insegnamento: 17108
+CFU Insegnamento: 6
+Docente
+GIUSEPPE GRAZIANO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: CHIMICA GENERALE ED AMBIENTALE, CON APPLICAZIONI
+Codice Insegnamento: 17505
+CFU Insegnamento: 12
+Docente
+DANIELA PAPPALARDO (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: CHIMICA GENERALE ED INORGANICA
+Codice Insegnamento: 17205
+CFU Insegnamento: 8
+Docente
+DANIELA PAPPALARDO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: CHIMICA GENERALE ED INORGANICA
+Codice Insegnamento: 17181
+CFU Insegnamento: 9
+Docente
+GIUSEPPE GRAZIANO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: CHIMICA ORGANICA
+Codice Insegnamento: 17206
+CFU Insegnamento: 8
+Docente
+ROSANNA FILOSA (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: CHIMICA ORGANICA
+Codice Insegnamento: 17186
+CFU Insegnamento: 6
+Docente
+ROSANNA FILOSA (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: CITOLOGIA ED ISTOLOGIA
+Codice Insegnamento: 17201
+CFU Insegnamento: 9
+Docente
+ROBERTA IMPERATORE (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: ECOLOGIA
+Codice Insegnamento: 17216
+CFU Insegnamento: 9
+Docente
+FLAVIA DE NICOLA (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: ECONOMIA E MARKETING
+Codice Insegnamento: 17404
+CFU Insegnamento: 9
+Docente
+GIUSEPPE MAROTTA (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: ENDOCRINOLOGIA E METABOLISMO: TEORIA E METODI
+Codice Insegnamento: 171102
+CFU Insegnamento: 6
+Docente
+FEDERICA CIOFFI (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: ENGLISH FOR BIOLOGICAL SCIENCES
+Codice Insegnamento: 172123
+CFU Insegnamento: 3
+Docente
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: ENGLISH FOR BIOTECHNOLOGY
+Codice Insegnamento: 171212
+CFU Insegnamento: 4
+Docente
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: FARMACOLOGIA
+Codice Insegnamento: 17218
+CFU Insegnamento: 6
+Docente
+PAOLO AMBROSINO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: FARMACOLOGIA E TOSSICOLOGIA
+Codice Insegnamento: 17116
+CFU Insegnamento: 8
+Docente
+PAOLO AMBROSINO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: FARMACOLOGIA E TOSSICOLOGIA DELLA NUTRIZIONE
+Codice Insegnamento: 506114
+CFU Insegnamento: 6
+Docente
+LORELLA MARIA TERESA CANZONIERO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: FISICA
+Codice Insegnamento: 17255
+CFU Insegnamento: 8
+Docente
+GIOVANNI FILATRELLA (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: FISICA
+Codice Insegnamento: 17407
+CFU Insegnamento: 6
+Docente
+GIOVANNI FILATRELLA (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: FISICA APPLICATA ALLA BIOLOGIA
+Codice Insegnamento: 50608
+CFU Insegnamento: 6
+Docente
+GIOVANNI FILATRELLA (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: FISICA CON LABORATORIO
+Codice Insegnamento: 171215
+CFU Insegnamento: 9
+Docente
+PAOLA ROMANO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: FISICA SPERIMENTALE E APPLICAZIONI
+Codice Insegnamento: 17508
+CFU Insegnamento: 12
+Docente
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: FISIOLOGIA E FARMACOLOGIA MOLECOLARE
+Codice Insegnamento: 50911
+CFU Insegnamento: 12
+Docente
+MARIA MORENO (Tit.)
+LORELLA MARIA TERESA CANZONIERO
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: FISIOLOGIA GENERALE
+Codice Insegnamento: 17213
+CFU Insegnamento: 9
+Docente
+ELENA SILVESTRI (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: FISIOLOGIA GENERALE
+Codice Insegnamento: 17114
+CFU Insegnamento: 8
+Docente
+MARIA MORENO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: FISIOLOGIA UMANA
+Codice Insegnamento: 50667
+CFU Insegnamento: 12
+Docente
+ELENA SILVESTRI (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: FISIOLOGIA VEGETALE
+Codice Insegnamento: 17217
+CFU Insegnamento: 9
+Docente
+MARIAPINA ROCCO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: FISIOPATOLOGIA
+Codice Insegnamento: 50607
+CFU Insegnamento: 6
+Docente
+PASQUALE VITO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: FISIOPATOLOGIA ENDOCRINA E METABOLISMO
+Codice Insegnamento: 506117
+CFU Insegnamento: 6
+Docente
+FEDERICA CIOFFI (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: FONDAMENTI DI INFORMATICA
+Codice Insegnamento: 172124
+CFU Insegnamento: 6
+Docente
+VITTORIA NARDONE (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: FONDAMENTI DI PROGRAMMAZIONE
+Codice Insegnamento: 171219
+CFU Insegnamento: 6
+Docente
+LUIGI CERULO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: FONDAMENTI DI SCIENZE DELLA TERRA
+Codice Insegnamento: 172125
+CFU Insegnamento: 6
+Docente
+CHIARA GERMINARIO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: GENETICA
+Codice Insegnamento: 17210
+CFU Insegnamento: 9
+Docente
+ROMANIA STILO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: GENETICA FORENSE
+Codice Insegnamento: 506146
+CFU Insegnamento: 6
+Docente
+PASQUALE VITO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: GENETICA MEDICA E TERAPIA GENICA E CELLULARE
+Codice Insegnamento: 50908
+CFU Insegnamento: 12
+Docente
+CONCETTA AMBROSINO (Tit.)
+GIUSEPPE IACOMINO
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: GENETICA MOLECOLARE E METODOLOGIE DI TRASCRITTOMICA E DI GENOMICA
+Codice Insegnamento: 50905
+CFU Insegnamento: 12
+Docente
+PASQUALE VITO (Tit.)
+LIVIO MUCCILLO
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: GENOMICA NUTRIZIONALE
+Codice Insegnamento: 506145
+CFU Insegnamento: 6
+Docente
+LINA SABATINO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: GEOCHIMICA
+Codice Insegnamento: 17512
+CFU Insegnamento: 6
+Docente
+DOMENICO CICCHELLA (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: GEOETICA E CRISI CLIMATICA
+Codice Insegnamento: 17503
+CFU Insegnamento: 6
+Docente
+FRANCESCO MARIA GUADAGNO (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: GEOFISICA APPLICATA
+Codice Insegnamento: 51002
+CFU Insegnamento: 9
+Docente
+RAFFAELLA DE MATTEIS (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: GEOGRAFIA FISICA E CARTOGRAFIA
+Codice Insegnamento: 17502
+CFU Insegnamento: 12
+Docente
+FILIPPO RUSSO (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: GEOIDROLOGIA
+Codice Insegnamento: 51006
+CFU Insegnamento: 9
+Docente
+FRANCESCO FIORILLO (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: GEOLOGIA APPLICATA E GEOTECNICA PER LE COSTRUZIONI E LA MICROZONAZIONE
+Codice Insegnamento: 51001
+CFU Insegnamento: 9
+Docente
+FRANCESCO MARIA GUADAGNO (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: GEOLOGIA DELLE AREE URBANE ED ARCHEOLOGICHE
+Codice Insegnamento: 51014
+CFU Insegnamento: 6
+Docente
+MARIA ROSARIA SENATORE (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: GEOLOGIA DI CAMPO
+Codice Insegnamento: 173132
+CFU Insegnamento: 6
+Docente
+SABATINO CIARCIA (Tit.)
+Codice Corso Di Studio: 173
+Denominazione Corso Di Studio: SCIENZE GEOLOGICHE
+
+
+Denominazione Insegnamento: GEOLOGIA FORENSE ED APPLICAZIONI
+Codice Insegnamento: 51020
+CFU Insegnamento: 6
+Docente
+MARIANO MERCURIO (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: GEOLOGIA PER LA VALUTAZIONE AMBIENTALE E STRATEGICA
+Codice Insegnamento: 51017
+CFU Insegnamento: 6
+Docente
+ALESSIO VALENTE (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: GEOLOGIA PER L'ENOLOGIA
+Codice Insegnamento: 51010
+CFU Insegnamento: 12
+Docente
+SABATINO CIARCIA (Tit.)
+MARIANO MERCURIO
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: GEOLOGIA REGIONALE
+Codice Insegnamento: 51004
+CFU Insegnamento: 6
+Docente
+SABATINO CIARCIA (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: GEOLOGIA STRATIGRAFICA E LABORATORIO
+Codice Insegnamento: 17509
+CFU Insegnamento: 9
+Docente
+MARIA ROSARIA SENATORE (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: GEOLOGIA STRUTTURALE E LABORATORIO
+Codice Insegnamento: 17514
+CFU Insegnamento: 12
+Docente
+MAURIZIO MARIA TORRENTE (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: GEOLOGIA TECNICA ED APPLICATA
+Codice Insegnamento: 173127
+CFU Insegnamento: 8
+Docente
+FRANCESCO FIORILLO (Tit.)
+Codice Corso Di Studio: 173
+Denominazione Corso Di Studio: SCIENZE GEOLOGICHE
+
+
+Denominazione Insegnamento: GEOMORFOLOGIA AMBIENTALE
+Codice Insegnamento: 51003
+CFU Insegnamento: 6
+Docente
+PAOLO MAGLIULO (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: GEORISORSE PER L'AMBIENTE E I BENI CULTURALI
+Codice Insegnamento: 51009
+CFU Insegnamento: 6
+Docente
+CHIARA GERMINARIO (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: GESTIONE DELLA QUALITA'
+Codice Insegnamento: 17418
+CFU Insegnamento: 7
+Docente
+LUCIA MAIURO (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: IDROGEOLOGIA
+Codice Insegnamento: 173126
+CFU Insegnamento: 8
+Docente
+LIBERA ESPOSITO (Tit.)
+Codice Corso Di Studio: 173
+Denominazione Corso Di Studio: SCIENZE GEOLOGICHE
+
+
+Denominazione Insegnamento: IGIENE DEGLI ALIMENTI
+Codice Insegnamento: 506129
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: IGIENE DEGLI ALIMENTI
+Codice Insegnamento: 17416
+CFU Insegnamento: 6
+Docente
+MARCO GUIDA (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: INFORMATICA
+Codice Insegnamento: 17411
+CFU Insegnamento: 6
+Docente
+FIORELLA ZAMPETTI (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: INGLESE
+Codice Insegnamento: 50922
+CFU Insegnamento: 6
+Docente
+FRANCESCA D'ANGELO (Tit.)
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: LABORATORIO DI GEOLOGIA TECNICA
+Codice Insegnamento: DST0006
+CFU Insegnamento: 6
+Docente
+FRANCESCO MARIA GUADAGNO (Tit.)
+Codice Corso Di Studio: 173
+Denominazione Corso Di Studio: SCIENZE GEOLOGICHE
+
+
+Denominazione Insegnamento: LINGUA INGLESE
+Codice Insegnamento: 17504
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: LINGUA INGLESE
+Codice Insegnamento: 51008
+CFU Insegnamento: 3
+Docente
+FRANCESCA D'ANGELO (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: MATEMATICA
+Codice Insegnamento: 171214
+CFU Insegnamento: 6
+Docente
+GIULIANO GARGIULO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: MATEMATICA E STATISTICA
+Codice Insegnamento: 17403
+CFU Insegnamento: 6
+Docente
+GIOVANNI FILATRELLA (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: MATEMATICA E STATISTICA
+Codice Insegnamento: 17204
+CFU Insegnamento: 9
+Docente
+CARMEN PERUGIA (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: MATEMATICA E STATISTICA, CON APPLICAZIONI
+Codice Insegnamento: 17501
+CFU Insegnamento: 12
+Docente
+CARMEN PERUGIA (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: METODI FISICI APPLICATI ALL'AMBIENTE E AI BENI CULTURALI
+Codice Insegnamento: 51021
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: METODI MATEMATICI PER LA GEOLOGIA E L'AMBIENTE
+Codice Insegnamento: 17515
+CFU Insegnamento: 6
+Docente
+LUIGI RARITA' (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: Metodologie Istologiche ed Istochimiche
+Codice Insegnamento: 172126
+CFU Insegnamento: 6
+Docente
+ROSARIA SCIARRILLO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: METODOLOGIE ISTOLOGICHE ED ISTOCHIMICHE
+Codice Insegnamento: 171110
+CFU Insegnamento: 6
+Docente
+ROSARIA SCIARRILLO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: MICROBIOLOGIA
+Codice Insegnamento: 17113
+CFU Insegnamento: 6
+Docente
+CATERINA PAGLIARULO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: MICROBIOLOGIA APPLICATA E VIROLOGIA
+Codice Insegnamento: 506111
+CFU Insegnamento: 6
+Docente
+CATERINA PAGLIARULO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: MICROBIOLOGIA DEGLI ALIMENTI
+Codice Insegnamento: 17413
+CFU Insegnamento: 9
+Docente
+MASSIMO IORIZZO (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: MICROBIOLOGIA DEI PRODOTTI DELLA FILIERA DOLCIARIA
+Codice Insegnamento: 17428
+CFU Insegnamento: 6
+Docente
+ELENA SORRENTINO (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: MICROBIOLOGIA GENERALE
+Codice Insegnamento: 17211
+CFU Insegnamento: 9
+Docente
+CATERINA PAGLIARULO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: MIGLIORAMENTO GENETICO DELLE PRODUZIONI ALIMENTARI
+Codice Insegnamento: 506144
+CFU Insegnamento: 6
+Docente
+ROMANIA STILO (Tit.)
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: MINERALOGIA E APPLICAZIONI
+Codice Insegnamento: 17511
+CFU Insegnamento: 9
+Docente
+MARIANO MERCURIO (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: MODELLI DI BIOREATTORI
+Codice Insegnamento: 171224
+CFU Insegnamento: 6
+Docente
+ERASMO MANCUSI (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: MODELLING MOLECOLARE
+Codice Insegnamento: 50901
+CFU Insegnamento: 6
+Docente
+ROBERTA SPADACCINI (Tit.)
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: MORFOFISIOLOGIA E BENESSERE DEGLI ANIMALI DOMESTICI
+Codice Insegnamento: 172107
+CFU Insegnamento: 6
+Docente
+ETTORE VARRICCHIO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Denominazione Insegnamento: NOZIONI DI DIRITTO PER LE BIOTECNOLOGIE
+Codice Insegnamento: 171213
+CFU Insegnamento: 6
+Docente
+IRENE ZECCHINO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: OPERAZIONI UNITARIE
+Codice Insegnamento: 17417
+CFU Insegnamento: 6
+Docente
+MARIA CRISTINA MESSIA (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: PALEONTOLOGIA E LABORATORIO
+Codice Insegnamento: 17513
+CFU Insegnamento: 9
+Docente
+FILOMENA ORNELLA AMORE (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: PATOLOGIA CELLULARE E MOLECOLARE
+Codice Insegnamento: 50917
+CFU Insegnamento: 6
+Docente
+ALFREDO FUSCO (Tit.)
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: PATOLOGIA GENERALE
+Codice Insegnamento: 17117
+CFU Insegnamento: 6
+Docente
+CONCETTA AMBROSINO (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: PETROGRAFIA
+Codice Insegnamento: 17319
+CFU Insegnamento: 8
+Docente
+CELESTINO GRIFA (Tit.)
+Codice Corso Di Studio: 173
+Denominazione Corso Di Studio: SCIENZE GEOLOGICHE
+
+
+Denominazione Insegnamento: PROTEOMICA E METABOLOMICA
+Codice Insegnamento: 50916
+CFU Insegnamento: 12
+Docente
+ALBERTO ZULLO (Tit.)
+JACOPO TROISI
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: PROTEZIONE DEGLI ALIMENTI CON ELEMENTI DI PACKAGING ALIMENTARE
+Codice Insegnamento: 17420
+CFU Insegnamento: 6
+Docente
+FRANCESCA CUOMO (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: REQUISITI DI BASE DI MATEMATICA
+Codice Insegnamento: FORM_M
+CFU Insegnamento: 1
+Docente
+LUIGI RARITA' (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: REQUISITI DI BASE DI MATEMATICA
+Codice Insegnamento: FORM_M
+CFU Insegnamento: 3
+Docente
+ILARIA VERONESI (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: RILEVAMENTO GEOLOGICO
+Codice Insegnamento: 17317
+CFU Insegnamento: 8
+Docente
+MAURIZIO MARIA TORRENTE (Tit.)
+Codice Corso Di Studio: 173
+Denominazione Corso Di Studio: SCIENZE GEOLOGICHE
+
+
+Denominazione Insegnamento: RILEVAMENTO GEOMORFOLOGICO
+Codice Insegnamento: 173137
+CFU Insegnamento: 6
+Docente
+FILIPPO RUSSO (Tit.)
+Codice Corso Di Studio: 173
+Denominazione Corso Di Studio: SCIENZE GEOLOGICHE
+
+
+Denominazione Insegnamento: RISORSE ALIMENTARI
+Codice Insegnamento: 506104
+CFU Insegnamento: 12
+Docente
+MARINA PAOLUCCI (Tit.)
+CARMINE GUARINO
+Codice Corso Di Studio: 506
+Denominazione Corso Di Studio: BIOLOGIA
+
+
+Denominazione Insegnamento: RISORSE IDRICHE E PROTEZIONE DEGLI ACQUIFERI
+Codice Insegnamento: 51013
+CFU Insegnamento: 9
+Docente
+LIBERA ESPOSITO (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: SCHEMI DI CERTIFICAZIONE DI PRODOTTO E DI PROCESSO
+Codice Insegnamento: 17431
+CFU Insegnamento: 6
+Docente
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: SISMOLOGIA
+Codice Insegnamento: 173136
+CFU Insegnamento: 6
+Docente
+RAFFAELLA DE MATTEIS (Tit.)
+Codice Corso Di Studio: 173
+Denominazione Corso Di Studio: SCIENZE GEOLOGICHE
+
+
+Denominazione Insegnamento: SISMOTETTONICA APPLICATA
+Codice Insegnamento: 51015
+CFU Insegnamento: 6
+Docente
+BRUNO MASSA (Tit.)
+Codice Corso Di Studio: 510
+Denominazione Corso Di Studio: GEOTECNOLOGIE PER LE RISORSE, L'AMBIENTE E I RISCHI
+
+
+Denominazione Insegnamento: SISTEMI INFORMATIVI PER L'AMBIENTE ED IL TERRITORIO
+Codice Insegnamento: 17510
+CFU Insegnamento: 6
+Docente
+PAOLO MAGLIULO (Tit.)
+Codice Corso Di Studio: 175
+Denominazione Corso Di Studio: GEOLOGIA PER LA SOSTENIBILITÀ AMBIENTALE
+
+
+Denominazione Insegnamento: STATISTICA
+Codice Insegnamento: 171211
+CFU Insegnamento: 6
+Docente
+STEFANO MARIA PAGNOTTA (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: TECNOLOGIE E PROCESSI DEI PRODOTTI DA FORNO
+Codice Insegnamento: 17419
+CFU Insegnamento: 6
+Docente
+FRANCESCA CUOMO (Tit.)
+Codice Corso Di Studio: 174
+Denominazione Corso Di Studio: TECNOLOGIE ALIMENTARI PER LE PRODUZIONI DOLCIARIE
+
+
+Denominazione Insegnamento: TECNOLOGIE GENETICHE
+Codice Insegnamento: 171217
+CFU Insegnamento: 12
+Docente
+PASQUALE VITO (Tit.)
+TIZIANA ZOTTI
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: TIROCINIO DI ORIENTAMENTO ALLE BIOTECNOLOGIE GENETICHE E MOLECOLARI
+Codice Insegnamento: 50914
+CFU Insegnamento: 1
+Docente
+CONCETTA AMBROSINO (Tit.)
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: TIROCINIO FORMATIVO E DI ORIENTAMENTO PER LA TESI
+Codice Insegnamento: 50923
+CFU Insegnamento: 1
+Docente
+CONCETTA AMBROSINO (Tit.)
+Codice Corso Di Studio: 509
+Denominazione Corso Di Studio: BIOTECNOLOGIE GENETICHE E MOLECOLARI
+
+
+Denominazione Insegnamento: VIROLOGIA E BIOTECNOLOGIE DEI VIRUS
+Codice Insegnamento: 171223
+CFU Insegnamento: 6
+Docente
+DANIELA SATERIALE (Tit.)
+Codice Corso Di Studio: 171
+Denominazione Corso Di Studio: BIOTECNOLOGIE
+
+
+Denominazione Insegnamento: ZOOLOGIA
+Codice Insegnamento: 17215
+CFU Insegnamento: 9
+Docente
+CARLO DI CRISTO (Tit.)
+Codice Corso Di Studio: 172
+Denominazione Corso Di Studio: SCIENZE BIOLOGICHE
+
+
+Totale: 525
