@@ -7,8 +7,9 @@ import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.AuthorizationService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.DocenteService;
-import it.unisannio.studenti.p.perugini.pps_compiler.Services.StudentiService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Utils.PPSMaker;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.usecase.CompilaPPSUseCase;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.usecase.VisualizzaStatoPPSUseCase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import javax.ws.rs.core.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role.DOCENTEStr;
@@ -28,48 +30,78 @@ import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role
 
 
 @Path("/pps")
-public class PPSEndPoint {
+public class PPSController {
 
 
     @Autowired
     private AuthorizationService authorizationService;
     @Autowired
-    private StudentiService studentiService;
-    @Autowired
     private DocenteService docenteService;
     @Autowired
     private PPSMapper ppsMapper;
+    @Autowired
+    private CompilaPPSUseCase compilaPPSUseCase;
+    @Autowired
+    private VisualizzaStatoPPSUseCase visualizzaStatoPPSUseCase;
 
-    private Logger logger = LoggerFactory.getLogger(PPSEndPoint.class);
+    private Logger logger = LoggerFactory.getLogger(PPSController.class);
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed(STUDENTEstr)
-    public Response addPPS(@RequestBody PPSAggiuntaDTO dto, @Context SecurityContext securityContext){
-
+    public Response compilaPPS(@RequestBody PPSAggiuntaDTO dto, @Context SecurityContext securityContext){
+        logger.info("E' stato ricevuto un modulo pps ");
         try {
-            String email = securityContext.getUserPrincipal().getName();
-            User user = this.authorizationService.getUserByEmail(new Email(email));
-            this.studentiService.addModulePPS(this.ppsMapper.fromPPSDTOToPPS(dto,user), dto.getCoorte());
+            Email email = new Email(securityContext.getUserPrincipal().getName());
+            this.compilaPPSUseCase.compila(dto,email);
+            logger.info("Modulo PPS corretto. Inserimento Completato.");
             return Response.ok().entity("PPs Aggiunto correttamente").build();
-
-        } catch (UserNotFound userNotFound) {
-            return Response.serverError().build();
         } catch (EmailNonCorrettaException e) {
             return Response.serverError().build();
-        } catch (TipoCorsoDiLaureaNonSupportatoException | InsegnamentoNotFoundException | RegolaNotFoundException | PPSNonValidoException e) {
+        } catch (InsegnamentoNotFoundException | RegolaNotFoundException | PPSNonValidoException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
 
     }
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({STUDENTEstr, DOCENTEStr})
+    @Path("/{email}")
+    public Response getPPS(@PathParam("email") String email, @Context SecurityContext securityContext){
+
+        try {
+            logger.info("Arrivata richiesta del pps di: "+email);
+            logger.info("La richiesta arriva da: "+email);
+            String emailRichiedente = securityContext.getUserPrincipal().getName();
+            Optional<PPS> ppsOptional = this.visualizzaStatoPPSUseCase.getPPS(new Email(email), new Email(emailRichiedente));
+            if(ppsOptional.isPresent()) {
+                return Response.ok()
+                        .entity(this.ppsMapper.fromPPSToPPSPreviewDTO(ppsOptional.get()))
+                        .build();
+            }else {
+                return Response
+                        .status(Response.Status.NOT_FOUND)
+                        .entity("L'e-mail non è associata a nessun modulo pps")
+                        .build();
+            }
+        } catch (EmailNonCorrettaException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }catch(RichiestaNonValidaException e){
+            return Response.status(Response.Status.FORBIDDEN).entity(e.getMessage()).build();
+        }
+
+    }
+
+
+    @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed(DOCENTEStr)
     @Path("/visionati")
     public List<PPSPreviewDTO> getAllPPSVisionatiPreview(@Context SecurityContext securityContext){
+        logger.info("Sono stati richiesti i pps visionati.");
         try {
             String email = securityContext.getUserPrincipal().getName();
-            logger.info("ecco l'utente che ha richiesto i pps visionati: "+email);
+            logger.info("La richiesta è stata effettuata da "+email);
             User user = this.authorizationService.getUserByEmail(new Email(email));
             return this.docenteService
                     .getAllPPSVisionati(user)
@@ -88,9 +120,10 @@ public class PPSEndPoint {
     @RolesAllowed(DOCENTEStr)
     @Path("/inSospeso")
     public List<PPSPreviewDTO> getAllPPSInSospesoPreview(@Context SecurityContext securityContext){
+        logger.info("Sono stati richiesti i pps in sospeso");
         try {
             String email = securityContext.getUserPrincipal().getName();
-            logger.info("ecco l'utente che ha richiesto i pps: "+email);
+            logger.info("La richiesta è stata effettuata da "+email);
             User user = this.authorizationService.getUserByEmail(new Email(email));
             return this.docenteService
                     .getAllPPSNonGestitiFilterdOnCorsoDiStudio(user)
@@ -103,47 +136,6 @@ public class PPSEndPoint {
 
     }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @RolesAllowed({STUDENTEstr, DOCENTEStr})
-    @Path("/{email}/preview")
-    public Response getPPSPreview(@PathParam("email") String email, @Context SecurityContext securityContext){
-
-        try {
-            logger.info("Arrivata richiesta del pps di: "+email);
-            String emailRichiedente = securityContext.getUserPrincipal().getName();
-            PPS pps = this.docenteService.getPPSByEmail(new Email(email), new Email(emailRichiedente));
-            return Response.ok()
-                    .entity(this.ppsMapper.fromPPSToPPSPreviewDTO(pps))
-                    .build();
-        } catch (EmailNonCorrettaException |UserNotFound | PPSNotFoundException e) {
-            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
-        }catch(RichiestaNonValidaException e){
-            return Response.status(Response.Status.FORBIDDEN).entity(e.getMessage()).build();
-        }
-
-    }
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @RolesAllowed({DOCENTEStr})
-    @Path("/{email}")
-    public Response getPPS(@PathParam("email") String email, @Context SecurityContext securityContext){
-
-        try {
-            logger.info("Arrivata richiesta del pps di: "+email);
-            String emailRichiedente = securityContext.getUserPrincipal().getName();
-            PPS pps = this.docenteService.getPPSByEmail(new Email(email), new Email(emailRichiedente));
-            return Response.ok()
-                    .entity(this.ppsMapper.fromPPSToPPSPreviewDTO(pps))
-                    .build();
-        } catch (EmailNonCorrettaException |UserNotFound | PPSNotFoundException e) {
-            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
-        }catch(RichiestaNonValidaException e){
-            return Response.status(Response.Status.FORBIDDEN).entity(e.getMessage()).build();
-        }
-
-    }
 
 
     @GET
@@ -151,23 +143,20 @@ public class PPSEndPoint {
     @RolesAllowed({STUDENTEstr, DOCENTEStr})
     @Path("/{email}/pdf")
     public StreamingOutput getPPSPdf(@PathParam("email") String email, @Context SecurityContext securityContext){
+        logger.info("E' stato richiesto il  PPS di: "+email+" in formato PDF");
         try {
-            logger.info("Arrivata richiesta del pps in formato pdf da parte di: "+securityContext.getUserPrincipal().getName());
+            logger.info("La richiesta è stata effettuata da: "+securityContext.getUserPrincipal().getName());
             String emailRichiedente = securityContext.getUserPrincipal().getName();
-            PPS pps = this.docenteService.getPPSByEmail(new Email(email), new Email(emailRichiedente));
-            return outputStream -> {
-                PPSMaker.makePPS(pps, outputStream);
-            };
-        } catch (EmailNonCorrettaException |UserNotFound | PPSNotFoundException e) {
-            throw new  WebApplicationException(Response
-                    .status(Response.Status.NOT_FOUND)
-                    .entity(e.getMessage())
-                    .build());
-        }catch (RichiestaNonValidaException e){
-            throw new  WebApplicationException(Response
-                    .status(Response.Status.FORBIDDEN)
-                    .entity(e.getMessage())
-                    .build());
+            Optional<PPS> optionalPPS = this.visualizzaStatoPPSUseCase.getPPS(new Email(emailRichiedente),new Email(email));
+            if(optionalPPS.isPresent()) {
+                return outputStream -> {
+                    PPSMaker.makePPS(optionalPPS.get(), outputStream);
+                };
+            }else {
+                return null;
+            }
+        } catch (EmailNonCorrettaException  | RichiestaNonValidaException e) {
+            return null;
         }
 
     }
@@ -177,7 +166,6 @@ public class PPSEndPoint {
     @RolesAllowed(DOCENTEStr)
     @Path("/{email}/approva")
     public Response approvaPPS(@PathParam("email")String email){
-
         try {
             User user = this.authorizationService.getUserByEmail(new Email(email));
             this.docenteService.accettaPPS(user);
