@@ -11,9 +11,10 @@ import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS.PPSMapper;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ReadManifestoDegliStudiPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.port.CreatePPSPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.port.ListPPSPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.port.ReadPPSPort;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.usecase.CompilaPPSUseCase;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.usecase.VisualizzaStatoPPSUseCase;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.port.UpdatePPSPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.usecase.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.user.port.ReadUserPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,12 @@ import java.util.*;
 
 /**Servizio che implementa lo use case di compilazione del pps*/
 @Service
-public class PPSService implements CompilaPPSUseCase, VisualizzaStatoPPSUseCase {
+public class PPSService implements CompilaPPSUseCase,
+        VisualizzaStatoPPSUseCase,
+        VisualizzaPPSInSospesoUseCase,
+        VisualizzaPPSVisionatiUseCase,
+        AccettaPPSUseCase,
+        RifiutaPPSUseCase {
 
     /**Porta per interfacciarsi con la collezione dei manifesti in sola lettura*/
     @Autowired
@@ -33,6 +39,10 @@ public class PPSService implements CompilaPPSUseCase, VisualizzaStatoPPSUseCase 
     private CreatePPSPort createPPSPort;
     @Autowired
     private ReadPPSPort readPPSPort;
+    @Autowired
+    private ListPPSPort listPPSPort;
+    @Autowired
+    private UpdatePPSPort updatePPSPort;
     /**Porta per interfacciarsi con gli user in lettura*/
     @Autowired
     private ReadUserPort readUserPort;
@@ -194,5 +204,31 @@ public class PPSService implements CompilaPPSUseCase, VisualizzaStatoPPSUseCase 
         //posso accedere al modulo se presente
         Optional<PPS> pps = this.readPPSPort.findPPSById(user.get());
         return pps;
+    }
+
+    @Override
+    public List<PPS> getPpsInSospeso(Email email) {
+        User user = this.readUserPort.findUserById(email).get();
+        return this.listPPSPort.findPPSInSospesoByUser(user);
+    }
+
+    @Override
+    public List<PPS> getPPSVisionati(Email email) {
+        User user = this.readUserPort.findUserById(email).get();
+        return this.listPPSPort.findPPSVisionatiByUser(user);
+    }
+
+    @Override
+    public void accettaPPS(Email email) throws PPSNotFoundException, UserNotFound, PPSNonValidoException {
+        Optional<User> user = this.readUserPort.findUserById(email);
+        if(user.isPresent()) this.updatePPSPort.accettaPPS(user.get());
+        else throw new UserNotFound("L'utente non risulta essere presente nel database");
+    }
+
+    @Override
+    public void rififutaPPS(Email email) throws PPSNotFoundException, UserNotFound, PPSNonValidoException {
+        Optional<User> user = this.readUserPort.findUserById(email);
+        if(user.isPresent()) this.updatePPSPort.rifiutaPPS(user.get());
+        else throw new UserNotFound("L'utente non risulta essere presente nel database");
     }
 }

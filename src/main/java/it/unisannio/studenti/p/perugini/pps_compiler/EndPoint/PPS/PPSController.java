@@ -2,14 +2,10 @@ package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS;
 
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.PPS;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
-import it.unisannio.studenti.p.perugini.pps_compiler.Services.AuthorizationService;
-import it.unisannio.studenti.p.perugini.pps_compiler.Services.DocenteService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Utils.PPSMaker;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.usecase.CompilaPPSUseCase;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.usecase.VisualizzaStatoPPSUseCase;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.usecase.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,17 +28,20 @@ import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role
 @Path("/pps")
 public class PPSController {
 
-
-    @Autowired
-    private AuthorizationService authorizationService;
-    @Autowired
-    private DocenteService docenteService;
     @Autowired
     private PPSMapper ppsMapper;
     @Autowired
     private CompilaPPSUseCase compilaPPSUseCase;
     @Autowired
     private VisualizzaStatoPPSUseCase visualizzaStatoPPSUseCase;
+    @Autowired
+    private VisualizzaPPSInSospesoUseCase visualizzaPPSInSospesoUseCase;
+    @Autowired
+    private VisualizzaPPSVisionatiUseCase visualizzaPPSVisionatiUseCase;
+    @Autowired
+    private AccettaPPSUseCase accettaPPSUseCase;
+    @Autowired
+    private RifiutaPPSUseCase rifiutaPPSUseCase;
 
     private Logger logger = LoggerFactory.getLogger(PPSController.class);
 
@@ -102,13 +101,12 @@ public class PPSController {
         try {
             String email = securityContext.getUserPrincipal().getName();
             logger.info("La richiesta è stata effettuata da "+email);
-            User user = this.authorizationService.getUserByEmail(new Email(email));
-            return this.docenteService
-                    .getAllPPSVisionati(user)
+            return this.visualizzaPPSVisionatiUseCase
+                    .getPPSVisionati(new Email(email))
                     .stream()
                     .map(ppsMapper::fromPPSToPPSPreviewDTO)
                     .collect(Collectors.toList());
-        } catch (UserNotFound | EmailNonCorrettaException e) {
+        } catch (EmailNonCorrettaException e) {
             return new ArrayList<>();
         }
 
@@ -124,13 +122,11 @@ public class PPSController {
         try {
             String email = securityContext.getUserPrincipal().getName();
             logger.info("La richiesta è stata effettuata da "+email);
-            User user = this.authorizationService.getUserByEmail(new Email(email));
-            return this.docenteService
-                    .getAllPPSNonGestitiFilterdOnCorsoDiStudio(user)
+            return this.visualizzaPPSInSospesoUseCase.getPpsInSospeso(new Email(email))
                     .stream()
                     .map(ppsMapper::fromPPSToPPSPreviewDTO)
                     .collect(Collectors.toList());
-        } catch (UserNotFound | EmailNonCorrettaException e) {
+        } catch (EmailNonCorrettaException e) {
             return new ArrayList<>();
         }
 
@@ -165,12 +161,13 @@ public class PPSController {
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed(DOCENTEStr)
     @Path("/{email}/approva")
-    public Response approvaPPS(@PathParam("email")String email){
+    public Response accettaPPS(@PathParam("email")String email){
+        logger.info("Si vuole accettare il pps di: "+email);
         try {
-            User user = this.authorizationService.getUserByEmail(new Email(email));
-            this.docenteService.accettaPPS(user);
+            this.accettaPPSUseCase.accettaPPS(new Email(email));
+            logger.info("PPS accettato correttamente");
             return Response.ok().entity("PPs accettato correttamente").build();
-        } catch (UserNotFound |EmailNonCorrettaException | RichiestaNonValidaException | PPSNotFoundException e) {
+        } catch (UserNotFound | EmailNonCorrettaException | PPSNotFoundException | PPSNonValidoException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
     }
@@ -181,12 +178,12 @@ public class PPSController {
     @RolesAllowed(DOCENTEStr)
     @Path("/{email}/rifiuta")
     public Response rifiutaPPS(@PathParam("email")String email){
-
+        logger.info("Si vuole rifiutare il pps di: "+email);
         try {
-            User user = this.authorizationService.getUserByEmail(new Email(email));
-            this.docenteService.rifiutaPPS(user);
+            this.rifiutaPPSUseCase.rififutaPPS(new Email(email));
+            logger.info("PPS rifiutato correttamente");
             return Response.ok().entity("PPs rifiutato correttamente").build();
-        } catch (UserNotFound |EmailNonCorrettaException | RichiestaNonValidaException | PPSNotFoundException e) {
+        } catch (UserNotFound | EmailNonCorrettaException | PPSNotFoundException | PPSNonValidoException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
     }
