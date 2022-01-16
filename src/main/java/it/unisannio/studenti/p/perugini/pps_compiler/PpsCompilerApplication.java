@@ -9,7 +9,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.ManifestoDegliStud
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.Ordinamento.OrdinamentiEndPoint;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS.PPSEndPoint;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.AuthEndPoint;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.RegisterEndPoint;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.RegistrationController;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.ConstraintsHandler;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.UncaughtHandler;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -41,7 +41,7 @@ public class PpsCompilerApplication extends ResourceConfig {
 		register(CorsiDiStudioEndPoint.class);
 		register(AdminEndPoint.class);
 		register(AuthEndPoint.class);
-		register(RegisterEndPoint.class);
+		register(RegistrationController.class);
 		register(PPSEndPoint.class);
 		register(FiltroAutenticazione.class);
 		register(ConstraintsHandler.class);

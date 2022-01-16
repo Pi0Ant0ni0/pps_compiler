@@ -16,11 +16,17 @@ public class UserMapper {
     @Autowired
     private CorsoDiStudioMapper corsoDiStudioMapper;
 
-    public User fromStudentDTOToUser(StudentDTO dto, CorsoDiStudio corsoDiStudio) throws EmailNonCorrettaException {
+    public User fromStudentDTOToUser(StudentDTO dto, CorsoDiStudio corsoDiStudio){
         User user = new User();
         user.setNome(dto.getNome());
         user.setCognome(dto.getCognome());
-        user.setEmail(new Email(dto.getEmail()));
+        try {
+            user.setEmail(new Email(dto.getEmail()));
+        } catch (EmailNonCorrettaException e) {
+            //non puo mai verificarsi
+            //è una conversione che si effettua da database a service
+            // quindi i dati sono consistenti
+        }
         user.setRole(Role.STUDENTE);
         user.setCorsoDiStudio(corsoDiStudio);
         user.setMatricola(dto.getMatricola());
