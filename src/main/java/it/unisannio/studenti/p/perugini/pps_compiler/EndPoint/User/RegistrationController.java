@@ -88,7 +88,7 @@ public class RegistrationController {
                     .entity(userMapper.fromUserToUserAuthenticatedDTO(user))
                     .header(HttpHeaders.AUTHORIZATION,jwt)
                     .build();
-        } catch (EmailNonCorrettaException | OTPExpiredException | UserNotFound e) {
+        } catch (EmailNonCorrettaException | OTPExpiredException  e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
     }

@@ -8,7 +8,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.CorsoDiStudio.Cors
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.ManifestoDegliStudi.ManifestiDegliStudiEndPoint;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.Ordinamento.OrdinamentiEndPoint;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS.PPSEndPoint;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.AuthEndPoint;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.LoginController;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.RegistrationController;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.ConstraintsHandler;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.UncaughtHandler;
@@ -40,7 +40,7 @@ public class PpsCompilerApplication extends ResourceConfig {
 		register(ManifestiDegliStudiEndPoint.class);
 		register(CorsiDiStudioEndPoint.class);
 		register(AdminEndPoint.class);
-		register(AuthEndPoint.class);
+		register(LoginController.class);
 		register(RegistrationController.class);
 		register(PPSEndPoint.class);
 		register(FiltroAutenticazione.class);

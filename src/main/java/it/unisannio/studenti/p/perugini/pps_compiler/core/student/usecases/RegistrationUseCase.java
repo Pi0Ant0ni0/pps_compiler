@@ -9,5 +9,5 @@ import javax.ws.rs.core.Cookie;
 
 public interface RegistrationUseCase {
     void register(StudentDTO dto) throws EmailNonCorrettaException, EmailException, MatricolaNotValidException, CorsoDiStudioNotFoundException, InvalidUserException, UserAlreadyExistException;
-    User verifyRegistration(String otpRichiesta, Cookie otpCookie, Email email) throws OTPExpiredException, UserNotFound;
+    User verifyRegistration(String otpRichiesta, Cookie otpCookie, Email email) throws OTPExpiredException;
 }

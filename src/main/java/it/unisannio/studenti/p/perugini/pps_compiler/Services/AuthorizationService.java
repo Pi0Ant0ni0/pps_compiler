@@ -34,7 +34,7 @@ public class AuthorizationService {
 
     private Logger logger = LoggerFactory.getLogger(AuthorizationService.class);
 
-    public String sendOtp(Email email) throws EmailException {
+    public String sendOtp(Email email){
         //genero otp e la mando tramite email
         String otp = otpProvider.makeOtp();
         this.emailService.sendTextEmail(otp,email);
@@ -72,23 +72,9 @@ public class AuthorizationService {
         return this.getUserByEmail(new Email(email));
     }
 
-    public String generateJWT(User user) {
-        return this.jwtProvider.generateJWT(user);
-    }
 
     public boolean isJWTExpired(String jwtToken) {
         return this.jwtProvider.isExpired(jwtToken);
     }
 
-    public boolean validateLogin(Email email) throws EmailException {
-        Optional<User> user = this.usersRepository.findById(email);
-        if(!user.isPresent())
-            return false;
-        if(!user.get().getRole().equals(Role.ADMIN) &&
-                !(email.getNomeDominio().equals("unisannio.it")||
-                        email.getNomeDominio().equals("studenti.unisannio.it")))
-            throw new EmailException("Bisogna utilizzare la mail unisannio");
-
-        return true;
-    }
 }

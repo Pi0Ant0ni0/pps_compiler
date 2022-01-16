@@ -1,4 +1,4 @@
-package it.unisannio.studenti.p.perugini.pps_compiler.core.student.service;
+package it.unisannio.studenti.p.perugini.pps_compiler.core.service;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
@@ -74,14 +74,11 @@ public class RegistrationService implements RegistrationUseCase {
     }
 
     @Override
-    public User verifyRegistration(String otpRichiesta, Cookie otpCookie, Email email) throws UserNotFound, OTPExpiredException {
+    public User verifyRegistration(String otpRichiesta, Cookie otpCookie, Email email) throws OTPExpiredException {
         if(this.authorizationService.verifyOtp(email,otpRichiesta,otpCookie)) {
-            Optional<StudentDTO> studentDTO = this.readStudentPort.findStudentById(email);
-            if (!studentDTO.isPresent())
-                throw new UserNotFound("Lo studente per il quale si è richiesta la verifica della email non ha avanzato nessuna richiesta di registrazione");
-
-            CorsoDiStudio corsoDiStudio = this.readCorsoDiStudioPort.findCorsoDiStudioById(studentDTO.get().getMatricola().substring(0, 3)).get();
-            return this.createUserPort.save(userMapper.fromStudentDTOToUser(studentDTO.get(), corsoDiStudio));
+           StudentDTO studentDTO = this.readStudentPort.findStudentById(email).get();
+            CorsoDiStudio corsoDiStudio = this.readCorsoDiStudioPort.findCorsoDiStudioById(studentDTO.getMatricola().substring(0, 3)).get();
+            return this.createUserPort.save(userMapper.fromStudentDTOToUser(studentDTO, corsoDiStudio));
         }
         throw new OTPExpiredException("L'OTP inserito non è valido");
 
