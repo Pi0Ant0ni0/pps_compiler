@@ -27,5 +27,6 @@ public class ManifestoDegliStudiDTO {
     private int cfuExtra;
     @NotNull
     private Map<Integer, AnnoAccademico> anniAccademici;
+    private String curricula;
 
 }

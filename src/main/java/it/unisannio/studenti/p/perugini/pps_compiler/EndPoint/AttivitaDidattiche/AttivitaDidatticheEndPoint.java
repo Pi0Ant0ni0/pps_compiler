@@ -67,6 +67,22 @@ public class AttivitaDidatticheEndPoint {
         }
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.TEXT_PLAIN)
+    @PermitAll
+    public Response getAttivitaDidattiche() throws CorsoDiStudioNotFoundException {
+        return Response
+                .ok()
+                .entity(this.insegnamentoService
+                        .getInsegnamenti()
+                        .stream()
+                        .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
+                        .collect(Collectors.toList())
+                )
+                .build();
+    }
+
 
     @GET
     @Path("/{codiceCorsoDiStudio}")
@@ -104,22 +120,6 @@ public class AttivitaDidatticheEndPoint {
     }
 
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.TEXT_PLAIN)
-    @PermitAll
-    public Response getAttivitaDidattiche() throws CorsoDiStudioNotFoundException {
-        return Response
-                .ok()
-                .entity(this.insegnamentoService
-                        .getInsegnamenti()
-                        .stream()
-                        .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
-                        .collect(Collectors.toList())
-                )
-                .build();
-    }
-
 
 
     @GET
@@ -144,5 +144,22 @@ public class AttivitaDidatticheEndPoint {
                     .entity("Il tipo di corso di laurea cercato non è valido")
                     .build();
         }
+    }
+
+    @GET
+    @Path("/dipartimento/{dipartimento}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.TEXT_PLAIN)
+    @PermitAll
+    public Response getAttivitaDidatticheByDipartimento(@PathParam("dipartimento")String dipartimento){
+        return Response
+                .ok()
+                .entity(this.insegnamentoService
+                        .getAttivitaDidattichePerDipartimento(dipartimento)
+                        .stream()
+                        .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
+                        .collect(Collectors.toList())
+                )
+                .build();
     }
 }

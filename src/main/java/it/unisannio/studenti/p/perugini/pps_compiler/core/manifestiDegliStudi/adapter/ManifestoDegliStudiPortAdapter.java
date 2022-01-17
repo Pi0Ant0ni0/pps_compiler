@@ -4,14 +4,16 @@ import it.unisannio.studenti.p.perugini.pps_compiler.API.ChiaveManifestoDegliStu
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ManifestoDegliStudi;
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.ManifestiDegliStudiRepository;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.CreateManifestoPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ListManifestiDegliStudiPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ReadManifestoDegliStudiPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
-public class ManifestoDegliStudiAdapter implements ReadManifestoDegliStudiPort, CreateManifestoPort {
+public class ManifestoDegliStudiPortAdapter implements ReadManifestoDegliStudiPort, CreateManifestoPort, ListManifestiDegliStudiPort {
     @Autowired
     ManifestiDegliStudiRepository manifestiDegliStudiRepository;
 
@@ -23,5 +25,10 @@ public class ManifestoDegliStudiAdapter implements ReadManifestoDegliStudiPort, 
     @Override
     public void save(ManifestoDegliStudi manifestoDegliStudi) {
         this.manifestiDegliStudiRepository.save(manifestoDegliStudi);
+    }
+
+    @Override
+    public List<ManifestoDegliStudi> list() {
+        return this.manifestiDegliStudiRepository.findAll();
     }
 }

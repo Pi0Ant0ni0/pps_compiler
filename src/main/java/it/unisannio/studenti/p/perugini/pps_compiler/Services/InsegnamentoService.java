@@ -7,6 +7,9 @@ import it.unisannio.studenti.p.perugini.pps_compiler.Exception.InsegnamentoNotFo
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.CorsiDiStudioRepository;
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.AttivitaDidatticheRepository;
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.ManifestiDegliStudiRepository;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.ListAttivitaDidattichePort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.ReadAttivitaDidatticaPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.corsoDiStudio.port.ReadCorsoDiStudioPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,50 +19,52 @@ import java.util.stream.Collectors;
 
 @Service
 public class InsegnamentoService {
+
     @Autowired
-    private CorsiDiStudioRepository corsiDiStudioRepository;
+    private ListAttivitaDidattichePort listAttivitaDidattichePort;
     @Autowired
-    private AttivitaDidatticheRepository attivitaDidatticheRepository;
+    private ReadAttivitaDidatticaPort readAttivitaDidatticaPort;
     @Autowired
-    private ManifestiDegliStudiRepository manifestiDegliStudiRepository;
+    private ReadCorsoDiStudioPort readCorsoDiStudioPort;
 
     public CorsoDiStudio getCorsoDiStudioByInsegnamento(AttivitaDidattica attivitaDidattica) throws CorsoDiStudioNotFoundException {
-        Optional<CorsoDiStudio> corsoDiStudioOptional = this.corsiDiStudioRepository.findById(attivitaDidattica.getCodiceCorsoDiStudio());
+        Optional<CorsoDiStudio> corsoDiStudioOptional = this.readCorsoDiStudioPort.findCorsoDiStudioById(attivitaDidattica.getCodiceCorsoDiStudio());
         if (corsoDiStudioOptional.isPresent())
             return corsoDiStudioOptional.get();
-        else{
-            this.attivitaDidatticheRepository.delete(attivitaDidattica);
-        }
         throw new CorsoDiStudioNotFoundException("L'insegnamento con codice: "+ attivitaDidattica.getCodiceAttivitaDidattica()+" ha un codice corso di studio che non trova riscontro nel database locale");
 
     }
 
     public List<AttivitaDidattica> getInsegnamentiPerCorsoDiStudio(String corsoDiStudio){
-        return this.attivitaDidatticheRepository.findAll()
+        return this.listAttivitaDidattichePort.listAttivitaDidattiche()
                 .stream()
                 .filter(insegnamento -> insegnamento.getCodiceCorsoDiStudio().equals(corsoDiStudio) && !insegnamento.isProgrammato())
                 .collect(Collectors.toList());
     }
 
     public AttivitaDidattica getInsegnamentoById(String codiceInsegnamento) throws InsegnamentoNotFoundException {
-        Optional<AttivitaDidattica> insegnamento = this.attivitaDidatticheRepository.findById(codiceInsegnamento);
+        Optional<AttivitaDidattica> insegnamento = this.readAttivitaDidatticaPort.findAttivitaById(codiceInsegnamento);
         if (insegnamento.isPresent())
             return insegnamento.get();
         throw new InsegnamentoNotFoundException("Insegnamento non presente nel DB");
     }
 
     public List<AttivitaDidattica> getInsegnamenti() {
-        return this.attivitaDidatticheRepository.findAll();
+        return this.listAttivitaDidattichePort.listAttivitaDidattiche();
     }
 
     public List<AttivitaDidattica> getInsegnamentiProgrammatiPerCorsoDiStudio(String codiceCorsoDiStudio) {
-        return this.attivitaDidatticheRepository.findAll()
+        return this.listAttivitaDidattichePort.listAttivitaDidattiche()
                 .stream()
                 .filter(insegnamento -> insegnamento.getCodiceCorsoDiStudio().equals(codiceCorsoDiStudio) && insegnamento.isProgrammato())
                 .collect(Collectors.toList());
     }
 
-    public boolean exist(String codiceInsegnamento) {
-        return  this.attivitaDidatticheRepository.findById(codiceInsegnamento).isPresent();
+    public List<AttivitaDidattica> getAttivitaDidattichePerDipartimento(String dipartimento){
+        return this.listAttivitaDidattichePort.listAttivitaDidattiche()
+                .stream()
+                .filter(attivitaDidattica ->readCorsoDiStudioPort.findCorsoDiStudioById(attivitaDidattica.getCodiceCorsoDiStudio()).get().getDenominazioneFacolta().equals(dipartimento.toUpperCase()))
+                .collect(Collectors.toList());
+
     }
 }

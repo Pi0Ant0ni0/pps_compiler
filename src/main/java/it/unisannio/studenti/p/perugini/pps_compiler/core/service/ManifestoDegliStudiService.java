@@ -9,21 +9,27 @@ import it.unisannio.studenti.p.perugini.pps_compiler.Exception.RegolaNonValidaEx
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.InsegnamentoService;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.ReadAttivitaDidatticaPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.CreateManifestoPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ListManifestiDegliStudiPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.AggiungiManfiestoUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.ManifestoPDFUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ReadManifestoDegliStudiPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.VisualizzaManifestoUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.ordinamento.port.ReadOrdinamentoPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
-public class ManifestoDegliStudiService implements ManifestoPDFUseCase, AggiungiManfiestoUseCase {
+public class ManifestoDegliStudiService implements ManifestoPDFUseCase, AggiungiManfiestoUseCase, VisualizzaManifestoUseCase {
     @Autowired
     private ReadManifestoDegliStudiPort readManifestoDegliStudiPort;
+    @Autowired
+    private ListManifestiDegliStudiPort listManifestiDegliStudiPort;
     @Autowired
     private ReadOrdinamentoPort readOrdinamentoPort;
     @Autowired
@@ -32,15 +38,19 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
     private CreateManifestoPort createManifestoPort;
 
     @Override
-    public Optional<ManifestoDegliStudi> manifestoPDF(int coorte, String codiceCorsoDiStudio) {
+    public Optional<ManifestoDegliStudi> manifestoPDF(int coorte, String codiceCorsoDiStudio, String curricula) {
         ChiaveManifestoDegliStudi chiave = new ChiaveManifestoDegliStudi();
         chiave.setCoorte(coorte);
         chiave.setCodiceCorsoDiStudio(codiceCorsoDiStudio);
+        if(curricula.length()!=0)
+            chiave.setCurricula(curricula);
+        else chiave.setCurricula(null);
         return  this.readManifestoDegliStudiPort.findManifestoById(chiave);
     }
 
     @Override
     public void addManifesto(ManifestoDegliStudi manifestoDegliStudi) throws RegolaNonValidaException, OrdinamentoNotFoundException {
+
         if(this.readManifestoDegliStudiPort.findManifestoById(manifestoDegliStudi.getChiaveManifestoDegliStudi()).isPresent())
             throw new RegolaNonValidaException("La regola è già presente nel database");
 
@@ -80,8 +90,6 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
 
             if(manifestoDegliStudi.getAnniAccademici().get(anno).getAttivitaDidatticheAScelta().isPresent()) {
                 for (InsegnamentoRegola insegnamento : manifestoDegliStudi.getAnniAccademici().get(anno).getAttivitaDidatticheAScelta().get().getInsegnamenti()) {
-                    if (!insegnamentiTotali.add(insegnamento) && !insegnamento.isInsegnamentoIntegratoFlag())
-                        throw new RegolaNonValidaException("Non può essere presente più volte lo stesso insegnamento: "+insegnamento.getDenominazioneInsegnamento());
                     cfuTotaliEffettivi += insegnamento.getCfu();
                 }
             }
@@ -140,5 +148,13 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
                 throw new RegolaNonValidaException("Un corso annuale deve avere come valore del semstre \"1-2\"");
         }
         this.createManifestoPort.save(manifestoDegliStudi);
+    }
+
+    @Override
+    public List<ManifestoDegliStudi> getManifesti(String codiceCorsoDiStudio) {
+        return this.listManifestiDegliStudiPort.list()
+                .stream()
+                .filter(manifestoDegliStudi -> manifestoDegliStudi.getChiaveManifestoDegliStudi().getCodiceCorsoDiStudio().equals(codiceCorsoDiStudio))
+                .collect(Collectors.toList());
     }
 }

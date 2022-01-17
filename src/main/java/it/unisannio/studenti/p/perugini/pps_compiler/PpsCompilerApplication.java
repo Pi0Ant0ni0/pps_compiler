@@ -1,7 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.Authentication.FiltroAutenticazione;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.*;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticheEndPoint;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.CorsoDiStudio.CorsiDiStudioEndPoint;
@@ -10,6 +9,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.Ordinamento.Ordina
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS.PPSController;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.LoginController;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.RegistrationController;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.UserController;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.ConstraintsHandler;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.UncaughtHandler;
 import org.glassfish.jersey.server.ResourceConfig;

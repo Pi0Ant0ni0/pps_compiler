@@ -11,6 +11,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.StudentDTORepo
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.UsersRepository;
 import it.unisannio.studenti.p.perugini.pps_compiler.Components.JwtProvider;
 import it.unisannio.studenti.p.perugini.pps_compiler.Components.OTP;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.user.port.ReadUserPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ import java.util.Optional;
 @Service
 public class AuthorizationService {
     @Autowired
-    private UsersRepository usersRepository;
+    private ReadUserPort readUserPort;
     @Autowired
     private EmailService emailService;
     @Autowired
@@ -50,9 +51,6 @@ public class AuthorizationService {
         if (cookie == null)
             throw new OTPExpiredException("L' OTP è scaduto prova a loggarti di nuovo");
 
-        logger.info("ecco il cookie ricevuto: "+cookie.getValue());
-        logger.info("ecco la mail ricevuta: "+email.getEmail());
-
         String otpHashed = otpProvider.cryptOTP(otp);
         if (otpHashed.equals(cookie.getValue()))
             return true;
@@ -60,7 +58,7 @@ public class AuthorizationService {
     }
 
     public User getUserByEmail(Email email) throws UserNotFound {
-        Optional<User> userOptional = this.usersRepository.findById(email);
+        Optional<User> userOptional = this.readUserPort.findUserById(email);
         if(!userOptional.isPresent())
             throw new UserNotFound("Non esiste nessun utente con questa mail");
         return userOptional.get();

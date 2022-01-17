@@ -44,7 +44,7 @@ public class ManifestoDegliStudiMaker {
     private CorsoDiStudioService corsoDiStudioService;
 
     public  Document getManifestoDegliStudi(ManifestoDegliStudi manifestoDegliStudi, OutputStream outputStream) throws FileNotFoundException {
-        logger.info("Sto per creare il pdf per la regola con chiave: "+ manifestoDegliStudi.getChiaveManifestoDegliStudi());
+        logger.info("Sto per creare il pdf per il manifesto con chiave: "+ manifestoDegliStudi.getChiaveManifestoDegliStudi());
 
         Optional<CorsoDiStudio> corsoDiStudio =corsoDiStudioService.getCorsoDiStudioById(manifestoDegliStudi.getChiaveManifestoDegliStudi().getCodiceCorsoDiStudio());
         if(!corsoDiStudio.isPresent())
@@ -56,7 +56,7 @@ public class ManifestoDegliStudiMaker {
 
         Table externalTable = new Table(1);
         Table table = new Table(5);
-        addTableTitle(table,corsoDiStudio.get(), manifestoDegliStudi.getChiaveManifestoDegliStudi().getCoorte());
+        addTableTitle(table,corsoDiStudio.get(), manifestoDegliStudi.getChiaveManifestoDegliStudi().getCoorte(), manifestoDegliStudi.getChiaveManifestoDegliStudi().getCurricula());
         addHeaderInsegnamenti(table, blu);
 
         //ordino gli anni
@@ -90,6 +90,7 @@ public class ManifestoDegliStudiMaker {
             //inserisco orientamento se ci sono
             if (annoAccademico.getOrientamenti().isPresent()) {
                 for(Orientamento orientamento : annoAccademico.getOrientamenti().get()) {
+                    addHeaderOrientamento(table,orientamento.getDenominazione(), orientamento.getQuotaCFULiberi()+orientamento.getQuotaCFUVincolati());
 
                     if(orientamento.getInsegnamentiVincolati().isPresent() && !orientamento.getInsegnamentiVincolati().get().isEmpty()) {
                         addHeaderOrientamentoVincolati(table, orientamento.getDenominazione(), manifestoDegliStudi.getCfuOrientamento());
@@ -146,7 +147,7 @@ public class ManifestoDegliStudiMaker {
 
 
 
-    private  void addTableTitle(Table table, CorsoDiStudio corsoDiStudio, int coorte) {
+    private  void addTableTitle(Table table, CorsoDiStudio corsoDiStudio, int coorte, Optional<String> curricula) {
 
         Cell intestazione = new Cell(1,5)
                 .add(new Paragraph("CORSO DI LAUREA IN: " + corsoDiStudio.getDenominazione()+"\n" +
@@ -156,36 +157,48 @@ public class ManifestoDegliStudiMaker {
                         .setFontSize(size))
                 .setBackgroundColor(ColorConstants.WHITE)
                 .setTextAlignment(TextAlignment.CENTER);
+        if(curricula.isPresent()){
+            intestazione.add(new Paragraph("Curriculum "+curricula.get()).
+                    setBold()
+                    .setFontColor(magenta)
+                    .setFontSize(size))
+                    .setBackgroundColor(ColorConstants.WHITE)
+                    .setTextAlignment(TextAlignment.CENTER);
+        }
 
         table.addCell(intestazione);
+    }
+
+    private void addHeaderOrientamento(Table table, String denominazione, int cfu){
+        Cell intestazione = new Cell(1,5)
+                .add(new Paragraph("Insegnamenti di orientamento "+denominazione+"("+cfu+" CFU)")
+                        .setBold()
+                        .setFontSize(size)
+                        .setFontColor(ColorConstants.WHITE))
+                .setBackgroundColor(oro)
+                .setTextAlignment(TextAlignment.CENTER);
+        table.addCell(intestazione);
+
     }
 
 
 
     private  void addHeaderOrientamentoVincolati(Table table, String denominazione, int cfu) {
-        Cell intestazione = new Cell(1,5)
-                .add(new Paragraph("Insegnamenti di orientamento: "+denominazione+"("+cfu+" CFU)")
-                        .setBold()
-                        .setFontSize(size)
-                        .setFontColor(ColorConstants.WHITE))
-                .setBackgroundColor(oro)
-                .setTextAlignment(TextAlignment.CENTER);
-        Cell intestazione2 = new Cell(1,5)
-                .add(new Paragraph("OBBLIGATORI:")
-                        .setBold()
-                        .setFontSize(size)
-                        .setFontColor(ColorConstants.WHITE))
-                .setBackgroundColor(oro)
-                .setTextAlignment(TextAlignment.CENTER);
 
-        table.addCell(intestazione);
+        Cell intestazione2 = new Cell(1,5)
+                .add(new Paragraph("obbligatori:")
+                        .setBold()
+                        .setFontSize(size)
+                        .setFontColor(ColorConstants.WHITE))
+                .setBackgroundColor(oro)
+                .setTextAlignment(TextAlignment.CENTER);
         table.addCell(intestazione2);
     }
 
     private  void addHeaderOrientamentoLiberi(Table table, int cfu) {
         //aggiungo intestazione
         Cell intestazione = new Cell(1,5)
-                .add(new Paragraph("A SCELTA ("+cfu+" CFU)")
+                .add(new Paragraph("("+cfu+" CFU) a scelta tra gli insegnamenti proposti")
                         .setBold()
                         .setFontSize(size))
                 .setBackgroundColor(oro)

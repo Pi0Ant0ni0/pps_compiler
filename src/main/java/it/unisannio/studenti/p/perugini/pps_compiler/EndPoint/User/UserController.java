@@ -1,9 +1,6 @@
-package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint;
+package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.DocenteDTO;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.SadDTO;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.UserMapper;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.CorsoDiStudioNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailNonCorrettaException;

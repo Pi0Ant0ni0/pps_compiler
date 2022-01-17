@@ -1,10 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.Services;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.*;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.SEMESTRE;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.InsegnamentoRegola;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.Orientamento;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.TipoCorsoDiLaurea;
 import it.unisannio.studenti.p.perugini.pps_compiler.Esse3API.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
