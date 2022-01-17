@@ -6,7 +6,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticheEndPoint;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.CorsoDiStudio.CorsiDiStudioEndPoint;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.ManifestoDegliStudi.ManifestiDegliStudiEndPoint;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.Ordinamento.OrdinamentiEndPoint;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.Ordinamento.OrdinamentiController;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS.PPSController;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.LoginController;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.RegistrationController;
@@ -36,7 +36,7 @@ public class PpsCompilerApplication extends ResourceConfig {
 	public PpsCompilerApplication() {
 		logger.info("Registrazione ENDPOINT in corso");
 		register(AttivitaDidatticheEndPoint.class);
-		register(OrdinamentiEndPoint.class);
+		register(OrdinamentiController.class);
 		register(ManifestiDegliStudiEndPoint.class);
 		register(CorsiDiStudioEndPoint.class);
 		register(AdminEndPoint.class);

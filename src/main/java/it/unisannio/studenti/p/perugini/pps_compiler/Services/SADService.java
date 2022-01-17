@@ -14,7 +14,6 @@ import it.unisannio.studenti.p.perugini.pps_compiler.Utils.InsegnamentoUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.client.Client;
@@ -504,19 +503,6 @@ public class SADService {
         attivitaDidatticheRepository.deleteAll();
     }
 
-
-    public void addOrdinamento(Ordinamento ordinamento) throws OrdinamentoNonCorrettoException {
-        if (ordinamento.getCfuMinimiAScelta()+ordinamento.getCfuMinimiOrientamento() +ordinamento.getCfuMinimiObbligatori()!=ordinamento.getCfuMinimiCorsoDiLaurea())
-            throw new OrdinamentoNonCorrettoException("la somma dei cfu minimi deve essere uguale alla quota di cfu minimi del corso di laurea");
-        if (ordinamento.getCfuMassimiAScelta()+ordinamento.getCfuMassimiOrientamento() +ordinamento.getCfuMassimiObbligatori()!=ordinamento.getCfuMassimiCorsoDiLaurea())
-            throw new OrdinamentoNonCorrettoException("la somma dei cfu massimi deve essere uguale alla quota di cfu massimi del corso di laurea");
-
-        this.ordinamentoRepository.save(ordinamento);
-    }
-
-    public Ordinamento getOrdinamentoCorrente (){
-        return this.ordinamentoRepository.findAll(Sort.by("annoDiRedazione").ascending()).get(0);
-    }
 
     public void addRegola(ManifestoDegliStudi manifestoDegliStudi) throws OrdinamentoNotFoundException, RegolaNonValidaException, InsegnamentoNotFoundException {
         logger.info("Controllo la validita della regola in corso");
