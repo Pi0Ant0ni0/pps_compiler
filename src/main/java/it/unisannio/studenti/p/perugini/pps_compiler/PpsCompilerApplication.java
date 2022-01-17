@@ -39,7 +39,7 @@ public class PpsCompilerApplication extends ResourceConfig {
 		register(OrdinamentiController.class);
 		register(ManifestiDegliStudiController.class);
 		register(CorsiDiStudioEndPoint.class);
-		register(AdminEndPoint.class);
+		register(UserController.class);
 		register(LoginController.class);
 		register(RegistrationController.class);
 		register(PPSController.class);

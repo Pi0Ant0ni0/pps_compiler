@@ -1,14 +1,18 @@
-package it.unisannio.studenti.p.perugini.pps_compiler.Services;
+package it.unisannio.studenti.p.perugini.pps_compiler.core.service;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.CorsoDiStudioNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailException;
-import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailNonCorrettaException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.InvalidUserException;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.CorsiDiStudioRepository;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.UsersRepository;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.corsoDiStudio.port.ReadCorsoDiStudioPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.user.port.CreateUserPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.user.port.DeleteUserPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.user.port.ListUsersPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.user.usecase.AggiungiUtenteUseCase;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.user.usecase.RimuoviUtenteUseCase;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.user.usecase.VisualizzaUtentiUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +20,24 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AdminSerivice {
-
+public class UserService implements VisualizzaUtentiUseCase, AggiungiUtenteUseCase, RimuoviUtenteUseCase {
     @Autowired
-    private UsersRepository usersRepository;
-
+    private ListUsersPort listUsersPort;
     @Autowired
-    private CorsiDiStudioRepository corsiDiStudioRepository;
+    private CreateUserPort createUserPort;
+    @Autowired
+    private DeleteUserPort deleteUserPort;
+    @Autowired
+    private ReadCorsoDiStudioPort readCorsoDiStudioPort;
 
-    public void addUser(User user) throws EmailException, CorsoDiStudioNotFoundException, InvalidUserException {
+    @Override
+    public List<User> visualizzaUtenti() {
+        return this.listUsersPort.listUsers();
+    }
+
+    @Override
+    public void aggiungiUtente(User user) throws EmailException, InvalidUserException, CorsoDiStudioNotFoundException {
+
         Optional<CorsoDiStudio> corsoDiStudioOptional;
 
         switch (user.getRole()){
@@ -36,7 +49,7 @@ public class AdminSerivice {
                 if (!user.getMatricola().isPresent() || !user.getCorsoDiStudio().isPresent())
                     throw new InvalidUserException("uno studente deve avere matricola e corso di studio");
                 // il corso di studio c'è controllo che sia nel DB
-                corsoDiStudioOptional = this.corsiDiStudioRepository.findById(user.getCorsoDiStudio().get().getCodice());
+                corsoDiStudioOptional = this.readCorsoDiStudioPort.findCorsoDiStudioById(user.getCorsoDiStudio().get().getCodice());
                 if (!corsoDiStudioOptional.isPresent())
                     throw new CorsoDiStudioNotFoundException("Il corso di studio inserito non è presente nel DB");
                 break;
@@ -47,7 +60,7 @@ public class AdminSerivice {
                 if (!user.getCorsoDiStudio().isPresent())
                     throw new InvalidUserException("Un docente deve avere un corso di studio");
                 // il corso di studio c'è controllo che sia nel DB
-                corsoDiStudioOptional = this.corsiDiStudioRepository.findById(user.getCorsoDiStudio().get().getCodice());
+                corsoDiStudioOptional = this.readCorsoDiStudioPort.findCorsoDiStudioById(user.getCorsoDiStudio().get().getCodice());
                 if (!corsoDiStudioOptional.isPresent())
                     throw new CorsoDiStudioNotFoundException("Il corso di studio inserito non è presente nel DB");
                 break;
@@ -62,15 +75,12 @@ public class AdminSerivice {
                 //l'admin non ha limitazioni
         }
 
-        //ho passato tutti i controlli posso validare
-        this.usersRepository.save(user);
+
+        this.createUserPort.save(user);
     }
 
-    public List<User> getUtenti() {
-        return this.usersRepository.findAll();
-    }
-
-    public void deleteUtente(String email) throws EmailNonCorrettaException {
-        this.usersRepository.deleteById(new Email(email));
+    @Override
+    public void rimuoviUtente(Email email) {
+        this.deleteUserPort.deleteUser(email);
     }
 }
