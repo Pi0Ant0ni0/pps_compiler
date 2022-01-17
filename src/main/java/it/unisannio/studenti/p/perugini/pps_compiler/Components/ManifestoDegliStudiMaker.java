@@ -43,8 +43,12 @@ public class ManifestoDegliStudiMaker {
     @Autowired
     private CorsoDiStudioService corsoDiStudioService;
 
-    public  Document getManifestoDegliStudi(ManifestoDegliStudi manifestoDegliStudi, OutputStream outputStream, CorsoDiStudio corsoDiStudio) throws FileNotFoundException {
+    public  Document getManifestoDegliStudi(ManifestoDegliStudi manifestoDegliStudi, OutputStream outputStream) throws FileNotFoundException {
         logger.info("Sto per creare il pdf per la regola con chiave: "+ manifestoDegliStudi.getChiaveManifestoDegliStudi());
+
+        Optional<CorsoDiStudio> corsoDiStudio =corsoDiStudioService.getCorsoDiStudioById(manifestoDegliStudi.getChiaveManifestoDegliStudi().getCodiceCorsoDiStudio());
+        if(!corsoDiStudio.isPresent())
+            return null;
 
         PdfDocument pdfDocument = new PdfDocument( new PdfWriter(outputStream));
         Document document = new Document(pdfDocument);
@@ -52,7 +56,7 @@ public class ManifestoDegliStudiMaker {
 
         Table externalTable = new Table(1);
         Table table = new Table(5);
-        addTableTitle(table,corsoDiStudio, manifestoDegliStudi.getChiaveManifestoDegliStudi().getCoorte());
+        addTableTitle(table,corsoDiStudio.get(), manifestoDegliStudi.getChiaveManifestoDegliStudi().getCoorte());
         addHeaderInsegnamenti(table, blu);
 
         //ordino gli anni

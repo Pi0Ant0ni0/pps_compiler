@@ -8,6 +8,8 @@ import it.unisannio.studenti.p.perugini.pps_compiler.Services.InsegnamentoServic
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.RegoleService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.SADService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Components.ManifestoDegliStudiMaker;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.AggiungiManfiestoUseCase;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.ManifestoPDFUseCase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,24 +26,25 @@ import javax.ws.rs.core.StreamingOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role.ADMINstr;
 import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role.SADstr;
 
 @RestController
 @Path("/regole")
-public class ManifestiDegliStudiEndPoint {
-    private Logger logger = LoggerFactory.getLogger(ManifestiDegliStudiEndPoint.class);
+public class ManifestiDegliStudiController {
+    private Logger logger = LoggerFactory.getLogger(ManifestiDegliStudiController.class);
     @Autowired
     private SADService sadService;
-    @Autowired
-    private InsegnamentoService insegnamentoService;
     @Autowired
     private RegoleService regoleService;
     @Autowired
     private ManifestoDegliStudiMaker manifestoDegliStudiMaker;
     @Autowired
-    private AuthorizationService authorizationService;
+    private ManifestoPDFUseCase manifestoPDFUseCase;
+    @Autowired
+    private AggiungiManfiestoUseCase aggiungiManfiestoUseCase;
 
 
     @POST
@@ -51,11 +54,11 @@ public class ManifestiDegliStudiEndPoint {
     public Response addRegole(@RequestBody @Valid ManifestoDegliStudiDTO regola) {
         try {
             logger.info("è arrivata una nuova regola: "+regola);
-            this.sadService.addRegola(ManifestiDegliStudiMapper.fromRegolaDTOToRegola(regola));
+            this.aggiungiManfiestoUseCase.addManifesto(ManifestiDegliStudiMapper.fromRegolaDTOToRegola(regola));
             return Response.status(Response.Status.OK)
                     .entity("Regola aggiunta correttamente")
                     .build();
-        } catch (OrdinamentoNotFoundException | RegolaNonValidaException | InsegnamentoNotFoundException e) {
+        } catch (OrdinamentoNotFoundException | RegolaNonValidaException e) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity(e.getMessage())
                     .build();
@@ -68,22 +71,13 @@ public class ManifestiDegliStudiEndPoint {
     @Path("/{codiceCorsoDiStudio}/{coorte}")
     public StreamingOutput getRegola(@PathParam("coorte")int anno,@PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio) {
         logger.info("Arrivata una richiesta per il manifesto degli studi della corte: "+anno+" per il corso di studi: "+codiceCorsoDiStudio);
-        try {
-            logger.info("ricerco la regola");
-            ManifestoDegliStudi manifestoDegliStudi = this.sadService.getRegolaByID(anno,codiceCorsoDiStudio);
-            System.out.println(manifestoDegliStudi);
-            logger.info("ricerco il corso dis tudi");
-            CorsoDiStudio corsoDiStudio = this.sadService.getCorsoDiStudioByCodice(manifestoDegliStudi.getChiaveManifestoDegliStudi().getCodiceCorsoDiStudio());
-            logger.info("inizio a creare il pdf");
+        Optional<ManifestoDegliStudi> manifestoDegliStudi = this.manifestoPDFUseCase.manifestoPDF(anno,codiceCorsoDiStudio);
+        if(manifestoDegliStudi.isPresent()){
             return outputStream -> {
-                manifestoDegliStudiMaker.getManifestoDegliStudi(manifestoDegliStudi, outputStream, corsoDiStudio);
+                manifestoDegliStudiMaker.getManifestoDegliStudi(manifestoDegliStudi.get(), outputStream);
             };
-
-        } catch (RegolaNotFoundException | CorsoDiStudioNotFoundException e) {
-            throw new WebApplicationException(Response
-                    .status(Response.Status.NOT_FOUND)
-                    .entity(e.getMessage())
-                    .build());
+        }else {
+            return null;
         }
     }
 

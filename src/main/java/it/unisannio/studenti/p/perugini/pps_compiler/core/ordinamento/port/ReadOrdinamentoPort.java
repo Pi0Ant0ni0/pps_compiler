@@ -6,4 +6,5 @@ import java.util.Optional;
 
 public interface ReadOrdinamentoPort {
     Optional<Ordinamento> findOrdinamentoCorrente();
+    Optional<Ordinamento>findOrdinamentoById(int annoDiRedazione);
 }

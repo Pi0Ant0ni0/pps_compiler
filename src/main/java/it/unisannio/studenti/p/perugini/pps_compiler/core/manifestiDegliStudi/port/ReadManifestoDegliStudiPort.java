@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface ReadManifestoDegliStudiPort {
     Optional<ManifestoDegliStudi> findManifestoById(ChiaveManifestoDegliStudi id);
+
 }

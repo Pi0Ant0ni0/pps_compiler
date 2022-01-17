@@ -23,6 +23,11 @@ public class OrdinamentoAdapter implements CreateOrdinamentoPort, ReadOrdinament
 
     @Override
     public Optional<Ordinamento> findOrdinamentoCorrente() {
-        return this.ordinamentoRepository.findAll(Sort.by("annoDiRedazione").ascending()).stream().findFirst();
+        return this.ordinamentoRepository.findAll(Sort.by("annoDiRedazione").descending()).stream().findFirst();
+    }
+
+    @Override
+    public Optional<Ordinamento> findOrdinamentoById(int annoDiRedazione) {
+        return  this.ordinamentoRepository.findById(annoDiRedazione);
     }
 }
