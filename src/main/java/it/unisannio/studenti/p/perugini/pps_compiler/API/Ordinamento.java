@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Ordinamento {
     @EqualsAndHashCode.Include @Id
-    private int annoDiRedazione;
+    private ChiaveOrdinamento chiaveOrdinamento;
     private int cfuMinimiCorsoDiLaurea;
     private int cfuMassimiCorsoDiLaurea;
     private int cfuMinimiOrientamento;

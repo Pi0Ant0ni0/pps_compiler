@@ -1,5 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.core.ordinamento.adapter;
 
+import it.unisannio.studenti.p.perugini.pps_compiler.API.ChiaveOrdinamento;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.Ordinamento;
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.OrdinamentoRepository;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.ordinamento.port.CreateOrdinamentoPort;
@@ -22,12 +23,16 @@ public class OrdinamentoAdapter implements CreateOrdinamentoPort, ReadOrdinament
     }
 
     @Override
-    public Optional<Ordinamento> findOrdinamentoCorrente() {
-        return this.ordinamentoRepository.findAll(Sort.by("annoDiRedazione").descending()).stream().findFirst();
+    public Optional<Ordinamento> findOrdinamentoCorrente(String codice) {
+        return this.ordinamentoRepository.findAll(Sort.by("chiaveOrdinamento.annoDiRedazione")
+                .descending())
+                .stream()
+                .filter(ordinamento -> ordinamento.getChiaveOrdinamento().getCodiceCorsoDiStudio().equals(codice))
+                .findFirst();
     }
 
     @Override
-    public Optional<Ordinamento> findOrdinamentoById(int annoDiRedazione) {
-        return  this.ordinamentoRepository.findById(annoDiRedazione);
+    public Optional<Ordinamento> findOrdinamentoById(ChiaveOrdinamento chiaveOrdinamento) {
+        return  this.ordinamentoRepository.findById(chiaveOrdinamento);
     }
 }

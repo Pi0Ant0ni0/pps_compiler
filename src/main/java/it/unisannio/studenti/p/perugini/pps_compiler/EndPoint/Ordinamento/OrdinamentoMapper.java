@@ -1,11 +1,15 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.Ordinamento;
 
+import it.unisannio.studenti.p.perugini.pps_compiler.API.ChiaveOrdinamento;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.Ordinamento;
 
 public class OrdinamentoMapper {
     public static Ordinamento fromOrdinamentoDTOToOrdinamento(OrdinamentoDTO dto){
         Ordinamento ordinamento = new Ordinamento();
-        ordinamento.setAnnoDiRedazione(dto.getAnnoDiRedazione());
+        ChiaveOrdinamento chiaveOrdinamento = new ChiaveOrdinamento();
+        chiaveOrdinamento.setCodiceCorsoDiStudio(dto.getCodiceCorso());
+        chiaveOrdinamento.setAnnoDiRedazione(dto.getAnnoDiRedazione());
+        ordinamento.setChiaveOrdinamento(chiaveOrdinamento);
         ordinamento.setCfuMassimiAScelta(dto.getCfuMassimiAScelta());
         ordinamento.setCfuMassimiObbligatori(dto.getCfuMassimiObbligatori());
         ordinamento.setCfuMassimiOrientamento(dto.getCfuMassimiOrientamento());

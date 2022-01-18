@@ -32,7 +32,7 @@ public class OrdinamentoService  implements AggiungiOrdinamentoUseCase, Ordiname
     }
 
     @Override
-    public Optional<Ordinamento> ordinamentoCorrente() {
-        return this.readOrdinamentoPort.findOrdinamentoCorrente();
+    public Optional<Ordinamento> ordinamentoCorrente(String codice) {
+        return this.readOrdinamentoPort.findOrdinamentoCorrente(codice);
     }
 }

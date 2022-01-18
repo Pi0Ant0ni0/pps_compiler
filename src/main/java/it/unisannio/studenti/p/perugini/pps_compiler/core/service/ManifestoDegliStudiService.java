@@ -55,7 +55,10 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
             throw new RegolaNonValidaException("La regola è già presente nel database");
 
         //controllo se l'ordinamento inserito esiste
-        Optional<Ordinamento> ordinamento = this.readOrdinamentoPort.findOrdinamentoById(manifestoDegliStudi.getAnnoOrdinamento());
+        ChiaveOrdinamento chiaveOrdinamento = new ChiaveOrdinamento();
+        chiaveOrdinamento.setAnnoDiRedazione(manifestoDegliStudi.getAnnoOrdinamento());
+        chiaveOrdinamento.setCodiceCorsoDiStudio(manifestoDegliStudi.getChiaveManifestoDegliStudi().getCodiceCorsoDiStudio());
+        Optional<Ordinamento> ordinamento = this.readOrdinamentoPort.findOrdinamentoById(chiaveOrdinamento);
         if (!(ordinamento.isPresent()))
             throw  new OrdinamentoNotFoundException("La regola non è associato ad un ordinamento valido");
         //controllo che i cfu a scelta libera siano nel range prestabilito

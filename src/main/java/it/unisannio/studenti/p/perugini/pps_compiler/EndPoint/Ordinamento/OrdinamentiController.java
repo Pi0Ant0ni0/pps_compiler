@@ -57,12 +57,12 @@ public class OrdinamentiController {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.TEXT_PLAIN)
-    @Path("/ordinamentoCorrente")
+    @Path("{codiceCorsoDiStudio}/ordinamentoCorrente")
     @PermitAll
-    public int getAnniOrdinamenti(){
-        Optional<Ordinamento> ordinamento =  this.ordinamentoCorrenteUseCase.ordinamentoCorrente();
+    public int getAnniOrdinamenti(@PathParam("codiceCorsoDiStudio")String codice){
+        Optional<Ordinamento> ordinamento =  this.ordinamentoCorrenteUseCase.ordinamentoCorrente(codice);
         if(ordinamento.isPresent())
-            return ordinamento.get().getAnnoDiRedazione();
+            return ordinamento.get().getChiaveOrdinamento().getAnnoDiRedazione();
         return 0;
     }
 }

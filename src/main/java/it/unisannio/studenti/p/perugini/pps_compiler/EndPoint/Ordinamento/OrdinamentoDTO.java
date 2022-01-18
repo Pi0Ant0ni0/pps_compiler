@@ -4,6 +4,8 @@ package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.Ordinamento;
 import lombok.Data;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -11,6 +13,10 @@ public class OrdinamentoDTO {
     @NotNull(message = "l'anno di redazione è richiesto")
     @Min(value = 0, message = "L'anno di redazione deve essere maggiore di zero")
     private int annoDiRedazione;
+    @NotNull(message = "il codice del corso di studio è richiesto")
+    @NotBlank(message = "il codice del corso di studio è richiesto")
+    @NotEmpty(message = "il codice del corso di studio è richiesto")
+    private String codiceCorso;
     @NotNull(message = "i cfu minimi di orientamento sono richiesti")
     @Min(value = 0, message = "i cfu minimi di orientamento devono essere maggiore di zero")
     private int cfuMinimiOrientamento;
