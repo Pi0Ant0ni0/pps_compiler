@@ -81,6 +81,10 @@ public class PPSService implements CompilaPPSUseCase,
         if(!manifesto.isPresent())
             throw new RegolaNotFoundException("Lo studente è di una coorte di cui non si ha a disposizione il manifesto degli studi, riportare il problema alla segreteria didattica");
 
+        //controllo che il manifesto preveda degli insegnamenti a scelta
+        if(!manifesto.get().getAttivitaDidatticheAScelta().isPresent())
+            throw new PPSNonValidoException("Il tuo piano di studio non deve essere compilato.");
+
         //controllo che quanto passato sia coerente con la regola
         if(!pps.getOrientamento().isPresent() && manifesto.get().getCfuOrientamento()!= 0)
             throw new PPSNonValidoException("La regola prevede che ci siano dei cfu di orientamento");
@@ -129,7 +133,7 @@ public class PPSService implements CompilaPPSUseCase,
             if(!insegnamentiTotali.add(attivitaDidatticaPPSDTO.getCodiceAttivitaDidattica())){
                 throw new PPSNonValidoException("L'insegnamento con codice: "+ attivitaDidatticaPPSDTO.getCodiceAttivitaDidattica()+" è presente più volte");
             }//se c'è almeno un corso che non è di automatica approvazione è valido il pps
-            if(!attivitaDidatticaPPSDTO.getCodiceCorsoDiStudio().equals(pps.getUser().getCorsoDiStudio().get().getCodice())){
+            if(! (manifesto.get().getAttivitaDidatticheAScelta().get().contains(attivitaDidatticaPPSDTO)) ){
                 valid=true;
             }
         }
@@ -138,19 +142,9 @@ public class PPSService implements CompilaPPSUseCase,
             throw new PPSNonValidoException("Sono tutti insegnamenti di automatica approvazione, non serve compilare questo modulo");
 
         //controllo che effettivamente lo studente possa compilare il modulo
-        int currentYear = LocalDate.now().getYear();
-        //calcolo l'anno accademico
-        int annoInCuiScegliere = currentYear-coorte+1;
-        //se sono della corte 2018 posso compilare nel 2020 (2020-2018+1= 3 e nel 3 anno ho la scelta)
-        //se provo a compilare nel 2021 ottengo (2020-2019+1=4 che non è negli anni accademici)
-        if(!manifesto.get().getAnniAccademici().keySet().contains(annoInCuiScegliere))
-            throw new PPSNonValidoException("Non è possibile compilare il modulo in questo periodo");
-
-        //se nell'anno in cui sto effettuando la scelta, non sono presenti insegnamenti a scelta oppure insegnamenti di orientamento
-        //signigica che sto compilando il modulo in un periodo in cui non è consentito farlo per il mio corso di studio
-        if(!manifesto.get().getAnniAccademici().get(annoInCuiScegliere).getAttivitaDidatticheAScelta().isPresent() &&
-                !manifesto.get().getAnniAccademici().get(annoInCuiScegliere).getOrientamenti().isPresent())
-            throw new PPSNonValidoException("Impossibile compilare il modulo PPS. Si sta cercando di compilare il modulo in un anno in cui non ci sono insegnamenti a scelta oppure di orientamento");
+        if(LocalDate.now().isBefore(manifesto.get().getDataInizioCompilazionePiano()) ||
+                LocalDate.now().isAfter(manifesto.get().getDataFineCompilazionePiano()))
+            throw new PPSNonValidoException("Impossibile compilare il modulo PPS. Informati quando è possibile farlo");
 
     }
 

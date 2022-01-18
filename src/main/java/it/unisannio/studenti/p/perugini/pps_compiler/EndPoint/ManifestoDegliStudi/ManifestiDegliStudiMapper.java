@@ -20,6 +20,11 @@ public class ManifestiDegliStudiMapper {
         manifestoDegliStudi.setCfuTotali(manifestoDegliStudiDTO.getCfuTotali());
         manifestoDegliStudi.setCfuOrientamento(manifestoDegliStudiDTO.getCfuOrientamento());
         manifestoDegliStudi.setAnniAccademici(manifestoDegliStudiDTO.getAnniAccademici());
+        manifestoDegliStudi.setDataFineCompilazionePiano(manifestoDegliStudiDTO.getDataFineCompilazionePiano());
+        manifestoDegliStudi.setDataInizioCompilazionePiano(manifestoDegliStudiDTO.getDataInizioCompilazionePiano());
+        if(manifestoDegliStudiDTO.getAttivitaDidatticheAScelta()== null || manifestoDegliStudiDTO.getAttivitaDidatticheAScelta().isEmpty())
+            manifestoDegliStudi.setAttivitaDidatticheAScelta(null);
+        else manifestoDegliStudi.setAttivitaDidatticheAScelta(manifestoDegliStudiDTO.getAttivitaDidatticheAScelta());
         return manifestoDegliStudi;
     }
 

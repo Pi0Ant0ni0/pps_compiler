@@ -13,7 +13,7 @@ public class AnnoAccademico {
     private List<AttivitaDidatticheVincolateDalCorsoDiStudio> attivitaDidatticheVincolateDalCorsoDiStudio;
     private List<InsegnamentoRegola>insegnamentiObbligatori;
     private List<Orientamento> orientamenti;
-    private AttivitaDidatticheAScelta attivitaDidatticheAScelta;
+    private int cfuAScelta;
 
 
     public void addOrientamento(Orientamento orientamento){
@@ -37,10 +37,6 @@ public class AnnoAccademico {
     }
 
 
-    public Optional<AttivitaDidatticheAScelta> getAttivitaDidatticheAScelta() {
-        return Optional.ofNullable(attivitaDidatticheAScelta);
-    }
-
 
     public int getCfuObbligatori() {
         int count = 0;
@@ -49,11 +45,7 @@ public class AnnoAccademico {
         return count;
     }
 
-    public int getCfuLiberi() {
-        if(this.attivitaDidatticheAScelta == null)
-            return 0;
-        return this.attivitaDidatticheAScelta.getCfuDaScegliere();
-    }
+
 
     public int getCfuOrientamento(){
         if (this.orientamenti == null || this.orientamenti.isEmpty())
@@ -68,7 +60,7 @@ public class AnnoAccademico {
 
 
     public int getCfuTotali(){
-        return this.getCfuObbligatori()+this.getCfuOrientamento()+this.getCfuLiberi()+this.getcfuVincolatiDalCorso();
+        return this.getCfuObbligatori()+this.getCfuOrientamento()+cfuAScelta+this.getcfuVincolatiDalCorso();
     }
 
 

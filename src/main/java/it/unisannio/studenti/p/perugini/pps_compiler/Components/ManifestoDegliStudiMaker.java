@@ -7,15 +7,18 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.SolidBorder;
+import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.properties.AreaBreakType;
 import com.itextpdf.layout.properties.TextAlignment;
 
 import com.itextpdf.layout.properties.UnitValue;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.AttivitaDidatticheVincolateDalCorsoDiStudio;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.SEMESTRE;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.InsegnamentoRegola;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.Orientamento;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.CorsoDiStudioService;
@@ -81,10 +84,10 @@ public class ManifestoDegliStudiMaker {
                 }
             }
             if(annoAccademico.getOrientamenti().isPresent() && !annoAccademico.getOrientamenti().get().isEmpty()){
-                addOrientamentoRow(table, manifestoDegliStudi);
+                addOrientamentoRow(table, annoAccademico.getCfuOrientamento());
             }
-            if(annoAccademico.getAttivitaDidatticheAScelta().isPresent() && !annoAccademico.getAttivitaDidatticheAScelta().get().getInsegnamenti().isEmpty()){
-                addLiberiRow(table, annoAccademico.getAttivitaDidatticheAScelta().get());
+            if(annoAccademico.getCfuAScelta()!=0){
+                addLiberiRow(table, annoAccademico.getCfuAScelta());
             }
 
             //inserisco orientamento se ci sono
@@ -104,14 +107,6 @@ public class ManifestoDegliStudiMaker {
                 }
             }
 
-            //aggiungo le scelte se ci sono
-            if (annoAccademico.getAttivitaDidatticheAScelta().isPresent() && !annoAccademico.getAttivitaDidatticheAScelta().get().getInsegnamenti().isEmpty()) {
-                addHeaderLiberi(table);
-                addHeaderInsegnamenti(table, nuvole);
-                addInsegnamentiRow(table, annoAccademico.getAttivitaDidatticheAScelta().get().getInsegnamenti());
-            }
-
-
         }
 
         addFooterNote(table);
@@ -122,24 +117,44 @@ public class ManifestoDegliStudiMaker {
                 .setBorder(new SolidBorder(ColorConstants.BLACK, 2))
                 .setPadding(0));
         document.add(externalTable);
+
+
+
+        //liberi
+        if(manifestoDegliStudi.getAttivitaDidatticheAScelta().isPresent()) {
+            document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+            Table externalTableLiberi = new Table(1);
+            Table tableLiberi = new Table(6);
+            addHeaderLiberi(tableLiberi);
+            addHeaderTabellaLiberi(tableLiberi, nuvole);
+            addInsegnamentiLiberi(tableLiberi, manifestoDegliStudi.getAttivitaDidatticheAScelta().get());
+            tableLiberi.setWidth(UnitValue.createPercentValue(100));
+            externalTableLiberi.setWidth(UnitValue.createPercentValue(100));
+            externalTableLiberi.addCell(new Cell()
+                    .add(tableLiberi)
+                    .setBorder(new SolidBorder(ColorConstants.BLACK, 2))
+                    .setPadding(0));
+            document.add(externalTableLiberi);
+        }
+
         document.close();
         return document;
     }
 
-    private  void addOrientamentoRow(Table table, ManifestoDegliStudi manifestoDegliStudi) {
+    private  void addOrientamentoRow(Table table, int cfuO) {
         Cell ssd = new Cell();
         Cell codice = new Cell();
         Cell denominazione = new Cell().add(new Paragraph("INSEGNAMENTI DI ORIENTAMENTO").setFontSize(size));
-        Cell cfu = new Cell().add(new Paragraph(String.valueOf(manifestoDegliStudi.getCfuOrientamento())).setFontSize(size));
+        Cell cfu = new Cell().add(new Paragraph(String.valueOf(cfuO)).setFontSize(size));
         Cell semestre = new Cell().add(new Paragraph(SEMESTRE.annuale).setFontSize(size));
         table.addCell(ssd).addCell(codice).addCell(denominazione).addCell(cfu).addCell(semestre);
     }
 
-    private  void addLiberiRow(Table table, AttivitaDidatticheAScelta attivitaDidatticheAScelta) {
+    private  void addLiberiRow(Table table, int cfuAScelta) {
         Cell ssd = new Cell();
         Cell codice = new Cell();
         Cell denominazione = new Cell().add(new Paragraph("INSEGNAMENTI LIBERI").setFontSize(size));
-        Cell cfu = new Cell().add(new Paragraph(String.valueOf(attivitaDidatticheAScelta.getCfuDaScegliere())).setFontSize(size));
+        Cell cfu = new Cell().add(new Paragraph(String.valueOf(cfuAScelta)).setFontSize(size));
         Cell semestre = new Cell().add(new Paragraph(SEMESTRE.annuale).setFontSize(size));
         table.addCell(ssd).addCell(codice).addCell(denominazione).addCell(cfu).addCell(semestre);
 
@@ -207,19 +222,7 @@ public class ManifestoDegliStudiMaker {
         table.addCell(intestazione);
     }
 
-    private  void addHeaderLiberi(Table table) {
-        //aggiungo intestazione
-        Cell intestazione = new Cell(1,5)
-                .add(new Paragraph("Insegnamenti a scelta libera di automatica approvazione")
-                        .setBold()
-                        .setFontSize(size)
-                        .setFontColor(ColorConstants.WHITE))
-                .setBackgroundColor(nuvole)
-                .setTextAlignment(TextAlignment.CENTER);
-        table.addCell(intestazione);
 
-
-    }
 
     private  void addHeaderVincolati(Table table, AttivitaDidatticheVincolateDalCorsoDiStudio insegnamentiVincolati) {
 
@@ -327,6 +330,65 @@ public class ManifestoDegliStudiMaker {
 
     private  void addHeaderInsegnamenti(Table table, Color color){
         Stream.of("SSD", "Codice", "Insegnamento", "CFU", "Semestre")
+                .forEach(columnTitle -> {
+                    Cell header = new Cell();
+                    header.setBackgroundColor(color);
+                    header.add(new Paragraph(columnTitle)
+                            .setBold()
+                            .setFontSize(size)
+                            .setFontColor(ColorConstants.WHITE));
+                    table.addCell(header);
+                });
+    }
+
+
+
+    //liberi
+    private  void addHeaderLiberi(Table table) {
+        //aggiungo intestazione
+        Cell intestazione = new Cell(1,6)
+                .add(new Paragraph("INSEGNAMENTI A SCELTA DI AUTOMATICA APPROVAZIONE")
+                        .setBold()
+                        .setFontSize(size)
+                        .setFontColor(ColorConstants.WHITE))
+                .setBackgroundColor(nuvole)
+                .setTextAlignment(TextAlignment.CENTER);
+        table.addCell(intestazione);
+    }
+
+    private  void addInsegnamentiLiberi(Table table, List<AttivitaDidatticaPPSDTO> insegnamenti){
+        for (AttivitaDidatticaPPSDTO insegnamentoRegola : insegnamenti) {
+            Cell ssd = new Cell();
+            Cell codice = new Cell();
+            Cell denominazione = new Cell();
+            Cell cfu = new Cell();
+            Cell codiceCorsoDiStudio = new Cell();
+            Cell corsoDiStudio = new Cell();
+
+            ssd.add(new Paragraph(insegnamentoRegola.getSettoreScientificoDisciplinare()).setFontSize(size));
+            denominazione.add(new Paragraph(insegnamentoRegola.getDenominazioneAttivitaDidattica())).setFontSize(size);
+            codice.add(new Paragraph(insegnamentoRegola.getCodiceAttivitaDidattica())
+                    .setFontSize(size));
+            cfu.add(new Paragraph(String.valueOf(insegnamentoRegola.getCfu()))
+                    .setFontSize(size));
+            codiceCorsoDiStudio.add(new Paragraph(insegnamentoRegola.getCodiceCorsoDiStudio())
+                    .setFontSize(size));
+            corsoDiStudio.add(new Paragraph(insegnamentoRegola.getDenominazioneCorsoDiStudio())
+                    .setFontSize(size));
+
+            //aggiungo insegnamento
+            table.addCell(ssd);
+            table.addCell(codice);
+            table.addCell(denominazione);
+            table.addCell(cfu);
+            table.addCell(codiceCorsoDiStudio);
+            table.addCell(corsoDiStudio);
+        }
+
+    }
+
+    private  void addHeaderTabellaLiberi(Table table, Color color){
+        Stream.of("SSD", "Codice", "Insegnamento", "CFU", "Codice Corso Di Studio", "Denominazione Corso Di Studio")
                 .forEach(columnTitle -> {
                     Cell header = new Cell();
                     header.setBackgroundColor(color);

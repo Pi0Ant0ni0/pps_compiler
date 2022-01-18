@@ -1,12 +1,15 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.ManifestoDegliStudi;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.AnnoAccademico;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
 import lombok.*;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 @Data
 public class ManifestoDegliStudiDTO {
@@ -28,5 +31,10 @@ public class ManifestoDegliStudiDTO {
     @NotNull
     private Map<Integer, AnnoAccademico> anniAccademici;
     private String curricula;
+    private List<AttivitaDidatticaPPSDTO> attivitaDidatticheAScelta;
+    @NotNull
+    private LocalDate dataInizioCompilazionePiano;
+    @NotNull
+    private LocalDate dataFineCompilazionePiano;
 
 }

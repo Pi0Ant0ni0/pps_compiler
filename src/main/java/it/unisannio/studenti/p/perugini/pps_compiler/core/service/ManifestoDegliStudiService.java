@@ -2,6 +2,7 @@ package it.unisannio.studenti.p.perugini.pps_compiler.core.service;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.SEMESTRE;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.InsegnamentoRegola;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.InsegnamentoNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.OrdinamentoNotFoundException;
@@ -91,10 +92,10 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
                 cfuTotaliEffettivi += insegnamento.getCfu();
             }
 
-            if(manifestoDegliStudi.getAnniAccademici().get(anno).getAttivitaDidatticheAScelta().isPresent()) {
-                for (InsegnamentoRegola insegnamento : manifestoDegliStudi.getAnniAccademici().get(anno).getAttivitaDidatticheAScelta().get().getInsegnamenti()) {
-                    cfuTotaliEffettivi += insegnamento.getCfu();
-                }
+            if(manifestoDegliStudi.getAttivitaDidatticheAScelta().isPresent()){
+                for(AttivitaDidatticaPPSDTO attivitaDidatticaPPSDTO: manifestoDegliStudi.getAttivitaDidatticheAScelta().get())
+                    if(!readAttivitaDidatticaPort.findAttivitaById(attivitaDidatticaPPSDTO.getCodiceAttivitaDidattica()).isPresent())
+                        throw new RegolaNonValidaException("Alcuni insegnamenti non sono presenti nel database di sistema");
             }
 
             if(manifestoDegliStudi.getAnniAccademici().get(anno).getOrientamenti().isPresent()) {
@@ -150,6 +151,10 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
             if(insegnamento.isAnnualeFlag() && !(insegnamento.getSemestre().equals(SEMESTRE.annuale)))
                 throw new RegolaNonValidaException("Un corso annuale deve avere come valore del semstre \"1-2\"");
         }
+
+        //controllo che le date di compilazioni siano corrette
+        if(manifestoDegliStudi.getDataInizioCompilazionePiano().isAfter(manifestoDegliStudi.getDataFineCompilazionePiano()))
+            throw new RegolaNonValidaException("date di inzio e fine compilazione non coerenti");
         this.createManifestoPort.save(manifestoDegliStudi);
     }
 
