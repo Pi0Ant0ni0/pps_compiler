@@ -1,6 +1,14 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche;
 
-import it.unisannio.studenti.p.perugini.pps_compiler.API.AttivitaDidattica;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.CorsoDiStudioNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.RegolaNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.TipoCorsoDiLaureaNonSupportatoException;
@@ -17,15 +25,13 @@ import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.*;
 import java.util.stream.Collectors;
 
 import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role.ADMINstr;
 import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role.SADstr;
 
-
-@Path("/insegnamenti")
-public class AttivitaDidatticheEndPoint {
+@Path("/attivitadidattiche")
+public class AttivitaDidatticheController {
 
     @Autowired
     private StudentiService studentiService;
@@ -35,21 +41,23 @@ public class AttivitaDidatticheEndPoint {
     private InsegnamentoService insegnamentoService;
     @Autowired
     private AttivitaDidatticheMapper attivitaDidatticheMapper;
-    private  static boolean updatingDB = false;
 
-    private Logger logger = LoggerFactory.getLogger(AttivitaDidatticheEndPoint.class);
+    private Logger logger = LoggerFactory.getLogger(AttivitaDidatticheController.class);
 
+    @Operation(description = "Aggiornamento Del database delle attività didattiche e dei corsi di studio",  tags = { "Attività Didattiche" }, security = @SecurityRequirement(name = "bearerAuth"))
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "aggiornamento andato a buon fine"),
+            @ApiResponse(responseCode = "500", description = "aggiornamento fallito")
+    })
     @POST
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
     @RolesAllowed(value = {ADMINstr, SADstr})
     public Response updateDataBase(){
         try {
-            updatingDB=true;
             logger.info("Aggiornamento del database iniziato");
             sadService.updateDatabse();
             logger.info("Aggiornamento del database concluso");
-            updatingDB=false;
             return Response
                     .ok()
                     .entity("DataBase aggiornato correttamente")
@@ -67,11 +75,15 @@ public class AttivitaDidatticheEndPoint {
         }
     }
 
+    @Operation(description = "Richiede tutte le attività didattiche presenti nel database",  tags = { "Attività Didattiche" })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
+    })
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
     @PermitAll
-    public Response getAttivitaDidattiche() throws CorsoDiStudioNotFoundException {
+    public Response getAttivitaDidattiche() {
         return Response
                 .ok()
                 .entity(this.insegnamentoService
@@ -84,12 +96,17 @@ public class AttivitaDidatticheEndPoint {
     }
 
 
+    @Operation(description = "Richiede tutte le attività didattiche erogate presenti nel database",  tags = { "Attività Didattiche" })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
+    })
     @GET
-    @Path("/{codiceCorsoDiStudio}")
+    @Path("/{codiceCorsoDiStudio}/erogate")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
     @PermitAll
-    public Response getAttivitaDidatticheByCorsoDiStudio(@PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio){
+    public Response getAttivitaDidatticheByCorsoDiStudio(@Parameter(description = "codice del corso di studio", required = true)
+                                                             @PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio){
         return Response
                 .ok()
                 .entity(this.insegnamentoService
@@ -102,12 +119,17 @@ public class AttivitaDidatticheEndPoint {
     }
 
 
+    @Operation(description = "Richiede tutte le attività didattiche programmate presenti nel database",  tags = { "Attività Didattiche" })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
+    })
     @GET
-    @Path("/{codiceCorsoDiStudio}/programmati")
+    @Path("/{codiceCorsoDiStudio}/programmate")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
     @PermitAll
-    public Response getInsegnamentiProgrammatiByCorsoDiStudio(@PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio){
+    public Response getInsegnamentiProgrammatiByCorsoDiStudio(@Parameter(description = "codice del corso di studio", required = true)
+                                                                  @PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio){
         return Response
                 .ok()
                 .entity(this.insegnamentoService
@@ -122,11 +144,17 @@ public class AttivitaDidatticheEndPoint {
 
 
 
+    @Operation(description = "Richiede tutte le attività didattiche a scelta per una data coorte, non solo le attività di automatica approvazione",  tags = { "Attività Didattiche" })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
+    })
     @GET
     @Path("{codiceCorsoDiStudio}/{coorte}/aScelta")
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
-    public Response getAllFreeChoiceCourses (@PathParam("codiceCorsoDiStudio") String cdsOffId,
+    public Response getAllFreeChoiceCourses (@Parameter(description = "codice del corso di studio", required = true)
+                                                 @PathParam("codiceCorsoDiStudio") String cdsOffId,
+                                             @Parameter(description = "coorte per la quale si vuole ricercare le attività a scelta", required = true)
                                              @PathParam("coorte") int coorte) {
 
         try {
@@ -146,12 +174,16 @@ public class AttivitaDidatticheEndPoint {
         }
     }
 
+    @Operation(description = "Richiede tutte le attività didattiche di un dipartimento presenti nel database",  tags = { "Attività Didattiche" })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
+    })
     @GET
     @Path("/dipartimento/{dipartimento}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
     @PermitAll
-    public Response getAttivitaDidatticheByDipartimento(@PathParam("dipartimento")String dipartimento){
+    public Response getAttivitaDidatticheByDipartimento(@Parameter(name = "denominazione del dipartimento", required = true)@PathParam("dipartimento")String dipartimento){
         return Response
                 .ok()
                 .entity(this.insegnamentoService

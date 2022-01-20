@@ -19,8 +19,20 @@ public class CorsoDiStudioService {
     private ReadCorsoDiStudioPort readCorsoDiStudioPort;
 
     public List<CorsoDiStudio> getCorsiDiStudio(){
+        return this.listCorsiDiStudioPort.listCorsiDiStudio();
+    }
+
+    public List<CorsoDiStudio> getCorsiDiStudioAttiviti(){
         return this.listCorsiDiStudioPort.listCorsiDiStudio()
                 .stream()
+                .filter(corsoDiStudio -> !(corsoDiStudio.isProgrammato()))
+                .collect(Collectors.toList());
+    }
+
+    public List<CorsoDiStudio> getCorsiDiStudioAttivi(String facolta) {
+        return this.listCorsiDiStudioPort.listCorsiDiStudio()
+                .stream()
+                .filter(corsoDiStudio -> corsoDiStudio.getDenominazioneFacolta().toLowerCase().contains(facolta))
                 .filter(corsoDiStudio -> !(corsoDiStudio.isProgrammato()))
                 .collect(Collectors.toList());
     }

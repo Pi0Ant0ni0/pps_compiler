@@ -37,6 +37,22 @@ public class UserController {
     private UserMapper userMapper;
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    @GET
+    @RolesAllowed(ADMINstr)
+    public Response getUsers(){
+        this.logger.info("Sono stati richiesti tutti gli utenti");
+        return Response
+                .ok()
+                .entity(this.visualizzaUtentiUseCase
+                        .visualizzaUtenti()
+                        .stream()
+                        .map(userMapper::fromUserToGenericUserDTO)
+                        .collect(Collectors.toList())
+                ).build();
+    }
+
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     @POST
@@ -67,21 +83,7 @@ public class UserController {
         }
     }
 
-    @Consumes(MediaType.TEXT_PLAIN)
-    @Produces(MediaType.APPLICATION_JSON)
-    @GET
-    @RolesAllowed(ADMINstr)
-    public Response getUsers(){
-        this.logger.info("Sono stati richiesti tutti gli utenti");
-        return Response
-                .ok()
-                .entity(this.visualizzaUtentiUseCase
-                        .visualizzaUtenti()
-                        .stream()
-                        .map(userMapper::fromUserToGenericUserDTO)
-                        .collect(Collectors.toList())
-                ).build();
-    }
+
 
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)

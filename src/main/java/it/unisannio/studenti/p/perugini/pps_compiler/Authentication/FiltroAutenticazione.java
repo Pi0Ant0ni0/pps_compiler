@@ -37,8 +37,9 @@ public class FiltroAutenticazione implements ContainerRequestFilter
         logger.info("attivazione filtro per richiesta in entrata");
         Method method = resourceInfo.getResourceMethod();
 
+
         //se non c'è il permit all devo controllare
-        if(!method.isAnnotationPresent(PermitAll.class)) {
+        if(!method.isAnnotationPresent(PermitAll.class) && !requestContext.getUriInfo().getRequestUri().getPath().equals("/rest/openapi.json")) {
             logger.info("Il metodo ha un accesso basato su ruolo");
 
             //Get request headers

@@ -1,5 +1,8 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.CorsoDiStudio;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.CorsoDiStudioService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.SADService;
@@ -14,9 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @Path("/corsiDiStudio")
-public class CorsiDiStudioEndPoint {
+public class CorsiDiStudioController {
     @Autowired
     private CorsoDiStudioService corsoDiStudioService;
     @Autowired
@@ -60,8 +62,25 @@ public class CorsiDiStudioEndPoint {
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
+    @Path("/attivi")
+    public Response getCorsiDiStudioAttivi(){
+        return Response
+                .ok()
+                .entity(this.corsoDiStudioService
+                        .getCorsiDiStudioAttiviti()
+                        .stream()
+                        .map(corsoDiStudioMapper::fromCorsoDiStudioToCorsoDiStudioDto)
+                        .collect(Collectors.toList())
+                )
+                .build();
+    }
+
+    @GET
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    @PermitAll
     @Path("/{dipartimento}")
-    public Response getCorsiDiStudioIngegneria(@PathParam("dipartimento") String dipartimento){
+    public Response getCorsiDiStudioDipartimento(@PathParam("dipartimento") String dipartimento){
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService
@@ -77,12 +96,29 @@ public class CorsiDiStudioEndPoint {
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
-    @Path("/programmati/{dipartimento}")
-    public Response getCorsiDiStudioProgrammatiIngegneria(@PathParam("dipartimento") String dipartimento){
+    @Path("/{dipartimento}/programmati")
+    public Response getCorsiDiStudioProgrammatiDipartimentoProgrammati(@PathParam("dipartimento") String dipartimento){
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService
                         .getCorsiDiStudioProgrammati(dipartimento)
+                        .stream()
+                        .map(corsoDiStudioMapper::fromCorsoDiStudioToCorsoDiStudioDto)
+                        .collect(Collectors.toList())
+                )
+                .build();
+    }
+
+    @GET
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    @PermitAll
+    @Path("/{dipartimento}/attivi")
+    public Response getCorsiDiStudioProgrammatiDipartimentoAttivi(@PathParam("dipartimento") String dipartimento){
+        return Response
+                .ok()
+                .entity(this.corsoDiStudioService
+                        .getCorsiDiStudioAttivi(dipartimento)
                         .stream()
                         .map(corsoDiStudioMapper::fromCorsoDiStudioToCorsoDiStudioDto)
                         .collect(Collectors.toList())

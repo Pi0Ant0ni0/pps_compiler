@@ -31,7 +31,7 @@ import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role
 import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role.SADstr;
 
 @RestController
-@Path("/regole")
+@Path("/manifestideglistudi")
 public class ManifestiDegliStudiController {
     private Logger logger = LoggerFactory.getLogger(ManifestiDegliStudiController.class);
     @Autowired
@@ -65,14 +65,29 @@ public class ManifestiDegliStudiController {
     }
 
     @GET
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{codiceCorsoDiStudio}")
+    @PermitAll
+    public Response getManifestiPreviw(@PathParam("codiceCorsoDiStudio")String codiceCorsoDiSudio){
+        return Response
+                .ok()
+                .entity(this.visualizzaManifestoUseCase.getManifesti(codiceCorsoDiSudio)
+                        .stream()
+                        .map(ManifestiDegliStudiMapper::fromManifestoToPreview)
+                        .collect(Collectors.toList())
+                ).build();
+    }
+
+    @GET
     @Produces(org.springframework.http.MediaType.APPLICATION_PDF_VALUE)
     @PermitAll()
     @Path("/{codiceCorsoDiStudio}/{coorte}/")
     public StreamingOutput getManifesto(@PathParam("coorte")int anno,
                                         @PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio,
-                                        @QueryParam("curricula") @DefaultValue("") String curricula) {
+                                        @QueryParam("curriculum") @DefaultValue("") String curriculum) {
         logger.info("Arrivata una richiesta per il manifesto degli studi della corte: "+anno+" per il corso di studi: "+codiceCorsoDiStudio);
-        Optional<ManifestoDegliStudi> manifestoDegliStudi = this.manifestoPDFUseCase.manifestoPDF(anno,codiceCorsoDiStudio,curricula);
+        Optional<ManifestoDegliStudi> manifestoDegliStudi = this.manifestoPDFUseCase.manifestoPDF(anno,codiceCorsoDiStudio,curriculum);
         if(manifestoDegliStudi.isPresent()){
             return outputStream -> {
                 manifestoDegliStudiMaker.getManifestoDegliStudi(manifestoDegliStudi.get(), outputStream);
@@ -86,7 +101,7 @@ public class ManifestiDegliStudiController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed(value = {ADMINstr, SADstr})
-    @Path("/{coorte}/{codiceCorsoDiStudio}/orientamenti/")
+    @Path("/{codiceCorsoDiStudio}/{coorte}/orientamenti/")
     @PermitAll
     public Response getOrientamenti(@PathParam("codiceCorsoDiStudio") String codiceCorsoDiStudio,
                                     @PathParam("coorte")int coorte) {
@@ -109,19 +124,6 @@ public class ManifestiDegliStudiController {
     }
 
 
-    @GET
-    @Consumes(MediaType.TEXT_PLAIN)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{codiceCorsoDiStudio}")
-    @PermitAll
-    public Response getManifestiPreviw(@PathParam("codiceCorsoDiStudio")String codiceCorsoDiSudio){
-        return Response
-                .ok()
-                .entity(this.visualizzaManifestoUseCase.getManifesti(codiceCorsoDiSudio)
-                        .stream()
-                        .map(ManifestiDegliStudiMapper::fromManifestoToPreview)
-                        .collect(Collectors.toList())
-                ).build();
-    }
+
 
 }
