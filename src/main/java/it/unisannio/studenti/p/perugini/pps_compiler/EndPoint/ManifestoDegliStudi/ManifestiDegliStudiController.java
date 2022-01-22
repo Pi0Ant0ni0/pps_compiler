@@ -1,6 +1,13 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.ManifestoDegliStudi;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.SADService;
@@ -46,11 +53,29 @@ public class ManifestiDegliStudiController {
     private AggiungiManfiestoUseCase aggiungiManfiestoUseCase;
 
 
+    @Operation(
+            description = "inserisce un nuovo manifesto degli studi nel database",
+            tags = { "Manifesti Degli Studi" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "manifesto aggiunto correttamente",
+                    content = @Content(mediaType = "text/plain")
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "ordinamento non rispetta le specifiche",
+                    content = @Content(mediaType = "text/plain")
+            )
+    })
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     @RolesAllowed(value = {ADMINstr, SADstr})
-    public Response aggiungiManifesto(@RequestBody @Valid ManifestoDegliStudiDTO regola) {
+    public Response aggiungiManifesto(@Parameter(required = true, schema = @Schema(implementation = ManifestoDegliStudiDTO.class))
+                                          @RequestBody @Valid ManifestoDegliStudiDTO regola) {
         try {
             logger.info("è arrivata una nuova regola: "+regola);
             this.aggiungiManfiestoUseCase.addManifesto(ManifestiDegliStudiMapper.fromRegolaDTOToRegola(regola));
@@ -64,12 +89,23 @@ public class ManifestiDegliStudiController {
         }
     }
 
+    @Operation(
+            description = "ottengo le preview dei manifesti degli studi di un determinato corso di studio",
+            tags = { "Manifesti Degli Studi" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(schema = @Schema(implementation = ManifestoPreviewDTO[].class))
+            )
+    })
     @GET
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{codiceCorsoDiStudio}")
     @PermitAll
-    public Response getManifestiPreviw(@PathParam("codiceCorsoDiStudio")String codiceCorsoDiSudio){
+    public Response getManifestiPreviw(@Parameter(required = true, description = "codice del corso di studio")
+                                           @PathParam("codiceCorsoDiStudio")String codiceCorsoDiSudio){
         return Response
                 .ok()
                 .entity(this.visualizzaManifestoUseCase.getManifesti(codiceCorsoDiSudio)
@@ -79,12 +115,27 @@ public class ManifestiDegliStudiController {
                 ).build();
     }
 
+
+    @Operation(
+            description = "ottengo il manifesto degli studi in formato pdf per la corte ed il corso di studio selezionato",
+            tags = { "Manifesti Degli Studi" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(mediaType = "application/pdf")
+            )
+    })
     @GET
     @Produces(org.springframework.http.MediaType.APPLICATION_PDF_VALUE)
     @PermitAll()
     @Path("/{codiceCorsoDiStudio}/{coorte}/")
-    public StreamingOutput getManifesto(@PathParam("coorte")int anno,
+    public StreamingOutput getManifesto(@Parameter(required = true)
+                                            @PathParam("coorte")int anno,
+                                        @Parameter(required = true,description = "codice del corso di studio")
                                         @PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio,
+                                        @Parameter(required = false, description = "curriculum del manifesto degli studi")
                                         @QueryParam("curriculum") @DefaultValue("") String curriculum) {
         logger.info("Arrivata una richiesta per il manifesto degli studi della corte: "+anno+" per il corso di studi: "+codiceCorsoDiStudio);
         Optional<ManifestoDegliStudi> manifestoDegliStudi = this.manifestoPDFUseCase.manifestoPDF(anno,codiceCorsoDiStudio,curriculum);
@@ -98,12 +149,30 @@ public class ManifestiDegliStudiController {
     }
 
 
+    @Operation(
+            description = "ottengo gli orientamenti di una determinata coorte ed un determinato corso di studio",
+            tags = { "Manifesti Degli Studi" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(schema = @Schema(implementation = Orientamento[].class))
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "manifesto non trovato",
+                    content = @Content(mediaType = "text/plain")
+            )
+    })
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed(value = {ADMINstr, SADstr})
     @Path("/{codiceCorsoDiStudio}/{coorte}/orientamenti/")
     @PermitAll
-    public Response getOrientamenti(@PathParam("codiceCorsoDiStudio") String codiceCorsoDiStudio,
+    public Response getOrientamenti(@Parameter(required = true, description = "codice del corso di studio")
+                                        @PathParam("codiceCorsoDiStudio") String codiceCorsoDiStudio,
+                                    @Parameter(required = true)
                                     @PathParam("coorte")int coorte) {
 
         try {
@@ -117,7 +186,7 @@ public class ManifestiDegliStudiController {
                     .entity(orientamenti)
                     .build();
         } catch (RegolaNotFoundException e) {
-            return Response.status(Response.Status.BAD_REQUEST)
+            return Response.status(Response.Status.NOT_FOUND)
                     .entity(e.getMessage())
                     .build();
         }

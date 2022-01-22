@@ -1,5 +1,12 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.CorsoDiStudioNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailException;
@@ -37,6 +44,17 @@ public class UserController {
     private UserMapper userMapper;
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
+    @Operation(
+            description = "ottengo tutti gli utenti del sistema",
+            tags = { "Utenti" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(schema = @Schema(implementation = GenericUserDTO[].class))
+            )
+    })
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @GET
@@ -53,12 +71,30 @@ public class UserController {
                 ).build();
     }
 
+
+    @Operation(
+            description = "aggiungo un nuovo docente al sistema",
+            tags = { "Utenti" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(mediaType = "text/plain")
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "il docente non rispetta le specifiche",
+                    content = @Content(mediaType = "text/plain")
+            )
+    })
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     @POST
     @Path("/docenti")
     @RolesAllowed(ADMINstr)
-    public Response addDocente(@Valid @RequestBody DocenteDTO docenteDTO){
+    public Response addDocente(@Parameter(required = true, schema = @Schema(implementation = DocenteDTO.class))
+                                   @Valid @RequestBody DocenteDTO docenteDTO){
         logger.info("E' stata richiesta l'aggiunta di un nuovo docente");
         try {
             this.aggiungiUtenteUseCase.aggiungiUtente(userMapper.fromDocenteDtoToUser(docenteDTO));
@@ -68,12 +104,29 @@ public class UserController {
         }
     }
 
+    @Operation(
+            description = "aggiungo un nuovo operatore sad al sistema",
+            tags = { "Utenti" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(mediaType = "text/plain")
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "l'operatore sad non rispetta le specifiche",
+                    content = @Content(mediaType = "text/plain")
+            )
+    })
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     @POST
     @Path("/sad")
     @RolesAllowed(ADMINstr)
-    public Response addSAD(@Valid @RequestBody SadDTO sadDTO){
+    public Response addSAD(@Parameter(required = true, schema = @Schema(implementation = SadDTO.class))
+                               @Valid @RequestBody SadDTO sadDTO){
         logger.info("E' stata richiesta l'aggiunta di un nuovo operatore sad");
         try {
             this.aggiungiUtenteUseCase.aggiungiUtente(userMapper.fromSadDTOToUser(sadDTO));
@@ -85,12 +138,29 @@ public class UserController {
 
 
 
+    @Operation(
+            description = "elimino un utente dal sistema",
+            tags = { "Utenti" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(mediaType = "text/plain")
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "l'email specificata non è corretta",
+                    content = @Content(mediaType = "text/plain")
+            )
+    })
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @DELETE
     @Path("/{email}/delete")
     @RolesAllowed(ADMINstr)
-    public Response deleteUser(@PathParam("email")String email){
+    public Response deleteUser(@Parameter(required = true, description = "email associata all'utente da eliminare")
+                                   @PathParam("email")String email){
         this.logger.info("E' stata richiesta la cancellazione dell'utente con email: "+email);
         try {
             this.rimuoviUtenteUseCase.rimuoviUtente(new Email(email));

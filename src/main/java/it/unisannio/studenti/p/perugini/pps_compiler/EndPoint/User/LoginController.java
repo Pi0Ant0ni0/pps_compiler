@@ -1,5 +1,11 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.Components.JwtProvider;
@@ -31,11 +37,27 @@ public class LoginController {
     private JwtProvider jwtProvider;
 
 
+    @Operation(
+            description = "login al sistema",
+            tags = { "Auth" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(mediaType = "text/plain")
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "email non associata a nessun account",
+                    content = @Content(mediaType = "text/plain")
+            )
+    })
     @POST
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
     @PermitAll
-    public Response login(@RequestBody String email){
+    public Response login(@Parameter(required = true)
+                              @RequestBody String email){
         try {
             Email emailUser = new Email(email);
             this.loginUseCase.login(emailUser);
@@ -59,19 +81,39 @@ public class LoginController {
                     .build();
         } catch (EmailNonCorrettaException  | UserNotFound e) {
             return Response
-                    .status(Response.Status.BAD_REQUEST)
+                    .status(Response.Status.NOT_FOUND)
                     .entity(e.getMessage())
                     .build();
         }
     }
 
+
+    @Operation(
+            description = "verifica del login al sistema",
+            tags = { "Auth" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(schema = @Schema(implementation = UserAuthenticatedDTO.class))
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "otp errato o scaduto",
+                    content = @Content(mediaType = "text/plain")
+            )
+    })
     @POST
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
     @Path("/{email}/verify")
-    public Response verifyOTP(@CookieParam(CONSTANTS.cookie) Cookie cookie,
-                                @RequestBody String otp, @PathParam("email") String email){
+    public Response verifyOTP(@Parameter(required = true, description = "cookie contenente otp hashed", schema = @Schema(implementation = Cookie.class))
+                                  @CookieParam(CONSTANTS.cookie) Cookie cookie,
+                              @Parameter(required = true)
+                              @RequestBody String otp,
+                              @Parameter(required = true)
+                                  @PathParam("email") String email){
         try {
             Email emailUser = new Email(email);
             User user = this.loginUseCase.verifyLogin(otp,cookie,emailUser);

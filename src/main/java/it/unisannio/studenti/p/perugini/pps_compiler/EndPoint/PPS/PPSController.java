@@ -1,8 +1,16 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS;
 
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.PPS;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Utils.PPSMaker;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.usecase.*;
@@ -45,10 +53,21 @@ public class PPSController {
 
     private Logger logger = LoggerFactory.getLogger(PPSController.class);
 
+    @Operation(
+            description = "Compilazione di un modulo pps",
+            tags = { "Moduli Di Presentazione Dei Piani Di Studio" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "compilazione effettuata correttamente"),
+            @ApiResponse(responseCode = "400", description = "modulo pps non conforme alle specifiche")
+    })
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed(STUDENTEstr)
-    public Response compilaPPS(@RequestBody PPSAggiuntaDTO dto, @Context SecurityContext securityContext){
+    public Response compilaPPS(@Parameter(description = "ppsAggiuntaDTO", required = true, schema  = @Schema(implementation = PPSAggiuntaDTO.class))
+                                   @RequestBody PPSAggiuntaDTO dto,
+                               @Context SecurityContext securityContext){
         logger.info("E' stato ricevuto un modulo pps ");
         try {
             Email email = new Email(securityContext.getUserPrincipal().getName());
@@ -62,11 +81,28 @@ public class PPSController {
         }
 
     }
+
+    @Operation(
+            description = "ottengo il modulo pps di un utente",
+            tags = { "Moduli Di Presentazione Dei Piani Di Studio" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "modulo ottenuto correttamente",
+                    content = @Content(schema = @Schema(implementation = PPSPreviewDTO.class))
+            ),
+            @ApiResponse(responseCode = "400", description = "email non valida"),
+            @ApiResponse(responseCode = "404", description = "pps non trovato")
+    })
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed({STUDENTEstr, DOCENTEStr})
     @Path("/{email}")
-    public Response getPPS(@PathParam("email") String email, @Context SecurityContext securityContext){
+    public Response getPPS(@Parameter(required = true, description = "email dello studente di cui si richiede il pps")
+                               @PathParam("email") String email,
+                           @Context SecurityContext securityContext){
 
         try {
             logger.info("Arrivata richiesta del pps di: "+email);
@@ -92,6 +128,18 @@ public class PPSController {
     }
 
 
+    @Operation(
+            description = "ottengo tutti i pps visionati",
+            tags = { "Moduli Di Presentazione Dei Piani Di Studio" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "moduli ottenuti correttamente",
+                    content = @Content(schema = @Schema(implementation = PPSPreviewDTO[].class))
+            ),
+    })
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed(DOCENTEStr)
@@ -113,6 +161,18 @@ public class PPSController {
     }
 
 
+    @Operation(
+            description = "ottengo i moduli pps non visionati",
+            tags = { "Moduli Di Presentazione Dei Piani Di Studio" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "moduli ottenuti correttamente",
+                    content = @Content(schema = @Schema(implementation = PPSPreviewDTO.class))
+            )
+    })
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed(DOCENTEStr)
@@ -134,11 +194,27 @@ public class PPSController {
 
 
 
+    @Operation(
+            description = "creo il pdf del modulo pps selezionato",
+            tags = { "Moduli Di Presentazione Dei Piani Di Studio" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "modulo creato correttamente",
+                    content = @Content(mediaType ="application/pdf")
+            ),
+            @ApiResponse(responseCode = "400", description = "email non valida"),
+            @ApiResponse(responseCode = "404", description = "pps non trovato")
+    })
     @GET
     @Produces(org.springframework.http.MediaType.APPLICATION_PDF_VALUE)
     @RolesAllowed({STUDENTEstr, DOCENTEStr})
     @Path("/{email}/pdf")
-    public StreamingOutput getPPSPdf(@PathParam("email") String email, @Context SecurityContext securityContext){
+    public StreamingOutput getPPSPdf(@Parameter(required = true, description = "email dell'utente che ha compilato il pss")
+                                         @PathParam("email") String email,
+                                     @Context SecurityContext securityContext){
         logger.info("E' stato richiesto il  PPS di: "+email+" in formato PDF");
         try {
             logger.info("La richiesta è stata effettuata da: "+securityContext.getUserPrincipal().getName());
@@ -157,6 +233,21 @@ public class PPSController {
 
     }
 
+
+
+    @Operation(
+            description = "approvo un modulo pps",
+            tags = { "Moduli Di Presentazione Dei Piani Di Studio" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "modulo approvato correttamente",
+                    content = @Content(mediaType = "text/plain")
+            ),
+            @ApiResponse(responseCode = "400", description = "email non valida")
+    })
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed(DOCENTEStr)
@@ -173,6 +264,19 @@ public class PPSController {
     }
 
 
+    @Operation(
+            description = "rifiuto un modulo pps",
+            tags = { "Moduli Di Presentazione Dei Piani Di Studio" },
+            security = @SecurityRequirement(name = "bearerAuth")
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "modulo rifiutato correttamente",
+                    content = @Content(mediaType = "text/plain")
+            ),
+            @ApiResponse(responseCode = "400", description = "email non valida")
+    })
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @RolesAllowed(DOCENTEStr)

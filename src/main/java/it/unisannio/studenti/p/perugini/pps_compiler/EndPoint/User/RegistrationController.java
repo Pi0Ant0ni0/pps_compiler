@@ -1,5 +1,12 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.Components.JwtProvider;
@@ -39,11 +46,27 @@ public class RegistrationController {
     private Logger logger = LoggerFactory.getLogger(RegistrationController.class);
 
 
+    @Operation(
+            description = "registrazione di uno studente al sistema",
+            tags = { "Auth" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(mediaType = "text/plain")
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "i dati dello studente non rispettano le specifiche",
+                    content = @Content(mediaType = "text/plain")
+            )
+    })
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     @PermitAll
-    public Response register(@Valid @RequestBody StudentDTO studentDTO){
+    public Response register(@Parameter(required = true, schema = @Schema(implementation = StudentDTO.class))
+                                 @Valid @RequestBody StudentDTO studentDTO){
         logger.info("Arrivata un richiesta di registrazione dalla email: "+studentDTO.getEmail());
         try {
             this.registrationUseCase.register(studentDTO);
@@ -71,14 +94,30 @@ public class RegistrationController {
     }
 
 
+    @Operation(
+            description = "verifica della registrazione di uno studente al sistema",
+            tags = { "Auth" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(schema = @Schema(implementation = UserAuthenticatedDTO.class))
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "otp errato o scaduto",
+                    content = @Content(mediaType = "text/plain")
+            )
+    })
     @POST
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
     @Path("/{email}/verify")
-    public Response verifyRegistration(@PathParam("email")String email,
-                                       @RequestBody String otp,
-                                       @CookieParam(CONSTANTS.cookie)Cookie otpCookie){
+    public Response verifyRegistration(@Parameter(required = true)@PathParam("email")String email,
+                                       @Parameter(required = true)@RequestBody String otp,
+                                       @Parameter(required = true, description = "cookie con otp hashed", schema = @Schema(implementation = Cookie.class))
+                                           @CookieParam(CONSTANTS.cookie)Cookie otpCookie){
         logger.info("Arrivata Richiesta di validazione di una registrazione con email: "+email);
         try {
             User user = this.registrationUseCase.verifyRegistration(otp,otpCookie,new Email(email));

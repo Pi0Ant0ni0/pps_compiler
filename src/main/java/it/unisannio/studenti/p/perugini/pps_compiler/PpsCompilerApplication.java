@@ -42,7 +42,8 @@ import javax.ws.rs.ApplicationPath;
 				@Tag(name = "Ordinamenti"),
 				@Tag(name = "Manifesti Degli Studi"),
 				@Tag(name = "Utenti"),
-				@Tag(name = "Moduli Di Presentazione Dei Piani Di Studio")
+				@Tag(name = "Moduli Di Presentazione Dei Piani Di Studio"),
+				@Tag(name = "Auth")
 		}
 )
 @SecurityScheme(type = SecuritySchemeType.HTTP, name = "bearerAuth", scheme = "bearer", bearerFormat = "jwt")

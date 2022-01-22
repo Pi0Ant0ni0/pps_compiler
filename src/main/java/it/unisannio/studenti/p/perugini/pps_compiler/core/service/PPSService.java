@@ -81,9 +81,6 @@ public class PPSService implements CompilaPPSUseCase,
         if(!manifesto.isPresent())
             throw new RegolaNotFoundException("Lo studente è di una coorte di cui non si ha a disposizione il manifesto degli studi, riportare il problema alla segreteria didattica");
 
-        //controllo che il manifesto preveda degli insegnamenti a scelta
-        if(!manifesto.get().getAttivitaDidatticheAScelta().isPresent())
-            throw new PPSNonValidoException("Il tuo piano di studio non deve essere compilato.");
 
         //controllo che quanto passato sia coerente con la regola
         if(!pps.getOrientamento().isPresent() && manifesto.get().getCfuOrientamento()!= 0)
@@ -95,7 +92,8 @@ public class PPSService implements CompilaPPSUseCase,
         for (AttivitaDidatticaPPSDTO insegnamento: pps.getInsegnamentiASceltaLibera())
             countCfu+=insegnamento.getCfu();
 
-        if(countCfu != manifesto.get().getCfuASceltaLibera() && countCfu-manifesto.get().getCfuASceltaLibera() > manifesto.get().getCfuExtra())
+        if(countCfu != manifesto.get().getCfuASceltaLibera() &&
+                countCfu-manifesto.get().getCfuASceltaLibera() > manifesto.get().getCfuExtra())
             throw new PPSNonValidoException("La regola prevede un numero di cfu liberi diverso da quello da te indicato");
 
         //controllo che l'orientamento scelto sia tra quelli proposti

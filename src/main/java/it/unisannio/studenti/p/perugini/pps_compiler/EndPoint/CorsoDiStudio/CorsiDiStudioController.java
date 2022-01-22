@@ -1,7 +1,14 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.CorsoDiStudio;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.CorsoDiStudioService;
@@ -25,6 +32,17 @@ public class CorsiDiStudioController {
     private CorsoDiStudioMapper corsoDiStudioMapper;
 
 
+    @Operation(
+            description = "ottengo tutti i corsi di studio",
+            tags = { "Corsi Di Studio" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "corsi ottenuti correttamente",
+                    content = @Content(schema = @Schema(implementation = CorsoDiStudioDTO[].class))
+            )
+    })
     @GET
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
@@ -41,6 +59,17 @@ public class CorsiDiStudioController {
                 .build();
     }
 
+    @Operation(
+            description = "ottengo tutti i corsi di studio programmati",
+            tags = { "Corsi Di Studio" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "corsi ottenuti correttamente",
+                    content = @Content(schema = @Schema(implementation = CorsoDiStudioDTO[].class))
+            )
+    })
     @GET
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
@@ -58,6 +87,18 @@ public class CorsiDiStudioController {
                 .build();
     }
 
+
+    @Operation(
+            description = "ottengo tutti i corsi di studio attivi",
+            tags = { "Corsi Di Studio" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "corsi ottenuti correttamente",
+                    content = @Content(schema = @Schema(implementation = CorsoDiStudioDTO[].class))
+            )
+    })
     @GET
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
@@ -75,12 +116,24 @@ public class CorsiDiStudioController {
                 .build();
     }
 
+    @Operation(
+            description = "ottengo tutti i corsi di studio del dipartimento inserito",
+            tags = { "Corsi Di Studio" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "corsi ottenuti correttamente",
+                    content = @Content(schema = @Schema(implementation = CorsoDiStudioDTO[].class))
+            )
+    })
     @GET
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
     @Path("/{dipartimento}")
-    public Response getCorsiDiStudioDipartimento(@PathParam("dipartimento") String dipartimento){
+    public Response getCorsiDiStudioDipartimento(@Parameter(required = true, description = "denominazione del dipartimento")
+                                                     @PathParam("dipartimento") String dipartimento){
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService
@@ -92,12 +145,24 @@ public class CorsiDiStudioController {
                 .build();
     }
 
+    @Operation(
+            description = "ottengo tutti i corsi di studio programmati del dipartimento selezionato",
+            tags = { "Corsi Di Studio" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "corsi ottenuti correttamente",
+                    content = @Content(schema = @Schema(implementation = CorsoDiStudioDTO[].class))
+            )
+    })
     @GET
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
     @Path("/{dipartimento}/programmati")
-    public Response getCorsiDiStudioProgrammatiDipartimentoProgrammati(@PathParam("dipartimento") String dipartimento){
+    public Response getCorsiDiStudioProgrammatiDipartimentoProgrammati(@Parameter(required = true,description = "denominazione del dipartimento")
+                                                                           @PathParam("dipartimento") String dipartimento){
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService
@@ -109,12 +174,24 @@ public class CorsiDiStudioController {
                 .build();
     }
 
+    @Operation(
+            description = "ottengo tutti i corsi di studio attivi del dipartimento selezionato",
+            tags = { "Corsi Di Studio" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "corsi ottenuti correttamente",
+                    content = @Content(schema = @Schema(implementation = CorsoDiStudioDTO[].class))
+            )
+    })
     @GET
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
     @Path("/{dipartimento}/attivi")
-    public Response getCorsiDiStudioProgrammatiDipartimentoAttivi(@PathParam("dipartimento") String dipartimento){
+    public Response getCorsiDiStudioProgrammatiDipartimentoAttivi(@Parameter(required = true, description = "denominaizone del dipartimento")
+                                                                      @PathParam("dipartimento") String dipartimento){
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService
