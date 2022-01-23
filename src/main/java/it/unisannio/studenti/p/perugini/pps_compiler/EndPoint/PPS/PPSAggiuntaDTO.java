@@ -20,6 +20,8 @@ public class PPSAggiuntaDTO {
     private int coorte;
     //potrebbe non esserci
     private List<InsegnamentoRegola> orientamento;
+    //potrebbe non eserci
+    private String curriculum;
 
     public Optional<List<InsegnamentoRegola>> getOrientamento() {
         return Optional.ofNullable(orientamento);

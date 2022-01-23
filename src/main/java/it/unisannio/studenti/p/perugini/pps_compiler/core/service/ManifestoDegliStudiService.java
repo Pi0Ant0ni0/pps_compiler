@@ -89,14 +89,18 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
             for(InsegnamentoRegola insegnamento: manifestoDegliStudi.getAnniAccademici().get(anno).getInsegnamentiObbligatori()){
                 if(!insegnamentiTotali.add(insegnamento) && !insegnamento.isInsegnamentoIntegratoFlag())
                     throw new RegolaNonValidaException("Non può essere presente più volte lo stesso insegnamento: "+insegnamento.getDenominazioneInsegnamento());
+                if(!this.readAttivitaDidatticaPort.findAttivitaById(insegnamento.getCodiceInsegnamento()).isPresent())
+                    throw new RegolaNonValidaException("Insegnamento co codice: "+insegnamento.getCodiceInsegnamento()+" non è presente nel database di sistema");
                 cfuTotaliEffettivi += insegnamento.getCfu();
             }
 
+            //controllo le attivita a scelta che non siano duplicate e siano tutte presenti nel database
             if(manifestoDegliStudi.getAttivitaDidatticheAScelta().isPresent()){
                 for(AttivitaDidatticaPPSDTO attivitaDidatticaPPSDTO: manifestoDegliStudi.getAttivitaDidatticheAScelta().get())
                     if(!readAttivitaDidatticaPort.findAttivitaById(attivitaDidatticaPPSDTO.getCodiceAttivitaDidattica()).isPresent())
-                        throw new RegolaNonValidaException("Alcuni insegnamenti non sono presenti nel database di sistema");
+                        throw new RegolaNonValidaException("Insegnamento co codice: "+attivitaDidatticaPPSDTO.getCodiceAttivitaDidattica()+" non è presente nel database di sistema");
             }
+
 
             if(manifestoDegliStudi.getAnniAccademici().get(anno).getOrientamenti().isPresent()) {
                 for (Orientamento orientamento : manifestoDegliStudi.getAnniAccademici().get(anno).getOrientamenti().get()) {
@@ -104,8 +108,10 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
                     int cfuLiberiEffettivi = 0;
                     if (orientamento.getInsegnamentiLiberi().isPresent()) {
                         for (InsegnamentoRegola insegnamento : orientamento.getInsegnamentiLiberi().get()) {
-                            if (!insegnamentiTotali.add(insegnamento) && !insegnamento.isInsegnamentoIntegratoFlag())
+                            if (!insegnamentiTotali.add(insegnamento))
                                 throw new RegolaNonValidaException("Non può essere presente più volte lo stesso insegnamento: " + insegnamento.getDenominazioneInsegnamento());
+                            if(!this.readAttivitaDidatticaPort.findAttivitaById(insegnamento.getCodiceInsegnamento()).isPresent())
+                                throw new RegolaNonValidaException("Insegnamento co codice: "+insegnamento.getCodiceInsegnamento()+" non è presente nel database di sistema");
                             cfuTotaliEffettivi += insegnamento.getCfu();
                             cfuLiberiEffettivi += insegnamento.getCfu();
                         }
@@ -114,8 +120,10 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
                     }
                     if (orientamento.getInsegnamentiVincolati().isPresent()) {
                         for (InsegnamentoRegola insegnamento : orientamento.getInsegnamentiVincolati().get()) {
-                            if (!insegnamentiTotali.add(insegnamento) && !insegnamento.isInsegnamentoIntegratoFlag())
+                            if (!insegnamentiTotali.add(insegnamento))
                                 throw new RegolaNonValidaException("Non può essere presente più volte lo stesso insegnamento: " + insegnamento.getDenominazioneInsegnamento());
+                            if(!this.readAttivitaDidatticaPort.findAttivitaById(insegnamento.getCodiceInsegnamento()).isPresent())
+                                throw new RegolaNonValidaException("Insegnamento co codice: "+insegnamento.getCodiceInsegnamento()+" non è presente nel database di sistema");
                             cfuTotaliEffettivi += insegnamento.getCfu();
                             cfuVincolatiEffettivi += insegnamento.getCfu();
                         }
@@ -129,21 +137,20 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
             if(manifestoDegliStudi.getAnniAccademici().get(anno).getAttivitaDidatticheVincolateDalCorsoDiStudio().isPresent()){
                 for(AttivitaDidatticheVincolateDalCorsoDiStudio insegnamenti: manifestoDegliStudi.getAnniAccademici().get(anno).getAttivitaDidatticheVincolateDalCorsoDiStudio().get()) {
                     for (InsegnamentoRegola insegnamento : insegnamenti.getInsegnamentiRegola()) {
-                        if (!insegnamentiTotali.add(insegnamento) && !insegnamento.isInsegnamentoIntegratoFlag())
+                        if (!insegnamentiTotali.add(insegnamento))
                             throw new RegolaNonValidaException("Non può essere presente più volte lo stesso insegnamento: " + insegnamento.getDenominazioneInsegnamento());
+                        if(!this.readAttivitaDidatticaPort.findAttivitaById(insegnamento.getCodiceInsegnamento()).isPresent())
+                            throw new RegolaNonValidaException("Insegnamento co codice: "+insegnamento.getCodiceInsegnamento()+" non è presente nel database di sistema");
                         cfuTotaliEffettivi += insegnamento.getCfu();
                     }
                 }
             }
         }
-
-        for(InsegnamentoRegola insegnamentoRegola: insegnamentiTotali){
-            Optional<AttivitaDidattica> attivitaDidattica = this.readAttivitaDidatticaPort.findAttivitaById(insegnamentoRegola.getCodiceInsegnamento());
-            if(!attivitaDidattica.isPresent())
-                throw new RegolaNonValidaException("l'insegnamento con codice: "+insegnamentoRegola.getCodiceInsegnamento()+" non è presente nel database");
-        }
-
-
+        //dato che gli insegnamenti a scelta sono corretti li aggiungo
+        cfuTotaliEffettivi+=manifestoDegliStudi.getCfuASceltaLibera();
+        //dato che gli orientamenti sono corretti
+        cfuTotaliEffettivi+=manifestoDegliStudi.getCfuOrientamento();
+        //controllo il conteggio totale
         if(manifestoDegliStudi.getCfuTotali() >cfuTotaliEffettivi)
             throw new RegolaNonValidaException("Nella regola sono presenti meno insegnamenti di quelli richiesti");
 

@@ -7,6 +7,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Utils.CorsoDiStudiUtil;
 import it.unisannio.studenti.p.perugini.pps_compiler.Utils.InsegnamentoUtil;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ReadManifestoDegliStudiPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class SADService {
     @Autowired
     private OrdinamentoRepository ordinamentoRepository;
     @Autowired
-    private ManifestiDegliStudiRepository manifestiDegliStudiRepository;
+    private ReadManifestoDegliStudiPort readManifestoDegliStudiPort;
     @Autowired
     private CorsiDiStudioRepository corsiDiStudioRepository;
     @Autowired
@@ -499,18 +500,25 @@ public class SADService {
         attivitaDidatticheRepository.deleteAll();
     }
 
-
-    public ManifestoDegliStudi getRegolaByID(int anno, String codiceCorsoDiStudio) throws RegolaNotFoundException {
+    public List<Orientamento> getOrientamentoManifesto(int coorte, String codiceCorsoDiStudio){
         ChiaveManifestoDegliStudi chiaveManifestoDegliStudi = new ChiaveManifestoDegliStudi();
+        //se cerco gli orientamenti non devo specificare il curriculum, sono mutuamente esclusivi
         chiaveManifestoDegliStudi.setCodiceCorsoDiStudio(codiceCorsoDiStudio);
-        chiaveManifestoDegliStudi.setCoorte(anno);
-        Optional<ManifestoDegliStudi> regola = this.manifestiDegliStudiRepository.findById(chiaveManifestoDegliStudi);
-        if(!regola.isPresent()) {
-            logger.error("Impossibile trovare la regola");
-            throw new RegolaNotFoundException("La regola cercata non è presente nel DB");
+        chiaveManifestoDegliStudi.setCurricula(null);
+        chiaveManifestoDegliStudi.setCoorte(coorte);
+        Optional<ManifestoDegliStudi> optionalManifestoDegliStudi = this.readManifestoDegliStudiPort.findManifestoById(chiaveManifestoDegliStudi);
+        if(optionalManifestoDegliStudi.isPresent()) {
+            ManifestoDegliStudi manifestoDegliStudi = optionalManifestoDegliStudi.get();
+            Map<Integer, AnnoAccademico> schemiDiPiano = manifestoDegliStudi.getAnniAccademici();
+            List<Orientamento>orientamenti = new ArrayList<>();
+            for (Integer anno: schemiDiPiano.keySet()) {
+                if (schemiDiPiano.get(anno).getOrientamenti().isPresent())
+                    orientamenti.addAll(schemiDiPiano.get(anno).getOrientamenti().get());
+            }
+            return orientamenti;
         }
-        logger.error("Regola trovata");
-        return regola.get();
+        return new ArrayList<>();
     }
+
 
 }

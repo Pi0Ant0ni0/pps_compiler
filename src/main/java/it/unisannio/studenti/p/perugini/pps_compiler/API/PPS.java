@@ -19,8 +19,10 @@ public class PPS {
     private User user;
     @Getter @Setter @NonNull
     private List<AttivitaDidatticaPPSDTO> insegnamentiASceltaLibera;
-    @Setter @NonNull
+    @Setter
     private List<AttivitaDidatticaDiOrientamentoDTO> orientamento;
+    @Setter
+    private String curriculum;
     @Getter @Setter @NonNull
     private boolean approvato;
     @Getter @Setter @NonNull
@@ -32,6 +34,10 @@ public class PPS {
 
     public Optional<List<AttivitaDidatticaDiOrientamentoDTO>> getOrientamento() {
         return Optional.ofNullable(orientamento);
+    }
+
+    public Optional<String>getCurriculum(){
+        return Optional.ofNullable(curriculum);
     }
 
     public Optional<LocalDate> getDataVisione() {

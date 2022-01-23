@@ -13,11 +13,15 @@ import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.CorsiDiStudioR
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.AttivitaDidatticheRepository;
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.PPSRepository;
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.ManifestiDegliStudiRepository;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.corsoDiStudio.port.ReadCorsoDiStudioPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ListManifestiDegliStudiPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ReadManifestoDegliStudiPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentiService {
@@ -25,23 +29,27 @@ public class StudentiService {
     @Autowired
     private AttivitaDidatticheRepository attivitaDidatticheRepository;
     @Autowired
-    private CorsiDiStudioRepository corsiDiStudioRepository;
+    private ReadCorsoDiStudioPort readCorsoDiStudioPort;
+    @Autowired
+    private ReadManifestoDegliStudiPort readManifestoDegliStudiPort;
     @Autowired
     private InsegnamentoService insegnamentoService;
     @Autowired
-    private ManifestiDegliStudiRepository manifestiDegliStudiRepository;
-    @Autowired
-    private PPSRepository ppsRepository;
+    private ListManifestiDegliStudiPort listManifestiDegliStudiPort;
 
-    public List<AttivitaDidattica> getFreeChoiceCourses(String codiceCorsoDiStudio, int coorte) throws CorsoDiStudioNotFoundException, RegolaNotFoundException, TipoCorsoDiLaureaNonSupportatoException {
+
+    public List<AttivitaDidattica> getFreeChoiceCourses(String codiceCorsoDiStudio, int coorte, String curriculum) throws CorsoDiStudioNotFoundException, RegolaNotFoundException, TipoCorsoDiLaureaNonSupportatoException {
         List<AttivitaDidattica> insegnamentiLiberi = attivitaDidatticheRepository.getCorsiCompatibiliConSceltaLibera(codiceCorsoDiStudio);
-        Optional<CorsoDiStudio>corsoDiStudioStudente =this.corsiDiStudioRepository.findById(codiceCorsoDiStudio);
+        Optional<CorsoDiStudio>corsoDiStudioStudente =this.readCorsoDiStudioPort.findCorsoDiStudioById(codiceCorsoDiStudio);
         if(!corsoDiStudioStudente.isPresent())
             throw new CorsoDiStudioNotFoundException("il corso di studio con codice: "+codiceCorsoDiStudio+" non è presente nel database");
         ChiaveManifestoDegliStudi chiaveManifestoDegliStudi = new ChiaveManifestoDegliStudi();
         chiaveManifestoDegliStudi.setCoorte(coorte);
         chiaveManifestoDegliStudi.setCodiceCorsoDiStudio(codiceCorsoDiStudio);
-        Optional<ManifestoDegliStudi> regolaOptional = this.manifestiDegliStudiRepository.findById(chiaveManifestoDegliStudi);
+        if(curriculum.length()!=0)
+            chiaveManifestoDegliStudi.setCurricula(curriculum);
+        else chiaveManifestoDegliStudi.setCurricula(null);
+        Optional<ManifestoDegliStudi> regolaOptional = this.readManifestoDegliStudiPort.findManifestoById(chiaveManifestoDegliStudi);
         if (!regolaOptional.isPresent())
             throw new RegolaNotFoundException("Non è presente la regola per la coorte: "+coorte);
 
@@ -86,4 +94,14 @@ public class StudentiService {
     }
 
 
+    public List<String> getCurricula(String codiceCorsoDiStudio, int coorte) {
+       return this.listManifestiDegliStudiPort.list()
+               .stream()
+               .filter(manifestoDegliStudi -> manifestoDegliStudi.getChiaveManifestoDegliStudi().getCodiceCorsoDiStudio().equals(codiceCorsoDiStudio))
+               .filter(manifestoDegliStudi -> manifestoDegliStudi.getChiaveManifestoDegliStudi().getCoorte()==coorte)
+               .filter(manifestoDegliStudi -> manifestoDegliStudi.getChiaveManifestoDegliStudi().getCurricula().isPresent())
+               .map(manifestoDegliStudi -> manifestoDegliStudi.getChiaveManifestoDegliStudi().getCurricula().get())
+               .collect(Collectors.toList());
+
+    }
 }

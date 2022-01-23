@@ -16,4 +16,5 @@ public class PPSPreviewDTO {
     private String cognome;
     private List<AttivitaDidattica> orientamento;
     private List<AttivitaDidattica> liberi;
+    private String curriculum;
 }

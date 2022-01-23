@@ -12,6 +12,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.API.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.SADService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Components.ManifestoDegliStudiMaker;
+import it.unisannio.studenti.p.perugini.pps_compiler.Services.StudentiService;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.AggiungiManfiestoUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.ManifestoPDFUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.VisualizzaManifestoUseCase;
@@ -51,6 +52,8 @@ public class ManifestiDegliStudiController {
     private VisualizzaManifestoUseCase visualizzaManifestoUseCase;
     @Autowired
     private AggiungiManfiestoUseCase aggiungiManfiestoUseCase;
+    @Autowired
+    private StudentiService studentiService;
 
 
     @Operation(
@@ -174,22 +177,30 @@ public class ManifestiDegliStudiController {
                                         @PathParam("codiceCorsoDiStudio") String codiceCorsoDiStudio,
                                     @Parameter(required = true)
                                     @PathParam("coorte")int coorte) {
-
-        try {
-            ManifestoDegliStudi manifestoDegliStudi = this.sadService.getRegolaByID(coorte,codiceCorsoDiStudio);
-            Map<Integer, AnnoAccademico> schemiDiPiano = manifestoDegliStudi.getAnniAccademici();
-            List<Orientamento>orientamenti = new ArrayList<>();
-            for (Integer anno: schemiDiPiano.keySet())
-                if(schemiDiPiano.get(anno).getOrientamenti().isPresent())
-                    orientamenti.addAll(schemiDiPiano.get(anno).getOrientamenti().get());
             return Response.ok()
-                    .entity(orientamenti)
+                    .entity(sadService.getOrientamentoManifesto(coorte,codiceCorsoDiStudio))
                     .build();
-        } catch (RegolaNotFoundException e) {
-            return Response.status(Response.Status.NOT_FOUND)
-                    .entity(e.getMessage())
-                    .build();
-        }
+    }
+
+
+
+    @Operation(
+            description = "ottengo i curricula di un determinato corso di studio e per una determinata coorte",
+            tags = { "Manifesti Degli Studi" }
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(schema = @Schema(implementation = String[].class))
+            )
+    })
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @PermitAll
+    @Path("/{codiceCorsoDiStudio}/{coorte}/curricula")
+    public Response getCurricula(@PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio,
+                                 @PathParam("coorte")int coorte){
+        return  Response.ok(this.studentiService.getCurricula(codiceCorsoDiStudio,coorte)).build();
     }
 
 

@@ -25,16 +25,20 @@ public class PPSMapper {
         PPS pps = new PPS();
         pps.setInsegnamentiASceltaLibera(ppsAggiuntaDTO.getAttivitaDidatticheAScelta());
         List<AttivitaDidatticaDiOrientamentoDTO> orientamento = new ArrayList<>();
-        if(ppsAggiuntaDTO.getOrientamento().isPresent()){
+        if(ppsAggiuntaDTO.getOrientamento().isPresent() && ppsAggiuntaDTO.getOrientamento().get().size()!=0){
             for(InsegnamentoRegola insegnamento: ppsAggiuntaDTO.getOrientamento().get()){
                 orientamento.add(this.attivitaDidatticheMapper.fromInsegnamentoRegolaToInsegnamentoOrientamento(insegnamento));
             }
-        }
             pps.setOrientamento(orientamento);
+        }else pps.setOrientamento(null);
+
         pps.setDataCompilazione(LocalDate.now());
         pps.setApprovato(false);
         pps.setRifiutato(false);
         pps.setUser(user);
+        if(ppsAggiuntaDTO.getCurriculum()!= null && ppsAggiuntaDTO.getCurriculum().length()!=0)
+            pps.setCurriculum(ppsAggiuntaDTO.getCurriculum());
+        else pps.setCurriculum(null);
         return pps;
     }
 
@@ -59,6 +63,9 @@ public class PPSMapper {
         }else{
             dto.setOrientamento(new ArrayList<>());
         }
+        if(pps.getCurriculum().isPresent())
+            dto.setCurriculum(pps.getCurriculum().get());
+        else dto.setCurriculum("");
         return dto;
     }
 }

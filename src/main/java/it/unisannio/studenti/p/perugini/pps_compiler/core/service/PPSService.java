@@ -54,12 +54,12 @@ public class PPSService implements CompilaPPSUseCase,
     public void compila(PPSAggiuntaDTO pps, Email email) throws InsegnamentoNotFoundException, PPSNonValidoException, RegolaNotFoundException {
         User user = this.readUserPort.findUserById(email).get();
         PPS ppsEntity = ppsMapper.fromPPSDTOToPPS(pps,user);
-        this.validate(ppsEntity, pps.getCoorte());
+        this.validate(ppsEntity, pps.getCoorte(),pps.getCurriculum());
         //se non vengo fermato prima salvo
         this.createPPSPort.save(ppsEntity);
     }
 
-    private void validate(PPS pps, int coorte) throws PPSNonValidoException, RegolaNotFoundException {
+    private void validate(PPS pps, int coorte, String curriculum) throws PPSNonValidoException, RegolaNotFoundException {
         if(coorte>LocalDate.now().getYear())
             throw new PPSNonValidoException("La coorte non puo essere maggiore all'anno corrente");
 
@@ -77,6 +77,9 @@ public class PPSService implements CompilaPPSUseCase,
         ChiaveManifestoDegliStudi chiaveManifestoDegliStudi = new ChiaveManifestoDegliStudi();
         chiaveManifestoDegliStudi.setCoorte(coorte);
         chiaveManifestoDegliStudi.setCodiceCorsoDiStudio(pps.getUser().getCorsoDiStudio().get().getCodice());
+        if(curriculum!= null && curriculum.length()!=0)
+            chiaveManifestoDegliStudi.setCurricula(curriculum);
+        else chiaveManifestoDegliStudi.setCurricula(null);
         Optional<ManifestoDegliStudi> manifesto = this.readManifestoDegliStudiPort.findManifestoById(chiaveManifestoDegliStudi);
         if(!manifesto.isPresent())
             throw new RegolaNotFoundException("Lo studente è di una coorte di cui non si ha a disposizione il manifesto degli studi, riportare il problema alla segreteria didattica");

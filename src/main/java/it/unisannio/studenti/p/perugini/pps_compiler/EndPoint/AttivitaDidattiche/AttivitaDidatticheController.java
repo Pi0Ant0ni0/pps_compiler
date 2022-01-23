@@ -150,16 +150,18 @@ public class AttivitaDidatticheController {
     @Path("{codiceCorsoDiStudio}/{coorte}/aScelta")
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
-    public Response getAllFreeChoiceCourses (@Parameter(description = "codice del corso di studio", required = true)
+    public Response getCorsiASceltaLibera(@Parameter(description = "codice del corso di studio", required = true)
                                                  @PathParam("codiceCorsoDiStudio") String cdsOffId,
                                              @Parameter(description = "coorte per la quale si vuole ricercare le attività a scelta", required = true)
-                                             @PathParam("coorte") int coorte) {
+                                             @PathParam("coorte") int coorte,
+                                          @Parameter(description = "curriculum del manifesto degli studi", required = false)
+                                          @QueryParam("curriculum")@DefaultValue("") String curriculum) {
 
         try {
             return Response
                     .ok()
                     .entity(this.studentiService
-                            .getFreeChoiceCourses(cdsOffId, coorte)
+                            .getFreeChoiceCourses(cdsOffId, coorte, curriculum)
                             .stream()
                             .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
                             .collect(Collectors.toList())
