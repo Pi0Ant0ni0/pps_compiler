@@ -8,6 +8,7 @@ import java.util.List;
 
 @Data
 public class PPSPreviewDTO {
+    private String codiceCorsoDiStudio;
     private String email;
     private LocalDate dataCompilazione;
     private boolean approvato;

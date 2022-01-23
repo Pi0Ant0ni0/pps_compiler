@@ -1,5 +1,6 @@
-package it.unisannio.studenti.p.perugini.pps_compiler.API;
+package it.unisannio.studenti.p.perugini.pps_compiler.Repositories;
 
+import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role;
 import lombok.*;
@@ -8,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
 import java.security.Principal;
+import java.util.List;
 import java.util.Optional;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -23,11 +25,11 @@ public class User  implements Principal {
     @Getter @Setter @NonNull
     private Role role;
     @Setter
-    private CorsoDiStudio corsoDiStudio;
+    private List<CorsoDiStudio> corsoDiStudio;
     @Setter
     private String matricola;
 
-    public Optional<CorsoDiStudio> getCorsoDiStudio() {
+    public Optional<List<CorsoDiStudio>> getCorsoDiStudio() {
         return Optional.ofNullable(corsoDiStudio);
     }
 

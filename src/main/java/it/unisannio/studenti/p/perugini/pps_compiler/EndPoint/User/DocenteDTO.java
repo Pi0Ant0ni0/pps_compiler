@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 public class DocenteDTO {
@@ -16,7 +17,7 @@ public class DocenteDTO {
     @NotNull @NotBlank
     private String cognome;
     @NotNull
-    private CorsoDiStudioDTO corsoDiStudio;
+    private List<CorsoDiStudioDTO> corsoDiStudio;
     @NotNull @NotBlank @Email
     private String email;
 }

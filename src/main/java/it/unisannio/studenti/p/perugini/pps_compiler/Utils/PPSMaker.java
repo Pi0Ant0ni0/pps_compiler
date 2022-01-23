@@ -15,7 +15,8 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.UnitValue;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.PPS;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.API.Studente;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaDiOrientamentoDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
 import org.slf4j.Logger;
@@ -34,7 +35,7 @@ public class PPSMaker {
     private static Logger logger = LoggerFactory.getLogger(PPSMaker.class);
 
     public static Document makePPS(PPS pps, OutputStream outputStream) throws MalformedURLException {
-        logger.info("Sto per generare il pdf del modulo pps di: "+pps.getUser().getEmail());
+        logger.info("Sto per generare il pdf del modulo pps di: "+pps.getStudente().getEmail());
         PdfDocument pdfDocument = new PdfDocument( new PdfWriter(outputStream));
         Document document = new Document(pdfDocument);
         //metto il logo a sinistra
@@ -47,7 +48,7 @@ public class PPSMaker {
                 .setBold()
                 .setTextAlignment(TextAlignment.CENTER));
         //metto l'intestazione
-        addIntestazione(document,pps.getUser());
+        addIntestazione(document,pps.getStudente());
 
 
         document.add(new Paragraph("CHIEDE")
@@ -189,7 +190,7 @@ public class PPSMaker {
 
 
 
-    private static void addIntestazione(Document document, User user){
+    private static void addIntestazione(Document document, Studente studente){
         Table tabellaEsterna = new Table(1);
         //contenuto interno
         Table intestazione = new Table(4);
@@ -199,7 +200,7 @@ public class PPSMaker {
                         .setBold())
             .setBorder(Border.NO_BORDER));
         intestazione.addCell(new Cell(1,1)
-                .add(new Paragraph(user.getNome() +" "+user.getCognome()))
+                .add(new Paragraph(studente.getNome() +" "+studente.getCognome()))
                 .setBorder(Border.NO_BORDER));
         //matricola
         intestazione.addCell(new Cell(1,1)
@@ -207,14 +208,14 @@ public class PPSMaker {
                         .setBold())
                 .setBorder(Border.NO_BORDER));
         intestazione.addCell(new Cell(1,1)
-                .add(new Paragraph(user.getMatricola().get()).setTextAlignment(TextAlignment.RIGHT))
+                .add(new Paragraph(studente.getMatricola()).setTextAlignment(TextAlignment.RIGHT))
                 .setBorder(Border.NO_BORDER));
         intestazione.addCell(new Cell(1,2)
                 .add(new Paragraph("EMAIL").setTextAlignment(TextAlignment.LEFT)
                         .setBold())
                 .setBorder(Border.NO_BORDER));
         intestazione.addCell(new Cell(1,2)
-                .add(new Paragraph(user.getEmail().getEmail()).setTextAlignment(TextAlignment.LEFT))
+                .add(new Paragraph(studente.getEmail().getEmail()).setTextAlignment(TextAlignment.LEFT))
                 .setBorder(Border.NO_BORDER));
         //corso di studio
         intestazione.addCell(new Cell(1,2)
@@ -222,7 +223,7 @@ public class PPSMaker {
                         .setBold())
                 .setBorder(Border.NO_BORDER));
         intestazione.addCell(new Cell(1,2)
-                .add(new Paragraph(user.getCorsoDiStudio().get().getDenominazione()))
+                .add(new Paragraph(studente.getCorsoDiStudio().getDenominazione()))
                 .setBorder(Border.NO_BORDER));
         //facolta
         intestazione.addCell(new Cell(1,2)
@@ -230,7 +231,7 @@ public class PPSMaker {
                         .setBold())
                 .setBorder(Border.NO_BORDER));
         intestazione.addCell(new Cell(1,2)
-                .add(new Paragraph(user.getCorsoDiStudio().get().getDenominazioneFacolta()))
+                .add(new Paragraph(studente.getCorsoDiStudio().getDenominazioneFacolta()))
                 .setBorder(Border.NO_BORDER));
         tabellaEsterna.addCell(new Cell()
                 .add(intestazione)

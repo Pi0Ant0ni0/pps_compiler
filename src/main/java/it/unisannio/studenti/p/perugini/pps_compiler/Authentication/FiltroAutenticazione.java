@@ -1,6 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.Authentication;
 
-import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailNonCorrettaException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.UserNotFound;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.AuthorizationService;

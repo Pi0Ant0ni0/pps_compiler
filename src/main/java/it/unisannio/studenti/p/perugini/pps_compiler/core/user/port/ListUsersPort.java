@@ -1,6 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.core.user.port;
 
-import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 
 import java.util.List;
 

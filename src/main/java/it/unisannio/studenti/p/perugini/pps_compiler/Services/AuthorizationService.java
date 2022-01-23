@@ -1,14 +1,10 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.Services;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role;
-import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailException;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailNonCorrettaException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.OTPExpiredException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.UserNotFound;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.StudentDTORepository;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.UsersRepository;
 import it.unisannio.studenti.p.perugini.pps_compiler.Components.JwtProvider;
 import it.unisannio.studenti.p.perugini.pps_compiler.Components.OTP;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.user.port.ReadUserPort;

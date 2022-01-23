@@ -1,4 +1,4 @@
-package it.unisannio.studenti.p.perugini.pps_compiler.core.student.port;
+package it.unisannio.studenti.p.perugini.pps_compiler.core.studente.port;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.StudentDTO;

@@ -1,6 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.core.service;
 
-import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.OTPExpiredException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.UserNotFound;

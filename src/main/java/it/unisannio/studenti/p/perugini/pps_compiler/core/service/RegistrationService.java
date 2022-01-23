@@ -1,23 +1,22 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.core.service;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.StudentDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.UserMapper;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.AuthorizationService;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.corsoDiStudio.port.ReadCorsoDiStudioPort;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.student.port.CreateStudentRegistrationPort;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.student.port.ReadStudentPort;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.student.usecases.RegistrationUseCase;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.studente.port.CreateStudentRegistrationPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.studente.port.ReadStudentPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.studente.usecases.RegistrationUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.user.port.CreateUserPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.user.port.ReadUserPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.core.Cookie;
-import java.util.Optional;
 
 /**
  * Servizio che implementa lo use case di registrazione di uno studente al sistema*/

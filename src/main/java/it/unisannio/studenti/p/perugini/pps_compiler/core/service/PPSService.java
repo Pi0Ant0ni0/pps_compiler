@@ -8,7 +8,9 @@ import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.InsegnamentoRegola;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS.PPSAggiuntaDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS.PPSMapper;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.UserMapper;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ReadManifestoDegliStudiPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.port.CreatePPSPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.port.ListPPSPort;
@@ -49,6 +51,8 @@ public class PPSService implements CompilaPPSUseCase,
     /**Mapper per portare il DTO a entità del database*/
     @Autowired
     private PPSMapper ppsMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public void compila(PPSAggiuntaDTO pps, Email email) throws InsegnamentoNotFoundException, PPSNonValidoException, RegolaNotFoundException {
@@ -64,19 +68,19 @@ public class PPSService implements CompilaPPSUseCase,
             throw new PPSNonValidoException("La coorte non puo essere maggiore all'anno corrente");
 
         //controllo che sia possibile aggiungere un nuovo pps
-        if(this.readPPSPort.findPPSById(pps.getUser()).isPresent() &&
-                this.readPPSPort.findPPSById(pps.getUser()).get().isApprovato())
+        if(this.readPPSPort.findPPSById(pps.getStudente()).isPresent() &&
+                this.readPPSPort.findPPSById(pps.getStudente()).get().isApprovato())
             throw new PPSNonValidoException("Il modulo è stato gia compilato, ed è stato approvato, non è possibile compilarne di nuovi");
 
-        if(this.readPPSPort.findPPSById(pps.getUser()).isPresent() &&
-                !this.readPPSPort.findPPSById(pps.getUser()).get().isApprovato() &&
-                !this.readPPSPort.findPPSById(pps.getUser()).get().isRifiutato())
+        if(this.readPPSPort.findPPSById(pps.getStudente()).isPresent() &&
+                !this.readPPSPort.findPPSById(pps.getStudente()).get().isApprovato() &&
+                !this.readPPSPort.findPPSById(pps.getStudente()).get().isRifiutato())
             throw new PPSNonValidoException("Il modulo è stato gia compilato, è in attesa di revisione, non puoi compilarlo di nuovo nel frattempo! Abbi pazienza");
 
 
         ChiaveManifestoDegliStudi chiaveManifestoDegliStudi = new ChiaveManifestoDegliStudi();
         chiaveManifestoDegliStudi.setCoorte(coorte);
-        chiaveManifestoDegliStudi.setCodiceCorsoDiStudio(pps.getUser().getCorsoDiStudio().get().getCodice());
+        chiaveManifestoDegliStudi.setCodiceCorsoDiStudio(pps.getStudente().getCorsoDiStudio().getCodice());
         if(curriculum!= null && curriculum.length()!=0)
             chiaveManifestoDegliStudi.setCurricula(curriculum);
         else chiaveManifestoDegliStudi.setCurricula(null);
@@ -197,7 +201,7 @@ public class PPSService implements CompilaPPSUseCase,
         }
         //se sono uno studente che richiede il proprio modulo pps oppure un docente
         //posso accedere al modulo se presente
-        Optional<PPS> pps = this.readPPSPort.findPPSById(user.get());
+        Optional<PPS> pps = this.readPPSPort.findPPSById(userMapper.fromUserToStudente(user.get()));
         return pps;
     }
 
@@ -216,14 +220,14 @@ public class PPSService implements CompilaPPSUseCase,
     @Override
     public void accettaPPS(Email email) throws PPSNotFoundException, UserNotFound, PPSNonValidoException {
         Optional<User> user = this.readUserPort.findUserById(email);
-        if(user.isPresent()) this.updatePPSPort.accettaPPS(user.get());
+        if(user.isPresent()) this.updatePPSPort.accettaPPS(userMapper.fromUserToStudente(user.get()));
         else throw new UserNotFound("L'utente non risulta essere presente nel database");
     }
 
     @Override
     public void rififutaPPS(Email email) throws PPSNotFoundException, UserNotFound, PPSNonValidoException {
         Optional<User> user = this.readUserPort.findUserById(email);
-        if(user.isPresent()) this.updatePPSPort.rifiutaPPS(user.get());
+        if(user.isPresent()) this.updatePPSPort.rifiutaPPS(userMapper.fromUserToStudente(user.get()));
         else throw new UserNotFound("L'utente non risulta essere presente nel database");
     }
 }

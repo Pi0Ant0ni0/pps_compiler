@@ -1,6 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.core.user.adapter;
 
-import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.UsersRepository;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.user.port.CreateUserPort;

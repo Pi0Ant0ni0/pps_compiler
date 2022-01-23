@@ -1,7 +1,7 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.core.service;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.CorsoDiStudioNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailException;
@@ -49,7 +49,10 @@ public class UserService implements VisualizzaUtentiUseCase, AggiungiUtenteUseCa
                 if (!user.getMatricola().isPresent() || !user.getCorsoDiStudio().isPresent())
                     throw new InvalidUserException("uno studente deve avere matricola e corso di studio");
                 // il corso di studio c'è controllo che sia nel DB
-                corsoDiStudioOptional = this.readCorsoDiStudioPort.findCorsoDiStudioById(user.getCorsoDiStudio().get().getCodice());
+                //per gli studenti deve esserci un solo corso di studio
+                if(user.getCorsoDiStudio().get().size()!=1)
+                    throw new InvalidUserException("Uno studente puo essere associato ad un unico corso di studio");
+                corsoDiStudioOptional = this.readCorsoDiStudioPort.findCorsoDiStudioById(user.getCorsoDiStudio().get().get(0).getCodice());
                 if (!corsoDiStudioOptional.isPresent())
                     throw new CorsoDiStudioNotFoundException("Il corso di studio inserito non è presente nel DB");
                 break;
@@ -60,9 +63,12 @@ public class UserService implements VisualizzaUtentiUseCase, AggiungiUtenteUseCa
                 if (!user.getCorsoDiStudio().isPresent())
                     throw new InvalidUserException("Un docente deve avere un corso di studio");
                 // il corso di studio c'è controllo che sia nel DB
-                corsoDiStudioOptional = this.readCorsoDiStudioPort.findCorsoDiStudioById(user.getCorsoDiStudio().get().getCodice());
-                if (!corsoDiStudioOptional.isPresent())
-                    throw new CorsoDiStudioNotFoundException("Il corso di studio inserito non è presente nel DB");
+                //un docente puo avere diversi corsi di studio
+                for(CorsoDiStudio corsoDiStudio: user.getCorsoDiStudio().get()) {
+                    corsoDiStudioOptional = this.readCorsoDiStudioPort.findCorsoDiStudioById(corsoDiStudio.getCodice());
+                    if (!corsoDiStudioOptional.isPresent())
+                        throw new CorsoDiStudioNotFoundException("Il corso di studio inserito non è presente nel DB");
+                }
                 break;
             case SAD:
                 //controllo la mial

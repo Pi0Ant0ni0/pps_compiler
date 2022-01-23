@@ -2,6 +2,7 @@ package it.unisannio.studenti.p.perugini.pps_compiler.API;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaDiOrientamentoDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,7 +17,7 @@ import java.util.Optional;
 public class PPS {
     @Getter @Setter @NonNull @EqualsAndHashCode.Include
     @Id
-    private User user;
+    private Studente studente;
     @Getter @Setter @NonNull
     private List<AttivitaDidatticaPPSDTO> insegnamentiASceltaLibera;
     @Setter

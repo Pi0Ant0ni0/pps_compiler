@@ -24,11 +24,8 @@ public class CorsoDiStudioMapper {
         return dto;
     }
 
-    public CorsoDiStudio fromCorsoDiStudioDTOToCorsoDiStudio(CorsoDiStudioDTO dto) throws CorsoDiStudioNotFoundException {
-           Optional<CorsoDiStudio> optionalCorsoDiStudio =corsoDiStudioService.getCorsoDiStudioById(dto.getCodice());
-           if(optionalCorsoDiStudio.isPresent())
-               return optionalCorsoDiStudio.get();
-           else throw new CorsoDiStudioNotFoundException("Il corso di studio ricevuto non è presente nel database");
+    public Optional<CorsoDiStudio> fromCorsoDiStudioDTOToCorsoDiStudio(CorsoDiStudioDTO dto) {
+           return corsoDiStudioService.getCorsoDiStudioById(dto.getCodice());
 
 
     }

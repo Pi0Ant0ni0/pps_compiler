@@ -2,7 +2,8 @@ package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.AttivitaDidattica;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.PPS;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.UserMapper;
+import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticheMapper;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaDiOrientamentoDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
@@ -19,7 +20,9 @@ import java.util.List;
 public class PPSMapper {
 
     @Autowired
-    AttivitaDidatticheMapper attivitaDidatticheMapper;
+    private AttivitaDidatticheMapper attivitaDidatticheMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     public PPS fromPPSDTOToPPS(PPSAggiuntaDTO ppsAggiuntaDTO, User user) throws InsegnamentoNotFoundException {
         PPS pps = new PPS();
@@ -35,7 +38,7 @@ public class PPSMapper {
         pps.setDataCompilazione(LocalDate.now());
         pps.setApprovato(false);
         pps.setRifiutato(false);
-        pps.setUser(user);
+        pps.setStudente(userMapper.fromUserToStudente(user));
         if(ppsAggiuntaDTO.getCurriculum()!= null && ppsAggiuntaDTO.getCurriculum().length()!=0)
             pps.setCurriculum(ppsAggiuntaDTO.getCurriculum());
         else pps.setCurriculum(null);
@@ -44,12 +47,12 @@ public class PPSMapper {
 
     public PPSPreviewDTO fromPPSToPPSPreviewDTO(PPS pps) {
         PPSPreviewDTO dto = new PPSPreviewDTO();
-        dto.setEmail(pps.getUser().getEmail().getEmail());
+        dto.setEmail(pps.getStudente().getEmail().getEmail());
         dto.setDataCompilazione(pps.getDataCompilazione());
         dto.setApprovato(pps.isApprovato());
         dto.setRifiutato(pps.isRifiutato());
-        dto.setNome(pps.getUser().getNome());
-        dto.setCognome(pps.getUser().getCognome());
+        dto.setNome(pps.getStudente().getNome());
+        dto.setCognome(pps.getStudente().getCognome());
         List<AttivitaDidattica>buffer = new ArrayList<>();
         for(AttivitaDidatticaPPSDTO attivitaDidatticaPPSDTO : pps.getInsegnamentiASceltaLibera())
             buffer.add(this.attivitaDidatticheMapper.fromInsegnamentoPPSDTOToInsegnamento(attivitaDidatticaPPSDTO));
@@ -66,6 +69,7 @@ public class PPSMapper {
         if(pps.getCurriculum().isPresent())
             dto.setCurriculum(pps.getCurriculum().get());
         else dto.setCurriculum("");
+        dto.setCodiceCorsoDiStudio(pps.getStudente().getCorsoDiStudio().getCodice());
         return dto;
     }
 }
