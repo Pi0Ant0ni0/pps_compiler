@@ -5,7 +5,6 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import it.unisannio.studenti.p.perugini.pps_compiler.Authentication.FiltroAutenticazione;
@@ -19,13 +18,13 @@ import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.LoginControll
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.RegistrationController;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.UserController;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.ConstraintsHandler;
-import it.unisannio.studenti.p.perugini.pps_compiler.Exception.UncaughtHandler;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import javax.ws.rs.ApplicationPath;
 
@@ -50,6 +49,7 @@ import javax.ws.rs.ApplicationPath;
 @SpringBootApplication
 @EnableMongoRepositories
 @ApplicationPath("/rest")
+@EnableAsync
 public class PpsCompilerApplication extends ResourceConfig {
 	private Logger logger = LoggerFactory.getLogger(PpsCompilerApplication.class);
 
@@ -72,7 +72,6 @@ public class PpsCompilerApplication extends ResourceConfig {
 		register(PPSController.class);
 		register(FiltroAutenticazione.class);
 		register(ConstraintsHandler.class);
-		register(UncaughtHandler.class);
 		//swagger
 		register(OpenApiResource.class);
 	}

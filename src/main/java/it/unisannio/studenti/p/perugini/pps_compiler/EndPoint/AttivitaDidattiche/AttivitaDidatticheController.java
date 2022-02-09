@@ -23,6 +23,7 @@ import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role.ADMINstr;
@@ -51,26 +52,13 @@ public class AttivitaDidatticheController {
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.TEXT_PLAIN)
     @RolesAllowed(value = {ADMINstr, SADstr})
-    public Response updateDataBase(){
-        try {
+    public CompletableFuture<Response> updateDataBase() throws InterruptedException {
             logger.info("Aggiornamento del database iniziato");
-            sadService.updateDatabse();
+            CompletableFuture<Void>result = sadService.updateDatabse();
             logger.info("Aggiornamento del database concluso");
-            return Response
-                    .ok()
-                    .entity("DataBase aggiornato correttamente")
-                    .build();
-        } catch (InterruptedException e) {
-            return Response
-                    .status(500)
-                    .entity("Procedura Abortita")
-                    .build();
-        }catch (NullPointerException e){
-            return Response
-                    .status(500)
-                    .entity("Impossibile recuperare un insegnamento, Procedura abortita")
-                    .build();
-        }
+            return result
+                    .thenApply(unused -> Response.ok().entity("aggiornamento del database concluso").build())
+                    .exceptionally(throwable -> Response.serverError().entity(throwable.getMessage()).build());
     }
 
     @Operation(description = "Richiede tutte le attività didattiche presenti nel database",  tags = { "Attività Didattiche" })

@@ -2,6 +2,8 @@ package it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.ada
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.AttivitaDidattica;
 import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.AttivitaDidatticheRepository;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.CreateAttivitaDidattichaPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.DeleteAttivitaDidatticaPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.ListAttivitaDidattichePort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.ReadAttivitaDidatticaPort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class AttivitaDidatticaAdapterPort implements ReadAttivitaDidatticaPort, ListAttivitaDidattichePort {
+public class AttivitaDidatticaAdapterPort implements ReadAttivitaDidatticaPort, ListAttivitaDidattichePort, CreateAttivitaDidattichaPort, DeleteAttivitaDidatticaPort {
     @Autowired
     private AttivitaDidatticheRepository attivitaDidatticheRepository;
     @Override
@@ -22,5 +24,20 @@ public class AttivitaDidatticaAdapterPort implements ReadAttivitaDidatticaPort, 
     @Override
     public List<AttivitaDidattica> listAttivitaDidattiche() {
         return this.attivitaDidatticheRepository.findAll();
+    }
+
+    @Override
+    public List<AttivitaDidattica> listAttivitaDidatticheSceltaLibera(String codiceCorsoDiStudio) {
+        return this.attivitaDidatticheRepository.getCorsiCompatibiliConSceltaLibera(codiceCorsoDiStudio);
+    }
+
+    @Override
+    public void save(AttivitaDidattica attivitaDidattica) {
+        this.attivitaDidatticheRepository.save(attivitaDidattica);
+    }
+
+    @Override
+    public void deleteAll() {
+        this.attivitaDidatticheRepository.deleteAll();
     }
 }

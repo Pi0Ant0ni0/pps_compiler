@@ -4,10 +4,15 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @Document(collection = "attività didattiche")
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class AttivitaDidattica {
     @EqualsAndHashCode.Include
     @Id @Getter @Setter @NonNull
@@ -34,5 +39,11 @@ public class AttivitaDidattica {
     private String obiettivi;
     @Getter @Setter @NonNull
     private String prerequisiti;
+    @Setter
+    private List<AttivitaDidattica>unitaDidattiche;
+
+    public Optional<List<AttivitaDidattica>>getUnitaDidattiche(){
+        return Optional.ofNullable(unitaDidattiche);
+    }
 
 }

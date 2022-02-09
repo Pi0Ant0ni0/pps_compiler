@@ -1,25 +1,18 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.Services;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.*;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaDiOrientamentoDTO;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.InsegnamentoRegola;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.TipoCorsoDiLaurea;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.CorsoDiStudioNotFoundException;
-import it.unisannio.studenti.p.perugini.pps_compiler.Exception.PPSNonValidoException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.RegolaNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.TipoCorsoDiLaureaNonSupportatoException;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.CorsiDiStudioRepository;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.AttivitaDidatticheRepository;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.PPSRepository;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.ManifestiDegliStudiRepository;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.ListAttivitaDidattichePort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.corsoDiStudio.port.ReadCorsoDiStudioPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ListManifestiDegliStudiPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ReadManifestoDegliStudiPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -27,7 +20,7 @@ import java.util.stream.Collectors;
 public class StudentiService {
 
     @Autowired
-    private AttivitaDidatticheRepository attivitaDidatticheRepository;
+    private ListAttivitaDidattichePort listAttivitaDidattichePort;
     @Autowired
     private ReadCorsoDiStudioPort readCorsoDiStudioPort;
     @Autowired
@@ -39,7 +32,7 @@ public class StudentiService {
 
 
     public List<AttivitaDidattica> getFreeChoiceCourses(String codiceCorsoDiStudio, int coorte, String curriculum) throws CorsoDiStudioNotFoundException, RegolaNotFoundException, TipoCorsoDiLaureaNonSupportatoException {
-        List<AttivitaDidattica> insegnamentiLiberi = attivitaDidatticheRepository.getCorsiCompatibiliConSceltaLibera(codiceCorsoDiStudio);
+        List<AttivitaDidattica> insegnamentiLiberi = listAttivitaDidattichePort.listAttivitaDidatticheSceltaLibera(codiceCorsoDiStudio);
         Optional<CorsoDiStudio>corsoDiStudioStudente =this.readCorsoDiStudioPort.findCorsoDiStudioById(codiceCorsoDiStudio);
         if(!corsoDiStudioStudente.isPresent())
             throw new CorsoDiStudioNotFoundException("il corso di studio con codice: "+codiceCorsoDiStudio+" non è presente nel database");

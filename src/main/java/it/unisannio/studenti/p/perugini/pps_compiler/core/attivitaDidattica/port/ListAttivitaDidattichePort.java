@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ListAttivitaDidattichePort {
     List<AttivitaDidattica>listAttivitaDidattiche();
+    List<AttivitaDidattica>listAttivitaDidatticheSceltaLibera(String codiceCorsoDiStudio);
 }

@@ -4,11 +4,14 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class InsegnamentoRegola {
     @EqualsAndHashCode.Include
     @NonNull

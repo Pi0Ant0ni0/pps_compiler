@@ -22,6 +22,8 @@ import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.InsegnamentoRegola;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.Orientamento;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.CorsoDiStudioService;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.ReadAttivitaDidatticaPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.corsoDiStudio.port.ReadCorsoDiStudioPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,26 +47,28 @@ public class ManifestoDegliStudiMaker {
     public static Logger logger = LoggerFactory.getLogger(ManifestoDegliStudiMaker.class);
     @Autowired
     private CorsoDiStudioService corsoDiStudioService;
+    @Autowired
+    private ReadAttivitaDidatticaPort readAttivitaDidatticaPort;
 
-    public  Document getManifestoDegliStudi(ManifestoDegliStudi manifestoDegliStudi, OutputStream outputStream) throws FileNotFoundException {
-        logger.info("Sto per creare il pdf per il manifesto con chiave: "+ manifestoDegliStudi.getChiaveManifestoDegliStudi());
+    public Document getManifestoDegliStudi(ManifestoDegliStudi manifestoDegliStudi, OutputStream outputStream) throws FileNotFoundException {
+        logger.info("Sto per creare il pdf per il manifesto con chiave: " + manifestoDegliStudi.getChiaveManifestoDegliStudi());
 
-        Optional<CorsoDiStudio> corsoDiStudio =corsoDiStudioService.getCorsoDiStudioById(manifestoDegliStudi.getChiaveManifestoDegliStudi().getCodiceCorsoDiStudio());
-        if(!corsoDiStudio.isPresent())
+        Optional<CorsoDiStudio> corsoDiStudio = corsoDiStudioService.getCorsoDiStudioById(manifestoDegliStudi.getChiaveManifestoDegliStudi().getCodiceCorsoDiStudio());
+        if (!corsoDiStudio.isPresent())
             return null;
 
-        PdfDocument pdfDocument = new PdfDocument( new PdfWriter(outputStream));
+        PdfDocument pdfDocument = new PdfDocument(new PdfWriter(outputStream));
         Document document = new Document(pdfDocument);
 
 
         Table externalTable = new Table(1);
         Table table = new Table(5);
-        addTableTitle(table,corsoDiStudio.get(), manifestoDegliStudi.getChiaveManifestoDegliStudi().getCoorte(), manifestoDegliStudi.getChiaveManifestoDegliStudi().getCurricula());
+        addTableTitle(table, corsoDiStudio.get(), manifestoDegliStudi.getChiaveManifestoDegliStudi().getCoorte(), manifestoDegliStudi.getChiaveManifestoDegliStudi().getCurricula());
         addHeaderInsegnamenti(table, blu);
 
         //ordino gli anni
         Set<Integer> anni = new TreeSet<>(manifestoDegliStudi.getAnniAccademici().keySet());
-        for(Integer anno : anni) {
+        for (Integer anno : anni) {
             //recupero lo schema di un anno
             AnnoAccademico annoAccademico = manifestoDegliStudi.getAnniAccademici().get(anno);
             //cfu  totali per un anno
@@ -80,27 +84,27 @@ public class ManifestoDegliStudiMaker {
                 for (AttivitaDidatticheVincolateDalCorsoDiStudio insegnamenti : annoAccademico.getAttivitaDidatticheVincolateDalCorsoDiStudio().get()) {
                     addHeaderVincolati(table, insegnamenti);
                     addHeaderInsegnamenti(table, magenta);
-                    addInsegnamentiRow(table,insegnamenti.getInsegnamentiRegola());
+                    addInsegnamentiRow(table, insegnamenti.getInsegnamentiRegola());
                 }
             }
-            if(annoAccademico.getOrientamenti().isPresent() && !annoAccademico.getOrientamenti().get().isEmpty()){
+            if (annoAccademico.getOrientamenti().isPresent() && !annoAccademico.getOrientamenti().get().isEmpty()) {
                 addOrientamentoRow(table, annoAccademico.getCfuOrientamento());
             }
-            if(annoAccademico.getCfuAScelta()!=0){
+            if (annoAccademico.getCfuAScelta() != 0) {
                 addLiberiRow(table, annoAccademico.getCfuAScelta());
             }
 
             //inserisco orientamento se ci sono
             if (annoAccademico.getOrientamenti().isPresent()) {
-                for(Orientamento orientamento : annoAccademico.getOrientamenti().get()) {
-                    addHeaderOrientamento(table,orientamento.getDenominazione(), orientamento.getQuotaCFULiberi()+orientamento.getQuotaCFUVincolati());
+                for (Orientamento orientamento : annoAccademico.getOrientamenti().get()) {
+                    addHeaderOrientamento(table, orientamento.getDenominazione(), orientamento.getQuotaCFULiberi() + orientamento.getQuotaCFUVincolati());
 
-                    if(orientamento.getInsegnamentiVincolati().isPresent() && !orientamento.getInsegnamentiVincolati().get().isEmpty()) {
+                    if (orientamento.getInsegnamentiVincolati().isPresent() && !orientamento.getInsegnamentiVincolati().get().isEmpty()) {
                         addHeaderOrientamentoVincolati(table, orientamento.getDenominazione(), manifestoDegliStudi.getCfuOrientamento());
                         addHeaderInsegnamenti(table, oro);
                         addInsegnamentiRow(table, orientamento.getInsegnamentiVincolati().get());
                     }
-                    if(orientamento.getInsegnamentiLiberi().isPresent() && !orientamento.getInsegnamentiLiberi().get().isEmpty()){
+                    if (orientamento.getInsegnamentiLiberi().isPresent() && !orientamento.getInsegnamentiLiberi().get().isEmpty()) {
                         addHeaderOrientamentoLiberi(table, orientamento.getQuotaCFULiberi());
                         addInsegnamentiRow(table, orientamento.getInsegnamentiLiberi().get());
                     }
@@ -119,9 +123,8 @@ public class ManifestoDegliStudiMaker {
         document.add(externalTable);
 
 
-
         //liberi
-        if(manifestoDegliStudi.getAttivitaDidatticheAScelta().isPresent()) {
+        if (manifestoDegliStudi.getAttivitaDidatticheAScelta().isPresent()) {
             document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
             Table externalTableLiberi = new Table(1);
             Table tableLiberi = new Table(6);
@@ -141,7 +144,7 @@ public class ManifestoDegliStudiMaker {
         return document;
     }
 
-    private  void addOrientamentoRow(Table table, int cfuO) {
+    private void addOrientamentoRow(Table table, int cfuO) {
         Cell ssd = new Cell();
         Cell codice = new Cell();
         Cell denominazione = new Cell().add(new Paragraph("INSEGNAMENTI DI ORIENTAMENTO").setFontSize(size));
@@ -150,7 +153,7 @@ public class ManifestoDegliStudiMaker {
         table.addCell(ssd).addCell(codice).addCell(denominazione).addCell(cfu).addCell(semestre);
     }
 
-    private  void addLiberiRow(Table table, int cfuAScelta) {
+    private void addLiberiRow(Table table, int cfuAScelta) {
         Cell ssd = new Cell();
         Cell codice = new Cell();
         Cell denominazione = new Cell().add(new Paragraph("INSEGNAMENTI LIBERI").setFontSize(size));
@@ -161,19 +164,18 @@ public class ManifestoDegliStudiMaker {
     }
 
 
+    private void addTableTitle(Table table, CorsoDiStudio corsoDiStudio, int coorte, Optional<String> curricula) {
 
-    private  void addTableTitle(Table table, CorsoDiStudio corsoDiStudio, int coorte, Optional<String> curricula) {
-
-        Cell intestazione = new Cell(1,5)
-                .add(new Paragraph("CORSO DI LAUREA IN: " + corsoDiStudio.getDenominazione()+"\n" +
-                        "MANIFESTO DEGLI STUDI "+coorte)
+        Cell intestazione = new Cell(1, 5)
+                .add(new Paragraph("CORSO DI LAUREA IN: " + corsoDiStudio.getDenominazione() + "\n" +
+                        "MANIFESTO DEGLI STUDI " + coorte)
                         .setBold()
                         .setFontColor(magenta)
                         .setFontSize(size))
                 .setBackgroundColor(ColorConstants.WHITE)
                 .setTextAlignment(TextAlignment.CENTER);
-        if(curricula.isPresent()){
-            intestazione.add(new Paragraph("Curriculum "+curricula.get()).
+        if (curricula.isPresent()) {
+            intestazione.add(new Paragraph("Curriculum " + curricula.get()).
                     setBold()
                     .setFontColor(magenta)
                     .setFontSize(size))
@@ -184,9 +186,9 @@ public class ManifestoDegliStudiMaker {
         table.addCell(intestazione);
     }
 
-    private void addHeaderOrientamento(Table table, String denominazione, int cfu){
-        Cell intestazione = new Cell(1,5)
-                .add(new Paragraph("Insegnamenti di orientamento "+denominazione+"("+cfu+" CFU)")
+    private void addHeaderOrientamento(Table table, String denominazione, int cfu) {
+        Cell intestazione = new Cell(1, 5)
+                .add(new Paragraph("Insegnamenti di orientamento " + denominazione + "(" + cfu + " CFU)")
                         .setBold()
                         .setFontSize(size)
                         .setFontColor(ColorConstants.WHITE))
@@ -197,10 +199,9 @@ public class ManifestoDegliStudiMaker {
     }
 
 
+    private void addHeaderOrientamentoVincolati(Table table, String denominazione, int cfu) {
 
-    private  void addHeaderOrientamentoVincolati(Table table, String denominazione, int cfu) {
-
-        Cell intestazione2 = new Cell(1,5)
+        Cell intestazione2 = new Cell(1, 5)
                 .add(new Paragraph("obbligatori:")
                         .setBold()
                         .setFontSize(size)
@@ -210,10 +211,10 @@ public class ManifestoDegliStudiMaker {
         table.addCell(intestazione2);
     }
 
-    private  void addHeaderOrientamentoLiberi(Table table, int cfu) {
+    private void addHeaderOrientamentoLiberi(Table table, int cfu) {
         //aggiungo intestazione
-        Cell intestazione = new Cell(1,5)
-                .add(new Paragraph("("+cfu+" CFU) a scelta tra gli insegnamenti proposti")
+        Cell intestazione = new Cell(1, 5)
+                .add(new Paragraph("(" + cfu + " CFU) a scelta tra gli insegnamenti proposti")
                         .setBold()
                         .setFontSize(size))
                 .setBackgroundColor(oro)
@@ -223,8 +224,7 @@ public class ManifestoDegliStudiMaker {
     }
 
 
-
-    private  void addHeaderVincolati(Table table, AttivitaDidatticheVincolateDalCorsoDiStudio insegnamentiVincolati) {
+    private void addHeaderVincolati(Table table, AttivitaDidatticheVincolateDalCorsoDiStudio insegnamentiVincolati) {
 
         String denominazione = this.corsoDiStudioService.getCorsiDiStudio()
                 .stream()
@@ -235,8 +235,8 @@ public class ManifestoDegliStudiMaker {
                 .get()
                 .getDenominazione();
         //aggiungo intestazione
-        Cell intestazione = new Cell(1,5)
-                .add(new Paragraph("Questi insegnamenti sono proposti per coloro che provengo da: "+denominazione+" CFUTotali: "+insegnamentiVincolati.getNumeroCfuDaScegliere())
+        Cell intestazione = new Cell(1, 5)
+                .add(new Paragraph("Questi insegnamenti sono proposti per coloro che provengo da: " + denominazione + " CFUTotali: " + insegnamentiVincolati.getNumeroCfuDaScegliere())
                         .setBold()
                         .setFontSize(size)
                         .setFontColor(ColorConstants.WHITE))
@@ -245,16 +245,16 @@ public class ManifestoDegliStudiMaker {
         table.addCell(intestazione);
     }
 
-    private  void addFooterNote(Table table) {
+    private void addFooterNote(Table table) {
         //aggiungo intestazione
-        Cell intestazione = new Cell(1,5)
+        Cell intestazione = new Cell(1, 5)
                 .add(new Paragraph("NOTE")
                         .setBold()
                         .setFontSize(size)
                         .setFontColor(ColorConstants.WHITE))
                 .setBackgroundColor(blu)
                 .setTextAlignment(TextAlignment.CENTER);
-        Cell note = new Cell(1,5)
+        Cell note = new Cell(1, 5)
                 .add(new Paragraph("(^) Insegnamento annuale  (*)Insegnamento integrato")
                         .setFontSize(size))
                 .setTextAlignment(TextAlignment.CENTER);
@@ -263,7 +263,7 @@ public class ManifestoDegliStudiMaker {
     }
 
 
-    private  void addInsegnamentiRow(Table table, List<InsegnamentoRegola> insegnamenti){
+    private void addInsegnamentiRow(Table table, List<InsegnamentoRegola> insegnamenti) {
         insegnamenti = insegnamenti.stream()
                 .sorted(Comparator.comparing(o -> o.getSemestre()))
                 .collect(Collectors.toList());
@@ -274,52 +274,100 @@ public class ManifestoDegliStudiMaker {
             Cell cfu = new Cell();
             Cell semestre = new Cell();
 
-            ssd.add(new Paragraph(insegnamentoRegola.getSettoreScientificoDisciplinare()).setFontSize(size));
-            String denominazioneInsegnamento = insegnamentoRegola.getDenominazioneInsegnamento();
-            if(insegnamentoRegola.isAnnualeFlag()) {
-                denominazione.add(new Paragraph(denominazioneInsegnamento+"^")
-                        .setFontSize(size));
-            }else if (insegnamentoRegola.isInsegnamentoIntegratoFlag()) {
-                denominazione.add(new Paragraph(denominazioneInsegnamento + "*")
-                        .setFontSize(size));
-            }else {
-                denominazione.add(new Paragraph(denominazioneInsegnamento)
-                        .setFontSize(size));
-            }
-            if(insegnamentoRegola.getCodiceCorsoDiStudioMuoto().isPresent() && insegnamentoRegola.getCodiceCorsoDiStudioMuoto().get().length()!=0){
-                String denominazioneCorsoMutuo = corsoDiStudioService.getCorsiDiStudio()
-                        .stream()
-                        .filter(corsoDiStudio ->
-                                corsoDiStudio.getCodice().equals(insegnamentoRegola.getCodiceCorsoDiStudioMuoto().get()))
-                        .findFirst().get()
-                        .getDenominazione();
-                denominazione.add(
-                        new Paragraph(" (Corso Mutuo con "+denominazioneCorsoMutuo+" ) ")
-                        .setFontSize(size-3)
-                );
-            }
+            if (insegnamentoRegola.isInsegnamentoIntegratoFlag()) {
+                List<AttivitaDidattica> integrati = this.readAttivitaDidatticaPort.findAttivitaById(insegnamentoRegola.getCodiceInsegnamento()).get().getUnitaDidattiche().get();
+                if (integrati.size() == 1) {
+                    integrati = new ArrayList<>();
+                    AttivitaDidattica attivitaDidattica1 = this.readAttivitaDidatticaPort.findAttivitaById(insegnamentoRegola.getCodiceInsegnamento()).get();
+                    attivitaDidattica1.setCfu(attivitaDidattica1.getCfu() / 2);
+                    integrati.add(attivitaDidattica1);
 
-            codice.add(new Paragraph(insegnamentoRegola.getCodiceInsegnamento())
-                    .setFontSize(size));
-            cfu.add(new Paragraph(String.valueOf(insegnamentoRegola.getCfu()))
-                    .setFontSize(size));
-            semestre.add(new Paragraph(insegnamentoRegola.getSemestre())
-                    .setFontSize(size));
+                    AttivitaDidattica attivitaDidattica2 = this.readAttivitaDidatticaPort.findAttivitaById(insegnamentoRegola.getCodiceInsegnamento()).get();
+                    attivitaDidattica2.setCfu(attivitaDidattica2.getCfu() / 2);
+                    integrati.add(attivitaDidattica2);
+                }
+                int sem = 1;
+                for (AttivitaDidattica attivitaDidattica : integrati) {
+                    ssd.add(new Paragraph(insegnamentoRegola.getSettoreScientificoDisciplinare()).setFontSize(size));
+                    cfu.add(new Paragraph(String.valueOf(attivitaDidattica.getCfu())).setFontSize(size));
+                    codice.add(new Paragraph(attivitaDidattica.getCodiceAttivitaDidattica()).setFontSize(size));
+                    semestre.add(new Paragraph(String.valueOf(sem)).setFontSize(size));
+                    if (insegnamentoRegola.getCodiceCorsoDiStudioMuoto().isPresent() && insegnamentoRegola.getCodiceCorsoDiStudioMuoto().get().length() != 0) {
+                        String denominazioneCorsoMutuo = corsoDiStudioService.getCorsiDiStudio()
+                                .stream()
+                                .filter(corsoDiStudio ->
+                                        corsoDiStudio.getCodice().equals(insegnamentoRegola.getCodiceCorsoDiStudioMuoto().get()))
+                                .findFirst().get()
+                                .getDenominazione();
+                        denominazione.add(
+                                new Paragraph(" * (Corso Mutuo con " + denominazioneCorsoMutuo + " ) ")
+                                        .setFontSize(size - 3)
+                        );
+                    } else {
+                        denominazione.add(new Paragraph(attivitaDidattica.getDenominazioneAttivitaDidattica() + " *")
+                                .setFontSize(size));
+                    }
+                    table.addCell(ssd);
+                    table.addCell(codice);
+                    table.addCell(denominazione);
+                    table.addCell(cfu);
+                    table.addCell(semestre);
+                    sem++;
 
-            //aggiungo insegnamento
-            table.addCell(ssd);
-            table.addCell(codice);
-            table.addCell(denominazione);
-            table.addCell(cfu);
-            table.addCell(semestre);
+                    //nuova riga
+                    ssd = new Cell();
+                    codice = new Cell();
+                    denominazione = new Cell();
+                    cfu = new Cell();
+                    semestre = new Cell();
+                }
+            } else {
+                String denominazioneInsegnamento = insegnamentoRegola.getDenominazioneInsegnamento();
+                if (insegnamentoRegola.isAnnualeFlag()) {
+                    denominazione.add(new Paragraph(denominazioneInsegnamento + "^")
+                            .setFontSize(size));
+                } else {
+                    denominazione.add(new Paragraph(denominazioneInsegnamento)
+                            .setFontSize(size));
+                }
+
+                if (insegnamentoRegola.getCodiceCorsoDiStudioMuoto().isPresent() && insegnamentoRegola.getCodiceCorsoDiStudioMuoto().get().length() != 0) {
+                    String denominazioneCorsoMutuo = corsoDiStudioService.getCorsiDiStudio()
+                            .stream()
+                            .filter(corsoDiStudio ->
+                                    corsoDiStudio.getCodice().equals(insegnamentoRegola.getCodiceCorsoDiStudioMuoto().get()))
+                            .findFirst().get()
+                            .getDenominazione();
+                    denominazione.add(
+                            new Paragraph(" (Corso Mutuo con " + denominazioneCorsoMutuo + " ) ")
+                                    .setFontSize(size - 3)
+                    );
+                }
+
+
+                ssd.add(new Paragraph(insegnamentoRegola.getSettoreScientificoDisciplinare()).setFontSize(size));
+                codice.add(new Paragraph(insegnamentoRegola.getCodiceInsegnamento())
+                        .setFontSize(size));
+                cfu.add(new Paragraph(String.valueOf(insegnamentoRegola.getCfu()))
+                        .setFontSize(size));
+                semestre.add(new Paragraph(insegnamentoRegola.getSemestre())
+                        .setFontSize(size));
+
+                //aggiungo insegnamento
+                table.addCell(ssd);
+                table.addCell(codice);
+                table.addCell(denominazione);
+                table.addCell(cfu);
+                table.addCell(semestre);
+            }
         }
 
     }
 
-    private  void addHeaderAnno(Table table, int anno, int cfu){
+    private void addHeaderAnno(Table table, int anno, int cfu) {
         //aggiungo intestazione
-        Cell intestazione = new Cell(1,5)
-                .add(new Paragraph(anno+"° ANNO - CFU TOTALI: "+cfu)
+        Cell intestazione = new Cell(1, 5)
+                .add(new Paragraph(anno + "° ANNO - CFU TOTALI: " + cfu)
                         .setBold()
                         .setFontSize(size)
                         .setFontColor(ColorConstants.WHITE))
@@ -328,7 +376,7 @@ public class ManifestoDegliStudiMaker {
         table.addCell(intestazione);
     }
 
-    private  void addHeaderInsegnamenti(Table table, Color color){
+    private void addHeaderInsegnamenti(Table table, Color color) {
         Stream.of("SSD", "Codice", "Insegnamento", "CFU", "Semestre")
                 .forEach(columnTitle -> {
                     Cell header = new Cell();
@@ -342,11 +390,10 @@ public class ManifestoDegliStudiMaker {
     }
 
 
-
     //liberi
-    private  void addHeaderLiberi(Table table) {
+    private void addHeaderLiberi(Table table) {
         //aggiungo intestazione
-        Cell intestazione = new Cell(1,6)
+        Cell intestazione = new Cell(1, 6)
                 .add(new Paragraph("INSEGNAMENTI A SCELTA DI AUTOMATICA APPROVAZIONE")
                         .setBold()
                         .setFontSize(size)
@@ -356,7 +403,7 @@ public class ManifestoDegliStudiMaker {
         table.addCell(intestazione);
     }
 
-    private  void addInsegnamentiLiberi(Table table, List<AttivitaDidatticaPPSDTO> insegnamenti){
+    private void addInsegnamentiLiberi(Table table, List<AttivitaDidatticaPPSDTO> insegnamenti) {
         for (AttivitaDidatticaPPSDTO insegnamentoRegola : insegnamenti) {
             Cell ssd = new Cell();
             Cell codice = new Cell();
@@ -387,7 +434,7 @@ public class ManifestoDegliStudiMaker {
 
     }
 
-    private  void addHeaderTabellaLiberi(Table table, Color color){
+    private void addHeaderTabellaLiberi(Table table, Color color) {
         Stream.of("SSD", "Codice", "Insegnamento", "CFU", "Codice Corso Di Studio", "Denominazione Corso Di Studio")
                 .forEach(columnTitle -> {
                     Cell header = new Cell();
