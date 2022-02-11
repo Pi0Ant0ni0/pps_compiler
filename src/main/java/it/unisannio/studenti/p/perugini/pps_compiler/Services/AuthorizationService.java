@@ -1,6 +1,7 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.Services;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
+import it.unisannio.studenti.p.perugini.pps_compiler.Components.EmailSender;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.constants.ERR_MESSAGES;
 import it.unisannio.studenti.p.perugini.pps_compiler.persistance.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailNonCorrettaException;
@@ -24,7 +25,7 @@ public class AuthorizationService {
     @Autowired
     private ReadUserPort readUserPort;
     @Autowired
-    private EmailService emailService;
+    private EmailSender emailSender;
     @Autowired
     private JwtProvider jwtProvider;
     @Autowired
@@ -35,7 +36,7 @@ public class AuthorizationService {
     public String sendOtp(Email email){
         //genero otp e la mando tramite email
         String otp = otpProvider.makeOtp();
-        this.emailService.sendTextEmail(otp,email);
+        this.emailSender.sendTextEmail(otp,email);
         logger.info("OTP mandato tramite e-mail");
 
         //creo hash
@@ -49,9 +50,7 @@ public class AuthorizationService {
             throw new OTPExpiredException(ERR_MESSAGES.OTP_EXPIRED);
 
         String otpHashed = otpProvider.cryptOTP(otp);
-        if (otpHashed.equals(cookie.getValue()))
-            return true;
-        return false;
+        return otpHashed.equals(cookie.getValue());
     }
 
     public User getUserByEmail(Email email) throws UserNotFound {

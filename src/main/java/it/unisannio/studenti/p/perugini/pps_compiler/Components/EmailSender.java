@@ -1,13 +1,14 @@
-package it.unisannio.studenti.p.perugini.pps_compiler.Services;
+package it.unisannio.studenti.p.perugini.pps_compiler.Components;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
-public class EmailService {
+@Component
+public class EmailSender {
     @Autowired
     private JavaMailSender javaMailSender;
 

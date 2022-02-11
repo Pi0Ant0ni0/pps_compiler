@@ -39,14 +39,6 @@ public class ManifestoDegliStudi {
     @Setter @Getter @NonNull
     private LocalDate dataFineCompilazionePiano;
 
-
-
-    public void addAnnoSchemaDIPiano(int anno, AnnoAccademico annoAccademico){
-        if(this.anniAccademici == null)
-            this.anniAccademici = new HashMap<>();
-        this.anniAccademici.put(anno, annoAccademico);
-    }
-
     public Optional<List<AttivitaDidatticaPPSDTO>>getAttivitaDidatticheAScelta(){
         return Optional.ofNullable(attivitaDidatticheAScelta);
     }
