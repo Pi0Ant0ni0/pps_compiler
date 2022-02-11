@@ -8,12 +8,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.CorsoDiStudioNotFoundException;
+import it.unisannio.studenti.p.perugini.pps_compiler.Exception.constants.ERR_MESSAGES;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.RegolaNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.TipoCorsoDiLaureaNonSupportatoException;
-import it.unisannio.studenti.p.perugini.pps_compiler.Services.InsegnamentoService;
+import it.unisannio.studenti.p.perugini.pps_compiler.Services.AttivitaDidatticaService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.SADService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.StudentiService;
 
+import it.unisannio.studenti.p.perugini.pps_compiler.Utils.SHARED;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +39,13 @@ public class AttivitaDidatticheController {
     @Autowired
     private SADService sadService;
     @Autowired
-    private InsegnamentoService insegnamentoService;
+    private AttivitaDidatticaService attivitaDidatticaService;
     @Autowired
     private AttivitaDidatticheMapper attivitaDidatticheMapper;
 
     private Logger logger = LoggerFactory.getLogger(AttivitaDidatticheController.class);
 
-    @Operation(description = "Aggiornamento Del database delle attività didattiche e dei corsi di studio",  tags = { "Attività Didattiche" }, security = @SecurityRequirement(name = "bearerAuth"))
+    @Operation(description = "Aggiornamento Del database delle attività didattiche e dei corsi di studio", tags = {"Attività Didattiche"}, security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "aggiornamento andato a buon fine"),
             @ApiResponse(responseCode = "500", description = "aggiornamento fallito")
@@ -53,27 +55,29 @@ public class AttivitaDidatticheController {
     @Produces(MediaType.TEXT_PLAIN)
     @RolesAllowed(value = {ADMINstr, SADstr})
     public CompletableFuture<Response> updateDataBase() throws InterruptedException {
-            logger.info("Aggiornamento del database iniziato");
-            CompletableFuture<Void>result = sadService.updateDatabse();
-            logger.info("Aggiornamento del database concluso");
-            return result
-                    .thenApply(unused -> Response.ok().entity("aggiornamento del database concluso").build())
-                    .exceptionally(throwable -> Response.serverError().entity(throwable.getMessage()).build());
+        logger.info("Aggiornamento del database iniziato");
+        CompletableFuture<Void> result = sadService.updateDatabse();
+        return result
+                .thenApply(unused -> Response.ok().entity(ERR_MESSAGES.DB_UPDATING).build())
+                .exceptionally(throwable -> Response.serverError().entity(throwable.getMessage()).build());
     }
 
-    @Operation(description = "Richiede tutte le attività didattiche presenti nel database",  tags = { "Attività Didattiche" })
+    @Operation(description = "Richiede tutte le attività didattiche presenti nel database", tags = {"Attività Didattiche"})
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
+            @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
     })
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
     @PermitAll
     public Response getAttivitaDidattiche() {
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         return Response
                 .ok()
-                .entity(this.insegnamentoService
-                        .getInsegnamenti()
+                .entity(this.attivitaDidatticaService
+                        .getAttivitaDidattiche()
                         .stream()
                         .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
                         .collect(Collectors.toList())
@@ -82,9 +86,9 @@ public class AttivitaDidatticheController {
     }
 
 
-    @Operation(description = "Richiede tutte le attività didattiche erogate presenti nel database",  tags = { "Attività Didattiche" })
+    @Operation(description = "Richiede tutte le attività didattiche erogate presenti nel database", tags = {"Attività Didattiche"})
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
+            @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
     })
     @GET
     @Path("/{codiceCorsoDiStudio}/erogate")
@@ -92,11 +96,14 @@ public class AttivitaDidatticheController {
     @Consumes(MediaType.TEXT_PLAIN)
     @PermitAll
     public Response getAttivitaDidatticheByCorsoDiStudio(@Parameter(description = "codice del corso di studio", required = true)
-                                                             @PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio){
+                                                         @PathParam("codiceCorsoDiStudio") String codiceCorsoDiStudio) {
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         return Response
                 .ok()
-                .entity(this.insegnamentoService
-                        .getInsegnamentiPerCorsoDiStudio(codiceCorsoDiStudio)
+                .entity(this.attivitaDidatticaService
+                        .getAttivitaDidatticaPerCorsoDiStudio(codiceCorsoDiStudio)
                         .stream()
                         .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
                         .collect(Collectors.toList())
@@ -105,9 +112,9 @@ public class AttivitaDidatticheController {
     }
 
 
-    @Operation(description = "Richiede tutte le attività didattiche programmate presenti nel database",  tags = { "Attività Didattiche" })
+    @Operation(description = "Richiede tutte le attività didattiche programmate presenti nel database", tags = {"Attività Didattiche"})
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
+            @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
     })
     @GET
     @Path("/{codiceCorsoDiStudio}/programmate")
@@ -115,11 +122,14 @@ public class AttivitaDidatticheController {
     @Consumes(MediaType.TEXT_PLAIN)
     @PermitAll
     public Response getInsegnamentiProgrammatiByCorsoDiStudio(@Parameter(description = "codice del corso di studio", required = true)
-                                                                  @PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio){
+                                                              @PathParam("codiceCorsoDiStudio") String codiceCorsoDiStudio) {
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         return Response
                 .ok()
-                .entity(this.insegnamentoService
-                        .getInsegnamentiProgrammatiPerCorsoDiStudio(codiceCorsoDiStudio)
+                .entity(this.attivitaDidatticaService
+                        .getAttivitaDidatticheProgrammatePerCorsoDiStudio(codiceCorsoDiStudio)
                         .stream()
                         .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
                         .collect(Collectors.toList())
@@ -128,23 +138,23 @@ public class AttivitaDidatticheController {
     }
 
 
-
-
-    @Operation(description = "Richiede tutte le attività didattiche a scelta per una data coorte, non solo le attività di automatica approvazione",  tags = { "Attività Didattiche" })
+    @Operation(description = "Richiede tutte le attività didattiche a scelta per una data coorte, non solo le attività di automatica approvazione", tags = {"Attività Didattiche"})
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
+            @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
     })
     @GET
     @Path("{codiceCorsoDiStudio}/{coorte}/aScelta")
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
     public Response getCorsiASceltaLibera(@Parameter(description = "codice del corso di studio", required = true)
-                                                 @PathParam("codiceCorsoDiStudio") String cdsOffId,
-                                             @Parameter(description = "coorte per la quale si vuole ricercare le attività a scelta", required = true)
-                                             @PathParam("coorte") int coorte,
+                                          @PathParam("codiceCorsoDiStudio") String cdsOffId,
+                                          @Parameter(description = "coorte per la quale si vuole ricercare le attività a scelta", required = true)
+                                          @PathParam("coorte") int coorte,
                                           @Parameter(description = "curriculum del manifesto degli studi", required = false)
-                                          @QueryParam("curriculum")@DefaultValue("") String curriculum) {
-
+                                          @QueryParam("curriculum") @DefaultValue("") String curriculum) {
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         try {
             return Response
                     .ok()
@@ -155,26 +165,29 @@ public class AttivitaDidatticheController {
                             .collect(Collectors.toList())
                     )
                     .build();
-        }catch (IllegalArgumentException | TipoCorsoDiLaureaNonSupportatoException| CorsoDiStudioNotFoundException| RegolaNotFoundException e){
+        } catch (IllegalArgumentException | TipoCorsoDiLaureaNonSupportatoException | CorsoDiStudioNotFoundException | RegolaNotFoundException e) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("Il tipo di corso di laurea cercato non è valido")
                     .build();
         }
     }
 
-    @Operation(description = "Richiede tutte le attività didattiche di un dipartimento presenti nel database",  tags = { "Attività Didattiche" })
+    @Operation(description = "Richiede tutte le attività didattiche di un dipartimento presenti nel database", tags = {"Attività Didattiche"})
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200",content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
+            @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = AttivitaDidatticaPPSDTO.class))),
     })
     @GET
     @Path("/dipartimento/{dipartimento}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
     @PermitAll
-    public Response getAttivitaDidatticheByDipartimento(@Parameter(name = "denominazione del dipartimento", required = true)@PathParam("dipartimento")String dipartimento){
+    public Response getAttivitaDidatticheByDipartimento(@Parameter(name = "denominazione del dipartimento", required = true) @PathParam("dipartimento") String dipartimento) {
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         return Response
                 .ok()
-                .entity(this.insegnamentoService
+                .entity(this.attivitaDidatticaService
                         .getAttivitaDidattichePerDipartimento(dipartimento)
                         .stream()
                         .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)

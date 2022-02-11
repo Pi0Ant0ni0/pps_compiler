@@ -4,7 +4,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.AttivitaDidattica;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.CorsoDiStudioNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.InsegnamentoNotFoundException;
-import it.unisannio.studenti.p.perugini.pps_compiler.Services.InsegnamentoService;
+import it.unisannio.studenti.p.perugini.pps_compiler.Services.AttivitaDidatticaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,12 +13,12 @@ import org.springframework.stereotype.Component;
 public class AttivitaDidatticheMapper {
 
     @Autowired
-    InsegnamentoService insegnamentoService;
+    AttivitaDidatticaService attivitaDidatticaService;
 
     public AttivitaDidatticaPPSDTO fromInsegnamentoToInsegnamentoDTO(AttivitaDidattica attivitaDidattica) {
         try {
             AttivitaDidatticaPPSDTO dto = new AttivitaDidatticaPPSDTO();
-            CorsoDiStudio corsoDiStudio = this.insegnamentoService.getCorsoDiStudioByInsegnamento(attivitaDidattica);
+            CorsoDiStudio corsoDiStudio = this.attivitaDidatticaService.getCorsoDiStudioByInsegnamento(attivitaDidattica);
             dto.setCfu(attivitaDidattica.getCfu());
             dto.setCodiceAttivitaDidattica(attivitaDidattica.getCodiceAttivitaDidattica());
             dto.setDenominazioneAttivitaDidattica(attivitaDidattica.getDenominazioneAttivitaDidattica());
@@ -32,33 +32,21 @@ public class AttivitaDidatticheMapper {
     }
 
 
-    public AttivitaDidatticaDiOrientamentoDTO fromInsegnamentoRegolaToInsegnamentoOrientamento(InsegnamentoRegola insegnamentoRegola){
-        AttivitaDidatticaDiOrientamentoDTO orientamento = new AttivitaDidatticaDiOrientamentoDTO();
-        orientamento.setCodiceAttivitaDidattica(insegnamentoRegola.getCodiceInsegnamento());
-        orientamento.setDenominazioneAttivitaDidattica(insegnamentoRegola.getDenominazioneInsegnamento());
-        orientamento.setCfu(insegnamentoRegola.getCfu());
-        return orientamento;
-    }
+
 
     public AttivitaDidattica fromInsegnamentoRegolaToInsegnamento(InsegnamentoRegola insegnamentoRegola){
         try {
-            return this.insegnamentoService.getInsegnamentoById(insegnamentoRegola.getCodiceInsegnamento());
+            return this.attivitaDidatticaService.getAttivitaDidatticaByID(insegnamentoRegola.getCodiceInsegnamento());
         } catch (InsegnamentoNotFoundException e) {
             return null;
         }
     }
 
-    public AttivitaDidattica fromInsegnamentoOrientamentoToInsegnamento(AttivitaDidatticaDiOrientamentoDTO attivitaDidatticaDiOrientamentoDTO){
-        try {
-            return this.insegnamentoService.getInsegnamentoById(attivitaDidatticaDiOrientamentoDTO.getCodiceAttivitaDidattica());
-        } catch (InsegnamentoNotFoundException e) {
-            return null;
-        }
-    }
+
 
     public AttivitaDidattica fromInsegnamentoPPSDTOToInsegnamento(AttivitaDidatticaPPSDTO attivitaDidatticaPPSDTO){
         try {
-            return this.insegnamentoService.getInsegnamentoById(attivitaDidatticaPPSDTO.getCodiceAttivitaDidattica());
+            return this.attivitaDidatticaService.getAttivitaDidatticaByID(attivitaDidatticaPPSDTO.getCodiceAttivitaDidattica());
         } catch (InsegnamentoNotFoundException e) {
             return null;
         }

@@ -4,6 +4,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.API.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.InsegnamentoRegola;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.TipoCorsoDiLaurea;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.CorsoDiStudioNotFoundException;
+import it.unisannio.studenti.p.perugini.pps_compiler.Exception.constants.ERR_MESSAGES;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.RegolaNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.TipoCorsoDiLaureaNonSupportatoException;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.ListAttivitaDidattichePort;
@@ -26,7 +27,7 @@ public class StudentiService {
     @Autowired
     private ReadManifestoDegliStudiPort readManifestoDegliStudiPort;
     @Autowired
-    private InsegnamentoService insegnamentoService;
+    private AttivitaDidatticaService attivitaDidatticaService;
     @Autowired
     private ListManifestiDegliStudiPort listManifestiDegliStudiPort;
 
@@ -35,7 +36,7 @@ public class StudentiService {
         List<AttivitaDidattica> insegnamentiLiberi = listAttivitaDidattichePort.listAttivitaDidatticheSceltaLibera(codiceCorsoDiStudio);
         Optional<CorsoDiStudio>corsoDiStudioStudente =this.readCorsoDiStudioPort.findCorsoDiStudioById(codiceCorsoDiStudio);
         if(!corsoDiStudioStudente.isPresent())
-            throw new CorsoDiStudioNotFoundException("il corso di studio con codice: "+codiceCorsoDiStudio+" non è presente nel database");
+            throw new CorsoDiStudioNotFoundException(ERR_MESSAGES.CORSO_NOT_FOUND+codiceCorsoDiStudio);
         ChiaveManifestoDegliStudi chiaveManifestoDegliStudi = new ChiaveManifestoDegliStudi();
         chiaveManifestoDegliStudi.setCoorte(coorte);
         chiaveManifestoDegliStudi.setCodiceCorsoDiStudio(codiceCorsoDiStudio);
@@ -44,7 +45,7 @@ public class StudentiService {
         else chiaveManifestoDegliStudi.setCurricula(null);
         Optional<ManifestoDegliStudi> regolaOptional = this.readManifestoDegliStudiPort.findManifestoById(chiaveManifestoDegliStudi);
         if (!regolaOptional.isPresent())
-            throw new RegolaNotFoundException("Non è presente la regola per la coorte: "+coorte);
+            throw new RegolaNotFoundException(ERR_MESSAGES.MANIFESTO_NOT_FOUND+coorte+", "+codiceCorsoDiStudio);
 
         //li inserisco tutti in una lista, non mi interessa l'anno
         List<InsegnamentoRegola> insegnamentiObbligatori = new ArrayList<>();
@@ -68,7 +69,7 @@ public class StudentiService {
         buffer.addAll(insegnamentiLiberi);
         for(AttivitaDidattica libero: buffer){
             //recupero il corso di studio
-            CorsoDiStudio corsoDiStudio = this.insegnamentoService.getCorsoDiStudioByInsegnamento(libero);
+            CorsoDiStudio corsoDiStudio = this.attivitaDidatticaService.getCorsoDiStudioByInsegnamento(libero);
             //un triennale puo scegliere solo triennale
             if (corsoDiStudioStudente.get().getTipoCorsoDiLaurea().equals(TipoCorsoDiLaurea.L2) &&
                     corsoDiStudio.getTipoCorsoDiLaurea().equals(TipoCorsoDiLaurea.LM))

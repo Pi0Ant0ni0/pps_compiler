@@ -2,7 +2,7 @@ package it.unisannio.studenti.p.perugini.pps_compiler.Components;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.persistance.Repositories.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

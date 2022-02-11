@@ -1,7 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.Services;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.CorsiDiStudioRepository;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.corsoDiStudio.port.ListCorsiDiStudioPort;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.corsoDiStudio.port.ReadCorsoDiStudioPort;
 import org.springframework.beans.factory.annotation.Autowired;

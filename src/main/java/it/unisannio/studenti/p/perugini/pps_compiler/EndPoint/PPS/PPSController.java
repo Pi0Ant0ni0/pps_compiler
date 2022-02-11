@@ -10,9 +10,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.PPS;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
-import it.unisannio.studenti.p.perugini.pps_compiler.Utils.PPSMaker;
+import it.unisannio.studenti.p.perugini.pps_compiler.Components.PPSMaker;
+import it.unisannio.studenti.p.perugini.pps_compiler.Exception.constants.ERR_MESSAGES;
+import it.unisannio.studenti.p.perugini.pps_compiler.Utils.SHARED;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.pps.usecase.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +52,9 @@ public class PPSController {
     @Autowired
     private RifiutaPPSUseCase rifiutaPPSUseCase;
 
+    @Autowired
+    private PPSMaker ppsMaker;
+
     private Logger logger = LoggerFactory.getLogger(PPSController.class);
 
     @Operation(
@@ -68,6 +72,9 @@ public class PPSController {
     public Response compilaPPS(@Parameter(description = "ppsAggiuntaDTO", required = true, schema  = @Schema(implementation = PPSAggiuntaDTO.class))
                                    @RequestBody PPSAggiuntaDTO dto,
                                @Context SecurityContext securityContext){
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         logger.info("E' stato ricevuto un modulo pps ");
         try {
             Email email = new Email(securityContext.getUserPrincipal().getName());
@@ -222,7 +229,7 @@ public class PPSController {
             Optional<PPS> optionalPPS = this.visualizzaStatoPPSUseCase.getPPS(new Email(emailRichiedente),new Email(email));
             if(optionalPPS.isPresent()) {
                 return outputStream -> {
-                    PPSMaker.makePPS(optionalPPS.get(), outputStream);
+                    ppsMaker.makePPS(optionalPPS.get(), outputStream);
                 };
             }else {
                 return null;

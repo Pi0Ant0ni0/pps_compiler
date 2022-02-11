@@ -1,7 +1,8 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.Services;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.Exception.constants.ERR_MESSAGES;
+import it.unisannio.studenti.p.perugini.pps_compiler.persistance.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailNonCorrettaException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.OTPExpiredException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.UserNotFound;
@@ -45,7 +46,7 @@ public class AuthorizationService {
 
     public boolean verifyOtp(Email email, String otp, Cookie cookie) throws OTPExpiredException {
         if (cookie == null)
-            throw new OTPExpiredException("L' OTP è scaduto prova a loggarti di nuovo");
+            throw new OTPExpiredException(ERR_MESSAGES.OTP_EXPIRED);
 
         String otpHashed = otpProvider.cryptOTP(otp);
         if (otpHashed.equals(cookie.getValue()))
@@ -56,7 +57,7 @@ public class AuthorizationService {
     public User getUserByEmail(Email email) throws UserNotFound {
         Optional<User> userOptional = this.readUserPort.findUserById(email);
         if(!userOptional.isPresent())
-            throw new UserNotFound("Non esiste nessun utente con questa mail");
+            throw new UserNotFound(ERR_MESSAGES.USER_NOT_FOUND);
         return userOptional.get();
     }
 

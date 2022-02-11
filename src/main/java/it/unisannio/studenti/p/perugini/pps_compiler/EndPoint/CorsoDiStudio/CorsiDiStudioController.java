@@ -1,18 +1,14 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.CorsoDiStudio;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
+import it.unisannio.studenti.p.perugini.pps_compiler.Exception.constants.ERR_MESSAGES;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.CorsoDiStudioService;
-import it.unisannio.studenti.p.perugini.pps_compiler.Services.SADService;
+import it.unisannio.studenti.p.perugini.pps_compiler.Utils.SHARED;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.security.PermitAll;
@@ -20,8 +16,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Path("/corsiDiStudio")
@@ -48,6 +42,9 @@ public class CorsiDiStudioController {
     @Produces(MediaType.APPLICATION_JSON)
     @PermitAll
     public Response getCorsiDiStudio(){
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService
@@ -76,6 +73,9 @@ public class CorsiDiStudioController {
     @PermitAll
     @Path("/programmati")
     public Response getCorsiDiStudioProgrammati(){
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService
@@ -105,6 +105,9 @@ public class CorsiDiStudioController {
     @PermitAll
     @Path("/attivi")
     public Response getCorsiDiStudioAttivi(){
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService
@@ -134,6 +137,9 @@ public class CorsiDiStudioController {
     @Path("/{dipartimento}")
     public Response getCorsiDiStudioDipartimento(@Parameter(required = true, description = "denominazione del dipartimento")
                                                      @PathParam("dipartimento") String dipartimento){
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService
@@ -163,6 +169,9 @@ public class CorsiDiStudioController {
     @Path("/{dipartimento}/programmati")
     public Response getCorsiDiStudioProgrammatiDipartimentoProgrammati(@Parameter(required = true,description = "denominazione del dipartimento")
                                                                            @PathParam("dipartimento") String dipartimento){
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService
@@ -192,6 +201,9 @@ public class CorsiDiStudioController {
     @Path("/{dipartimento}/attivi")
     public Response getCorsiDiStudioProgrammatiDipartimentoAttivi(@Parameter(required = true, description = "denominaizone del dipartimento")
                                                                       @PathParam("dipartimento") String dipartimento){
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         return Response
                 .ok()
                 .entity(this.corsoDiStudioService

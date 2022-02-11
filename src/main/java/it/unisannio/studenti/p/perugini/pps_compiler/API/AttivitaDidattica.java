@@ -1,5 +1,8 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.API;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,6 +16,9 @@ import java.util.Optional;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "codiceAttivitaDidattica")
 public class AttivitaDidattica {
     @EqualsAndHashCode.Include
     @Id @Getter @Setter @NonNull
@@ -39,7 +45,7 @@ public class AttivitaDidattica {
     private String obiettivi;
     @Getter @Setter @NonNull
     private String prerequisiti;
-    @Setter
+    @Setter @JsonIgnoreProperties
     private List<AttivitaDidattica>unitaDidattiche;
 
     public Optional<List<AttivitaDidattica>>getUnitaDidattiche(){

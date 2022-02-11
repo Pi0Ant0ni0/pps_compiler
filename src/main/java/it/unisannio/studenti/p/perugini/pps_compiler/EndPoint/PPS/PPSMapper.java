@@ -1,20 +1,16 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS;
 
-import it.unisannio.studenti.p.perugini.pps_compiler.API.AttivitaDidattica;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.PPS;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.UserMapper;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.persistance.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticheMapper;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaDiOrientamentoDTO;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
-import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.InsegnamentoRegola;
-import it.unisannio.studenti.p.perugini.pps_compiler.Exception.InsegnamentoNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class PPSMapper {
@@ -24,15 +20,19 @@ public class PPSMapper {
     @Autowired
     private UserMapper userMapper;
 
-    public PPS fromPPSDTOToPPS(PPSAggiuntaDTO ppsAggiuntaDTO, User user) throws InsegnamentoNotFoundException {
+    public PPS fromPPSDTOToPPS(PPSAggiuntaDTO ppsAggiuntaDTO, User user) {
         PPS pps = new PPS();
-        pps.setInsegnamentiASceltaLibera(ppsAggiuntaDTO.getAttivitaDidatticheAScelta());
-        List<AttivitaDidatticaDiOrientamentoDTO> orientamento = new ArrayList<>();
+        pps.setInsegnamentiASceltaLibera(ppsAggiuntaDTO.getAttivitaDidatticheAScelta()
+                .stream()
+                .map(attivitaDidatticheMapper::fromInsegnamentoPPSDTOToInsegnamento)
+                .collect(Collectors.toList())
+        );
         if(ppsAggiuntaDTO.getOrientamento().isPresent() && ppsAggiuntaDTO.getOrientamento().get().size()!=0){
-            for(InsegnamentoRegola insegnamento: ppsAggiuntaDTO.getOrientamento().get()){
-                orientamento.add(this.attivitaDidatticheMapper.fromInsegnamentoRegolaToInsegnamentoOrientamento(insegnamento));
-            }
-            pps.setOrientamento(orientamento);
+           pps.setOrientamento(ppsAggiuntaDTO.getOrientamento().get()
+                   .stream()
+                   .map(attivitaDidatticheMapper::fromInsegnamentoRegolaToInsegnamento)
+                   .collect(Collectors.toList())
+           );
         }else pps.setOrientamento(null);
 
         pps.setDataCompilazione(LocalDate.now());
@@ -53,16 +53,9 @@ public class PPSMapper {
         dto.setRifiutato(pps.isRifiutato());
         dto.setNome(pps.getStudente().getNome());
         dto.setCognome(pps.getStudente().getCognome());
-        List<AttivitaDidattica>buffer = new ArrayList<>();
-        for(AttivitaDidatticaPPSDTO attivitaDidatticaPPSDTO : pps.getInsegnamentiASceltaLibera())
-            buffer.add(this.attivitaDidatticheMapper.fromInsegnamentoPPSDTOToInsegnamento(attivitaDidatticaPPSDTO));
-
-        dto.setLiberi(buffer);
+        dto.setLiberi(pps.getInsegnamentiASceltaLibera());
         if(pps.getOrientamento().isPresent()){
-            buffer= new ArrayList<>();
-            for(AttivitaDidatticaDiOrientamentoDTO attivitaDidatticaDiOrientamentoDTO : pps.getOrientamento().get())
-                buffer.add(this.attivitaDidatticheMapper.fromInsegnamentoOrientamentoToInsegnamento(attivitaDidatticaDiOrientamentoDTO));
-            dto.setOrientamento(buffer);
+           dto.setOrientamento(pps.getOrientamento().get());
         }else{
             dto.setOrientamento(new ArrayList<>());
         }

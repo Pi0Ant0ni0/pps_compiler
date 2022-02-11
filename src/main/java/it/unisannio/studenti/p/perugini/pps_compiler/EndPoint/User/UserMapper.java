@@ -4,7 +4,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.API.CorsoDiStudio;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.Studente;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.persistance.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.CorsoDiStudio.CorsoDiStudioMapper;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.CorsoDiStudioNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.EmailNonCorrettaException;

@@ -1,11 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
-
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)

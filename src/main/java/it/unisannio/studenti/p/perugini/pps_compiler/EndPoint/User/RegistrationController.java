@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.persistance.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.Components.JwtProvider;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.UserAlreadyExistException;

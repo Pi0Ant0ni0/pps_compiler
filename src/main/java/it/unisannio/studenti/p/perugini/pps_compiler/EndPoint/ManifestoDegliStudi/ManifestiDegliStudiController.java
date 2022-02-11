@@ -10,9 +10,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
+import it.unisannio.studenti.p.perugini.pps_compiler.Exception.constants.ERR_MESSAGES;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.SADService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Components.ManifestoDegliStudiMaker;
 import it.unisannio.studenti.p.perugini.pps_compiler.Services.StudentiService;
+import it.unisannio.studenti.p.perugini.pps_compiler.Utils.SHARED;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.AggiungiManfiestoUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.ManifestoPDFUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.VisualizzaManifestoUseCase;
@@ -29,9 +31,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -79,13 +78,16 @@ public class ManifestiDegliStudiController {
     @RolesAllowed(value = {ADMINstr, SADstr})
     public Response aggiungiManifesto(@Parameter(required = true, schema = @Schema(implementation = ManifestoDegliStudiDTO.class))
                                           @RequestBody @Valid ManifestoDegliStudiDTO regola) {
+        if(SHARED.updatingDatabase){
+            return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
+        }
         try {
             logger.info("è arrivata una nuova regola: "+regola);
             this.aggiungiManfiestoUseCase.addManifesto(ManifestiDegliStudiMapper.fromRegolaDTOToRegola(regola));
             return Response.status(Response.Status.OK)
                     .entity("Regola aggiunta correttamente")
                     .build();
-        } catch (OrdinamentoNotFoundException | RegolaNonValidaException e) {
+        } catch (OrdinamentoNotFoundException | ManifestoDegliStudiNonValidoException e) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity(e.getMessage())
                     .build();

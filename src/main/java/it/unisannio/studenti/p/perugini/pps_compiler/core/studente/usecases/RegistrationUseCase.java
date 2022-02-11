@@ -1,6 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.core.studente.usecases;
 
-import it.unisannio.studenti.p.perugini.pps_compiler.Repositories.User;
+import it.unisannio.studenti.p.perugini.pps_compiler.persistance.Repositories.User;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Email;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.User.StudentDTO;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.*;
