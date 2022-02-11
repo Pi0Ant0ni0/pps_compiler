@@ -24,13 +24,13 @@ public class PPSMapper {
         PPS pps = new PPS();
         pps.setInsegnamentiASceltaLibera(ppsAggiuntaDTO.getAttivitaDidatticheAScelta()
                 .stream()
-                .map(attivitaDidatticheMapper::fromInsegnamentoPPSDTOToInsegnamento)
+                .map(attivitaDidatticheMapper::toAttivitaDidattica)
                 .collect(Collectors.toList())
         );
         if(ppsAggiuntaDTO.getOrientamento().isPresent() && ppsAggiuntaDTO.getOrientamento().get().size()!=0){
            pps.setOrientamento(ppsAggiuntaDTO.getOrientamento().get()
                    .stream()
-                   .map(attivitaDidatticheMapper::fromInsegnamentoRegolaToInsegnamento)
+                   .map(attivitaDidatticheMapper::fromInsegnamentoRegolaToAttivitaDidattica)
                    .collect(Collectors.toList())
            );
         }else pps.setOrientamento(null);
@@ -53,9 +53,17 @@ public class PPSMapper {
         dto.setRifiutato(pps.isRifiutato());
         dto.setNome(pps.getStudente().getNome());
         dto.setCognome(pps.getStudente().getCognome());
-        dto.setLiberi(pps.getInsegnamentiASceltaLibera());
+        dto.setLiberi(pps.getInsegnamentiASceltaLibera()
+                .stream()
+                .map(attivitaDidatticheMapper::toAttivitaDidatticaDettagliata)
+                .collect(Collectors.toList())
+        );
         if(pps.getOrientamento().isPresent()){
-           dto.setOrientamento(pps.getOrientamento().get());
+           dto.setOrientamento(pps.getOrientamento().get()
+                   .stream()
+                   .map(attivitaDidatticheMapper::toAttivitaDidatticaDettagliata)
+                   .collect(Collectors.toList())
+           );
         }else{
             dto.setOrientamento(new ArrayList<>());
         }

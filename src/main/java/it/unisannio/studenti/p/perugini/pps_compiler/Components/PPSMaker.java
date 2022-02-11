@@ -17,10 +17,8 @@ import com.itextpdf.layout.properties.UnitValue;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.AttivitaDidattica;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.PPS;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.Studente;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.corsoDiStudio.port.ReadCorsoDiStudioPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.OutputStream;
@@ -35,8 +33,7 @@ public class PPSMaker {
     private static int fontSubTitleSize = 9;
     private static int fontTitleSize = 11;
     private static Logger logger = LoggerFactory.getLogger(PPSMaker.class);
-    @Autowired
-    private ReadCorsoDiStudioPort readCorsoDiStudioPort;
+
 
     public Document makePPS(PPS pps, OutputStream outputStream) throws MalformedURLException {
         logger.info("Sto per generare il pdf del modulo pps di: "+pps.getStudente().getEmail());
@@ -183,8 +180,8 @@ public class PPSMaker {
             tabellaInsegnamenti.addCell(new Cell().add(new Paragraph(insegnamento.getCodiceAttivitaDidattica()).setFontSize(fontSize)));
             tabellaInsegnamenti.addCell(new Cell().add(new Paragraph(insegnamento.getDenominazioneAttivitaDidattica()).setFontSize(fontSize)));
             tabellaInsegnamenti.addCell(new Cell().add(new Paragraph(String.valueOf(insegnamento.getCfu())).setFontSize(fontSize)));
-            tabellaInsegnamenti.addCell(new Cell().add(new Paragraph(insegnamento.getCodiceCorsoDiStudio()).setFontSize(fontSize)));
-            tabellaInsegnamenti.addCell(new Cell().add(new Paragraph(readCorsoDiStudioPort.findCorsoDiStudioById(insegnamento.getCodiceCorsoDiStudio()).get().getDenominazione()).setFontSize(fontSize)));
+            tabellaInsegnamenti.addCell(new Cell().add(new Paragraph(insegnamento.getCorsoDiStudio().getCodice()).setFontSize(fontSize)));
+            tabellaInsegnamenti.addCell(new Cell().add(new Paragraph(insegnamento.getCorsoDiStudio().getDenominazione()).setFontSize(fontSize)));
             i++;
         }
         tabellaInsegnamenti.setWidth(UnitValue.createPercentValue(100));

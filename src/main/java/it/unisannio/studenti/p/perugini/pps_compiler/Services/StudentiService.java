@@ -68,18 +68,16 @@ public class StudentiService {
         buffer = new ArrayList<>();
         buffer.addAll(insegnamentiLiberi);
         for(AttivitaDidattica libero: buffer){
-            //recupero il corso di studio
-            CorsoDiStudio corsoDiStudio = this.attivitaDidatticaService.getCorsoDiStudioByInsegnamento(libero);
             //un triennale puo scegliere solo triennale
             if (corsoDiStudioStudente.get().getTipoCorsoDiLaurea().equals(TipoCorsoDiLaurea.L2) &&
-                    corsoDiStudio.getTipoCorsoDiLaurea().equals(TipoCorsoDiLaurea.LM))
+                    libero.getCorsoDiStudio().getTipoCorsoDiLaurea().equals(TipoCorsoDiLaurea.LM))
             {
                 insegnamentiLiberi.remove(libero);
             }
 
             //un magistrale puo scegliere solo magistrale
             if (corsoDiStudioStudente.get().getTipoCorsoDiLaurea().equals(TipoCorsoDiLaurea.LM) &&
-                    corsoDiStudio.getTipoCorsoDiLaurea().equals(TipoCorsoDiLaurea.L2))
+                    libero.getCorsoDiStudio().getTipoCorsoDiLaurea().equals(TipoCorsoDiLaurea.L2))
             {
                 insegnamentiLiberi.remove(libero);
             }

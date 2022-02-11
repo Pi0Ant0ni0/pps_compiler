@@ -95,8 +95,8 @@ public class PPSService implements CompilaPPSUseCase,
             throw new PPSNonValidoException(ERR_MESSAGES.PPS_ORIENTAMENTO_NOT_REQUIRED);
         //conto i cfu a scelta
         int countCfu = 0;
-        for (AttivitaDidattica insegnamento: pps.getInsegnamentiASceltaLibera())
-            countCfu+=insegnamento.getCfu();
+        for (AttivitaDidattica attivitaDidattica: pps.getInsegnamentiASceltaLibera())
+            countCfu+=attivitaDidattica.getCfu();
 
         if(countCfu != manifesto.get().getCfuASceltaLibera() &&
                 countCfu-manifesto.get().getCfuASceltaLibera() > manifesto.get().getCfuExtra())
@@ -133,12 +133,25 @@ public class PPSService implements CompilaPPSUseCase,
 
         Set<String> insegnamentiTotali = new HashSet<>();
         boolean valid=false;
-        for(AttivitaDidattica attivitaDidatticaPPSDTO : pps.getInsegnamentiASceltaLibera()){
-            if(!insegnamentiTotali.add(attivitaDidatticaPPSDTO.getCodiceAttivitaDidattica())){
+        for(AttivitaDidattica attivitaDidattica : pps.getInsegnamentiASceltaLibera()){
+            if(!insegnamentiTotali.add(attivitaDidattica.getCodiceAttivitaDidattica())){
                 throw new PPSNonValidoException(ERR_MESSAGES.PPS_ATTIVITA_DUPLICATA);
-            }//se c'è almeno un corso che non è di automatica approvazione è valido il pps
-            if(! (manifesto.get().getAttivitaDidatticheAScelta().get().contains(attivitaDidatticaPPSDTO)) ){
+            }
+            //se c'è almeno un corso che non è di automatica approvazione è valido il pps
+            if(! (manifesto.get().getAttivitaDidatticheAScelta().get().contains(attivitaDidattica)) ){
                 valid=true;
+            }
+        }
+
+        if(pps.getOrientamento().isPresent()){
+            for(AttivitaDidattica attivitaDidattica: pps.getOrientamento().get()){
+                if(!insegnamentiTotali.add(attivitaDidattica.getCodiceAttivitaDidattica())){
+                    throw new PPSNonValidoException(ERR_MESSAGES.PPS_ATTIVITA_DUPLICATA);
+                }
+                //se c'è almeno un corso che non è di automatica approvazione è valido il pps
+                if(! (manifesto.get().getAttivitaDidatticheAScelta().get().contains(attivitaDidattica)) ){
+                    valid=true;
+                }
             }
         }
 

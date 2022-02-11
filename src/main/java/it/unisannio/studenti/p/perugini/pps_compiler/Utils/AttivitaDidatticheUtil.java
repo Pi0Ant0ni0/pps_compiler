@@ -4,18 +4,24 @@ import it.unisannio.studenti.p.perugini.pps_compiler.API.AttivitaDidattica;
 import it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.TipoCorsoDiLaurea;
 import it.unisannio.studenti.p.perugini.pps_compiler.Esse3API.ADContestualizzata;
 import it.unisannio.studenti.p.perugini.pps_compiler.Esse3API.SEGContestualizzato;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.corsoDiStudio.port.ReadCorsoDiStudioPort;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class AttivitaDidatticheUtil {
+    @Autowired
+    private ReadCorsoDiStudioPort readCorsoDiStudioPort;
 
 
-    public static AttivitaDidattica makeUnitaDidattica(SEGContestualizzato segContestualizzato, ADContestualizzata adContestualizzata, TipoCorsoDiLaurea l2, boolean programmato, String contenuti, String metodiDidattici, String modalitaVerificaApprendimento, String obiettivi, String prerequisiti) {
+    public AttivitaDidattica makeUnitaDidattica(SEGContestualizzato segContestualizzato, ADContestualizzata adContestualizzata, TipoCorsoDiLaurea l2, boolean programmato, String contenuti, String metodiDidattici, String modalitaVerificaApprendimento, String obiettivi, String prerequisiti) {
         //creo l'insegnamento
         AttivitaDidattica attivitaDidattica = new AttivitaDidattica();
         attivitaDidattica.setDenominazioneAttivitaDidattica(segContestualizzato.getChiaveSegContestualizzato().getChiaveUdContestualizzata().getUdDes());
         attivitaDidattica.setCodiceAttivitaDidattica(segContestualizzato.getChiaveSegContestualizzato().getChiaveUdContestualizzata().getUdCod());
-        attivitaDidattica.setCodiceCorsoDiStudio(segContestualizzato.getChiaveSegContestualizzato().getChiaveUdContestualizzata().getChiaveAdContestualizzata().getCdsCod());
+        attivitaDidattica.setCorsoDiStudio(this.readCorsoDiStudioPort.findCorsoDiStudioById(segContestualizzato.getChiaveSegContestualizzato().getChiaveUdContestualizzata().getChiaveAdContestualizzata().getCdsCod()).get());
         attivitaDidattica.setCfu(segContestualizzato.getPeso());
         if (adContestualizzata.getNonErogabileOdFlg()==0) {
             attivitaDidattica.setNonErogabile(false);
@@ -39,12 +45,12 @@ public class AttivitaDidatticheUtil {
     }
 
 
-    public static AttivitaDidattica makeAttivitaDidattica(List<AttivitaDidattica> unitaDidattiche, ADContestualizzata adContestualizzata, TipoCorsoDiLaurea l2, boolean programmato, String contenuti, String metodiDidattici, String modalitaVerificaApprendimento, String obiettivi, String prerequisiti) {
+    public AttivitaDidattica makeAttivitaDidattica(List<AttivitaDidattica> unitaDidattiche, ADContestualizzata adContestualizzata, TipoCorsoDiLaurea l2, boolean programmato, String contenuti, String metodiDidattici, String modalitaVerificaApprendimento, String obiettivi, String prerequisiti) {
         //creo l'insegnamento
         AttivitaDidattica attivitaDidattica = new AttivitaDidattica();
         attivitaDidattica.setDenominazioneAttivitaDidattica(adContestualizzata.getChiaveAdContestualizzata().getAdDes());
         attivitaDidattica.setCodiceAttivitaDidattica(adContestualizzata.getChiaveAdContestualizzata().getAdCod());
-        attivitaDidattica.setCodiceCorsoDiStudio(adContestualizzata.getChiaveAdContestualizzata().getCdsCod());
+        attivitaDidattica.setCorsoDiStudio(this.readCorsoDiStudioPort.findCorsoDiStudioById(adContestualizzata.getChiaveAdContestualizzata().getCdsCod()).get());
         attivitaDidattica.setCfu(unitaDidattiche.stream().mapToInt(AttivitaDidattica::getCfu).sum());
         if (adContestualizzata.getNonErogabileOdFlg()==0) {
             attivitaDidattica.setNonErogabile(false);

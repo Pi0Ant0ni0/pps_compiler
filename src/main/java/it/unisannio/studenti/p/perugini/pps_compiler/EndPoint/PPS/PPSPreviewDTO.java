@@ -1,6 +1,6 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.PPS;
 
-import it.unisannio.studenti.p.perugini.pps_compiler.API.AttivitaDidattica;
+import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaDettagliata;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ public class PPSPreviewDTO {
     private boolean rifiutato;
     private String nome;
     private String cognome;
-    private List<AttivitaDidattica> orientamento;
-    private List<AttivitaDidattica> liberi;
+    private List<AttivitaDidatticaDettagliata> orientamento;
+    private List<AttivitaDidatticaDettagliata> liberi;
     private String curriculum;
 }

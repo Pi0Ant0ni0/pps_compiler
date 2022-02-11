@@ -79,7 +79,7 @@ public class AttivitaDidatticheController {
                 .entity(this.attivitaDidatticaService
                         .getAttivitaDidattiche()
                         .stream()
-                        .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
+                        .map(attivitaDidatticheMapper::toAttivitaDidatticaPPSDTO)
                         .collect(Collectors.toList())
                 )
                 .build();
@@ -105,7 +105,7 @@ public class AttivitaDidatticheController {
                 .entity(this.attivitaDidatticaService
                         .getAttivitaDidatticaPerCorsoDiStudio(codiceCorsoDiStudio)
                         .stream()
-                        .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
+                        .map(attivitaDidatticheMapper::toAttivitaDidatticaPPSDTO)
                         .collect(Collectors.toList())
                 )
                 .build();
@@ -121,7 +121,7 @@ public class AttivitaDidatticheController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
     @PermitAll
-    public Response getInsegnamentiProgrammatiByCorsoDiStudio(@Parameter(description = "codice del corso di studio", required = true)
+    public Response getAttivitaDidatticheProgrammateByCorsoDiStudio(@Parameter(description = "codice del corso di studio", required = true)
                                                               @PathParam("codiceCorsoDiStudio") String codiceCorsoDiStudio) {
         if(SHARED.updatingDatabase){
             return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
@@ -131,7 +131,7 @@ public class AttivitaDidatticheController {
                 .entity(this.attivitaDidatticaService
                         .getAttivitaDidatticheProgrammatePerCorsoDiStudio(codiceCorsoDiStudio)
                         .stream()
-                        .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
+                        .map(attivitaDidatticheMapper::toAttivitaDidatticaPPSDTO)
                         .collect(Collectors.toList())
                 )
                 .build();
@@ -161,7 +161,7 @@ public class AttivitaDidatticheController {
                     .entity(this.studentiService
                             .getFreeChoiceCourses(cdsOffId, coorte, curriculum)
                             .stream()
-                            .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
+                            .map(attivitaDidatticheMapper::toAttivitaDidatticaPPSDTO)
                             .collect(Collectors.toList())
                     )
                     .build();
@@ -190,7 +190,7 @@ public class AttivitaDidatticheController {
                 .entity(this.attivitaDidatticaService
                         .getAttivitaDidattichePerDipartimento(dipartimento)
                         .stream()
-                        .map(attivitaDidatticheMapper::fromInsegnamentoToInsegnamentoDTO)
+                        .map(attivitaDidatticheMapper::toAttivitaDidatticaPPSDTO)
                         .collect(Collectors.toList())
                 )
                 .build();

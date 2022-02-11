@@ -50,6 +50,9 @@ public class SADService {
     @Autowired
     private DeleteAttivitaDidatticaPort deleteAttivitaDidatticaPort;
 
+    @Autowired
+    private AttivitaDidatticheUtil attivitaDidatticheUtil;
+
 
     private Logger logger = LoggerFactory.getLogger(SADService.class);
     private final String endPointOfferte = "https://unisannio.esse3.cineca.it/e3rest/api/offerta-service-v1/";
@@ -333,7 +336,7 @@ public class SADService {
                 prerequisiti = syllabusBuffer[0].getSyllabusAD()[0].getPrerequisiti();
             }
         }
-        return AttivitaDidatticheUtil.makeUnitaDidattica(
+        return attivitaDidatticheUtil.makeUnitaDidattica(
                 segContestualizzato,
                 adContestualizzata,
                 tipoCorsoDiLaurea,
@@ -459,7 +462,7 @@ public class SADService {
                 prerequisiti = syllabusBuffer[0].getSyllabusAD()[0].getPrerequisiti();
             }
         }
-        return AttivitaDidatticheUtil.makeAttivitaDidattica(
+        return attivitaDidatticheUtil.makeAttivitaDidattica(
                 unitaDidattiche,
                 adContestualizzata,
                 tipoCorsoDiLaurea,
