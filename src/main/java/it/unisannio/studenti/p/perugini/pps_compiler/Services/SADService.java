@@ -88,13 +88,6 @@ public class SADService {
         List<Offerta> offerte = this.getOfferte(year);
         Thread.sleep(1 * 1000);
 
-        //prendo in considerazione solo i corsi di studio non presenti nel database se richiedo quelli programmati
-        if (programmata) {
-            offerte = offerte
-                    .stream()
-                    .filter(offerta -> !readCorsoDiStudioPort.findCorsoDiStudioById(offerta.getCdsCod()).isPresent())
-                    .collect(Collectors.toList());
-        }
         this.updateCorsoDiStudi(offerte, year, programmata);
         List<ADContestualizzata> adContestualizzatiTriennale = new ArrayList<>();
         List<ADContestualizzata> adContestualizzatiMagistrale = new ArrayList<>();
@@ -161,6 +154,15 @@ public class SADService {
         WebTarget webTarget = client.target(endPointRegole);
         logger.info("Recupero regole iniziato");
         List<RegolamentoDiScelta> regolamentiDiScelta = new ArrayList<>();
+
+        //considero solo quelli che non ho nel database
+        if(programmato){
+            offerte=offerte
+                    .stream()
+                    .filter(offerta -> !this.readCorsoDiStudioPort.findCorsoDiStudioById(offerta.getCdsCod()).isPresent())
+                    .collect(Collectors.toList());
+        }
+
         for (Offerta offerta : offerte) {
             Optional<RegolamentoDiScelta> optional = this.getRegolamentiDiScelta(offerta, webTarget);
             if (optional.isPresent())
@@ -194,6 +196,12 @@ public class SADService {
             for (Integer anno : schemiDiPiano.keySet()) {
                 if (schemiDiPiano.get(anno).getOrientamenti().isPresent())
                     orientamenti.addAll(schemiDiPiano.get(anno).getOrientamenti().get());
+
+                //non ho scelta se ho un solo orientamento
+                //non posso avere orientamenti diversi su piu anni
+                //cambierebbe la struttura degli anni, in quel caso ci sono i curriculum
+                if(orientamenti.size()==1)
+                    orientamenti= new ArrayList<>();
             }
             return orientamenti;
         }
@@ -410,6 +418,9 @@ public class SADService {
         WebTarget webTarget = client.target(endPointOfferte);
         List<ADContestualizzata> adResponse;
         logger.info("Recupero AD Contestualizzati iniziato");
+        logger.info("Anno: "+year);
+        logger.info("Offerte: "+offerte.size());
+
         for (Offerta offerta : offerte) {
             start = 0;
             do {
@@ -481,8 +492,16 @@ public class SADService {
                     prerequisiti = syllabusBuffer[0].getSyllabusAD()[0].getPrerequisiti();
                 }
             }
+            String adCod = adContestualizzata.getChiaveAdContestualizzata().getAdCod();
+            //se nei segmenti ho lo stesso codice scarto i segmenti
+            //se ho 1 solo segmento scarto i segmenti
+            if(unitaDidattiche.stream().anyMatch(unita-> unita.getCodiceAttivitaDidattica().equals(adCod))
+                    || unitaDidattiche.size()<=1
+            )
+                unitaDidattiche=null;
+
             return attivitaDidatticheUtil.makeAttivitaDidattica(
-                    unitaDidattiche.size() > 1 ? unitaDidattiche : null,
+                    unitaDidattiche,
                     adContestualizzata,
                     cfu,
                     settore,

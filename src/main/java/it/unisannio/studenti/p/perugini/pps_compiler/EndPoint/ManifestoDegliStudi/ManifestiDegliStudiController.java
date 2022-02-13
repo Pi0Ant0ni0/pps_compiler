@@ -85,7 +85,7 @@ public class ManifestiDegliStudiController {
             logger.info("è arrivata una nuova regola: "+regola);
             this.aggiungiManfiestoUseCase.addManifesto(ManifestiDegliStudiMapper.fromRegolaDTOToRegola(regola));
             return Response.status(Response.Status.OK)
-                    .entity("Regola aggiunta correttamente")
+                    .entity("Manifesto degli studi aggiunto correttamente")
                     .build();
         } catch (OrdinamentoNotFoundException | ManifestoDegliStudiNonValidoException e) {
             return Response.status(Response.Status.BAD_REQUEST)

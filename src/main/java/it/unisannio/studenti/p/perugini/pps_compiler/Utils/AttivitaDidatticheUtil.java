@@ -35,11 +35,6 @@ public class AttivitaDidatticheUtil {
         attivitaDidattica.setModalitaVerificaApprendimento(modalitaVerificaApprendimento);
         attivitaDidattica.setObiettivi(obiettivi);
         attivitaDidattica.setPrerequisiti(prerequisiti);
-
-        if(adContestualizzata.getChiaveAdContestualizzata().getAdCod().equals("86307")){
-            attivitaDidattica.setCodiceAttivitaDidattica("86307");
-            attivitaDidattica.setCfu(3);
-        }
         attivitaDidattica.setUnitaDidattiche(null);
         return attivitaDidattica;
     }
