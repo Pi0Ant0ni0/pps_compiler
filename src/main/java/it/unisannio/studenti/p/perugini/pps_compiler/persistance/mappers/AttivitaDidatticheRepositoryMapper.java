@@ -6,6 +6,8 @@ import it.unisannio.studenti.p.perugini.pps_compiler.persistance.entity.Attivita
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.stream.Collectors;
+
 
 @Component
 public class AttivitaDidatticheRepositoryMapper {
@@ -26,7 +28,12 @@ public class AttivitaDidatticheRepositoryMapper {
                 entity.getModalitaVerificaApprendimento(),
                 entity.getObiettivi(),
                 entity.getPrerequisiti(),
-                entity.getUnitaDidattiche().isPresent()?entity.getUnitaDidattiche().get():null
+                entity.getUnitaDidattiche().isPresent()?
+                        entity.getUnitaDidattiche().get()
+                                .stream()
+                                .map(this::toDomain)
+                                .collect(Collectors.toList())
+                        :null
         );
 
     }
@@ -45,7 +52,12 @@ public class AttivitaDidatticheRepositoryMapper {
                 domain.getModalitaVerificaApprendimento(),
                 domain.getObiettivi(),
                 domain.getPrerequisiti(),
-                domain.getUnitaDidattiche().isPresent()? domain.getUnitaDidattiche().get():null
+                domain.getUnitaDidattiche().isPresent()?
+                        domain.getUnitaDidattiche().get()
+                                .stream()
+                                .map(this::toEntity)
+                                .collect(Collectors.toList())
+                        :null
         );
 
     }

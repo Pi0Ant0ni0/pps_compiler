@@ -1,6 +1,4 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.API;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.util.List;
@@ -37,7 +35,7 @@ public class AttivitaDidattica {
     private String obiettivi;
     @Getter @Setter @NonNull
     private String prerequisiti;
-    @Setter @JsonIgnoreProperties
+    @Setter
     private List<AttivitaDidattica>unitaDidattiche;
 
     public Optional<List<AttivitaDidattica>>getUnitaDidattiche(){

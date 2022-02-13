@@ -275,8 +275,10 @@ public class ManifestoDegliStudiMaker {
             Cell semestre = new Cell();
 
             if (insegnamentoRegola.isInsegnamentoIntegratoFlag()) {
-                List<AttivitaDidattica> integrati = this.readAttivitaDidatticaPort.findAttivitaById(insegnamentoRegola.getCodiceInsegnamento()).get().getUnitaDidattiche().get();
-                if (integrati.size() == 1) {
+                AttivitaDidattica attivitaIntegrata = this.readAttivitaDidatticaPort.findAttivitaById(insegnamentoRegola.getCodiceInsegnamento()).get();
+                List<AttivitaDidattica>integrati;
+                if (!attivitaIntegrata.getUnitaDidattiche().isPresent()) {
+                    logger.info("li creo io integrati");
                     integrati = new ArrayList<>();
                     AttivitaDidattica attivitaDidattica1 = this.readAttivitaDidatticaPort.findAttivitaById(insegnamentoRegola.getCodiceInsegnamento()).get();
                     attivitaDidattica1.setCfu(attivitaDidattica1.getCfu() / 2);
@@ -285,6 +287,8 @@ public class ManifestoDegliStudiMaker {
                     AttivitaDidattica attivitaDidattica2 = this.readAttivitaDidatticaPort.findAttivitaById(insegnamentoRegola.getCodiceInsegnamento()).get();
                     attivitaDidattica2.setCfu(attivitaDidattica2.getCfu() / 2);
                     integrati.add(attivitaDidattica2);
+                }else{
+                    integrati=attivitaIntegrata.getUnitaDidattiche().get();
                 }
                 int sem = 1;
                 for (AttivitaDidattica attivitaDidattica : integrati) {

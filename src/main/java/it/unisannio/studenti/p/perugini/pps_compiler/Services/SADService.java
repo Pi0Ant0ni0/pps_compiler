@@ -180,7 +180,6 @@ public class SADService {
     }
 
 
-
     public List<Orientamento> getOrientamentoManifesto(int coorte, String codiceCorsoDiStudio) {
         ChiaveManifestoDegliStudi chiaveManifestoDegliStudi = new ChiaveManifestoDegliStudi();
         //se cerco gli orientamenti non devo specificare il curriculum, sono mutuamente esclusivi
@@ -213,10 +212,10 @@ public class SADService {
                     .path(String.valueOf(regolamentoDiScelta.getFacId()))
                     .request(MediaType.APPLICATION_JSON);
             return invocationBuilder.get(Facolta.class);
-        }catch (ProcessingException e){
+        } catch (ProcessingException e) {
             logger.error("Processing exception durante il recupero delle facolta");
-            Thread.sleep(10*1000);
-            return this.getFacolta(regolamentoDiScelta,webTarget);
+            Thread.sleep(10 * 1000);
+            return this.getFacolta(regolamentoDiScelta, webTarget);
         }
     }
 
@@ -262,7 +261,6 @@ public class SADService {
                         modalitaVerificaApprendimento,
                         obiettivi,
                         prerequisiti,
-                        tipoCorsoDiLaurea,
                         programmato,
                         logisticaWebTarget
                 );
@@ -275,15 +273,21 @@ public class SADService {
             String obiettivi = "";
             String prerequisiti = "";
 
+            int cfu = unitaDidattiche.size()>1?
+                    unitaDidattiche.stream().mapToInt(AttivitaDidattica::getCfu).sum()
+                    :unitaDidattiche.get(0).getCfu();
+            String settore = unitaDidattiche.get(0).getSettoreScientificoDisciplinare();
+
             AttivitaDidattica attivitaDidattica = this.getInfoAggiuntiveAttivitaDidattica(
                     adContestualizzata,
                     unitaDidattiche,
+                    cfu,
+                    settore,
                     contenuti,
                     metodiDidattici,
                     modalitaVerificaApprendimento,
                     obiettivi,
                     prerequisiti,
-                    tipoCorsoDiLaurea,
                     programmato,
                     logisticaWebTarget
             );
@@ -302,51 +306,64 @@ public class SADService {
                                                               String metodiDidattici,
                                                               String modalitaVerificaApprendimento,
                                                               String obiettivi, String prerequisiti,
-                                                              TipoCorsoDiLaurea tipoCorsoDiLaurea,
                                                               boolean programmata,
                                                               WebTarget logisticaWebTarget) throws InterruptedException {
-        //recupero id Logistica
-        logger.info("recupero informazioni aggiuntive per insegnamento: " + segContestualizzato.getChiaveSegContestualizzato().getChiaveUdContestualizzata().getChiaveAdContestualizzata().getAdDes());
-        Invocation.Builder invocationBuilderLogistica = logisticaWebTarget
-                .path("logistica")
-                .queryParam("adId", segContestualizzato.getChiaveSegContestualizzato().getChiaveUdContestualizzata().getChiaveAdContestualizzata().getAdId())
-                .request(MediaType.APPLICATION_JSON);
-        Thread.sleep(1 * 1000);
-        AdLog[] buffer = invocationBuilderLogistica.get(AdLog[].class);
-        Thread.sleep(1 * 1000);
-
-
-        //se ho trovato dei dati di logistica, recupero le informazioni
-        if (buffer.length > 0) {
-            int adLogId = buffer[0].getChiavePartizione().getAdLogId();
-            //recupero descrizione
-            Invocation.Builder invocationBuilderSyllabus = logisticaWebTarget
-                    .path("logistica/" + adLogId + "/adLogConSyllabus")
-                    .queryParam("order", "-aaOffId")
+        try {
+            //recupero id Logistica
+            logger.info("recupero informazioni aggiuntive per insegnamento: " + segContestualizzato.getChiaveSegContestualizzato().getChiaveUdContestualizzata().getChiaveAdContestualizzata().getAdDes());
+            Invocation.Builder invocationBuilderLogistica = logisticaWebTarget
+                    .path("logistica")
+                    .queryParam("adId", segContestualizzato.getChiaveSegContestualizzato().getChiaveUdContestualizzata().getChiaveAdContestualizzata().getAdId())
                     .request(MediaType.APPLICATION_JSON);
             Thread.sleep(1 * 1000);
-            AdLogConSyllabus[] syllabusBuffer = invocationBuilderSyllabus.get(AdLogConSyllabus[].class);
-            //se ho trovato le informazioni le aggiungo
-            if (syllabusBuffer.length > 0 && syllabusBuffer[0].getSyllabusAD().length > 0) {
+            AdLog[] buffer = invocationBuilderLogistica.get(AdLog[].class);
+            Thread.sleep(1 * 1000);
+
+
+            //se ho trovato dei dati di logistica, recupero le informazioni
+            if (buffer.length > 0) {
+                int adLogId = buffer[0].getChiavePartizione().getAdLogId();
+                //recupero descrizione
+                Invocation.Builder invocationBuilderSyllabus = logisticaWebTarget
+                        .path("logistica/" + adLogId + "/adLogConSyllabus")
+                        .queryParam("order", "-aaOffId")
+                        .request(MediaType.APPLICATION_JSON);
                 Thread.sleep(1 * 1000);
-                contenuti = syllabusBuffer[0].getSyllabusAD()[0].getContenuti();
-                metodiDidattici = syllabusBuffer[0].getSyllabusAD()[0].getContenuti();
-                modalitaVerificaApprendimento = syllabusBuffer[0].getSyllabusAD()[0].getModalitaVerificaApprendimento();
-                obiettivi = syllabusBuffer[0].getSyllabusAD()[0].getObiettiviFormativi();
-                prerequisiti = syllabusBuffer[0].getSyllabusAD()[0].getPrerequisiti();
+                AdLogConSyllabus[] syllabusBuffer = invocationBuilderSyllabus.get(AdLogConSyllabus[].class);
+                //se ho trovato le informazioni le aggiungo
+                if (syllabusBuffer.length > 0 && syllabusBuffer[0].getSyllabusAD().length > 0) {
+                    Thread.sleep(1 * 1000);
+                    contenuti = syllabusBuffer[0].getSyllabusAD()[0].getContenuti();
+                    metodiDidattici = syllabusBuffer[0].getSyllabusAD()[0].getContenuti();
+                    modalitaVerificaApprendimento = syllabusBuffer[0].getSyllabusAD()[0].getModalitaVerificaApprendimento();
+                    obiettivi = syllabusBuffer[0].getSyllabusAD()[0].getObiettiviFormativi();
+                    prerequisiti = syllabusBuffer[0].getSyllabusAD()[0].getPrerequisiti();
+                }
             }
+            return attivitaDidatticheUtil.makeUnitaDidattica(
+                    segContestualizzato,
+                    adContestualizzata,
+                    programmata,
+                    contenuti,
+                    metodiDidattici,
+                    modalitaVerificaApprendimento,
+                    obiettivi,
+                    prerequisiti
+            );
+        }catch (ProcessingException e){
+            Thread.sleep(10*1000);
+            logger.error("timeout durante il recupero delle informazioni aggiuntive, riprovo");
+            return this.getInfoAggiuntiveUnitaDidattica(
+                    adContestualizzata,
+                    segContestualizzato,
+                    contenuti,
+                    metodiDidattici,modalitaVerificaApprendimento,
+                    obiettivi,
+                    prerequisiti,
+                    programmata,
+                    logisticaWebTarget
+            );
         }
-        return attivitaDidatticheUtil.makeUnitaDidattica(
-                segContestualizzato,
-                adContestualizzata,
-                tipoCorsoDiLaurea,
-                programmata,
-                contenuti,
-                metodiDidattici,
-                modalitaVerificaApprendimento,
-                obiettivi,
-                prerequisiti
-        );
     }
 
     private List<Offerta> getOfferte(int year) {
@@ -425,54 +442,74 @@ public class SADService {
 
     private AttivitaDidattica getInfoAggiuntiveAttivitaDidattica(ADContestualizzata adContestualizzata,
                                                                  List<AttivitaDidattica> unitaDidattiche,
+                                                                 int cfu,
+                                                                 String settore,
                                                                  String contenuti,
                                                                  String metodiDidattici,
                                                                  String modalitaVerificaApprendimento,
                                                                  String obiettivi, String prerequisiti,
-                                                                 TipoCorsoDiLaurea tipoCorsoDiLaurea,
                                                                  boolean programmata,
                                                                  WebTarget logisticaWebTarget) throws InterruptedException {
-        //recupero id Logistica
-        logger.info("recupero informazioni aggiuntive per insegnamento: " + adContestualizzata.getChiaveAdContestualizzata().getAdDes());
-        Invocation.Builder invocationBuilderLogistica = logisticaWebTarget
-                .path("logistica")
-                .queryParam("adId", adContestualizzata.getChiaveAdContestualizzata().getAdId())
-                .request(MediaType.APPLICATION_JSON);
-        Thread.sleep(1 * 1000);
-        AdLog[] buffer = invocationBuilderLogistica.get(AdLog[].class);
-        Thread.sleep(1 * 1000);
-
-        //se ho trovato dei dati di logistica, recupero le informazioni
-        if (buffer.length > 0) {
-            int adLogId = buffer[0].getChiavePartizione().getAdLogId();
-            //recupero descrizione
-            Invocation.Builder invocationBuilderSyllabus = logisticaWebTarget
-                    .path("logistica/" + adLogId + "/adLogConSyllabus")
-                    .queryParam("order", "-aaOffId")
+        try {
+            //recupero id Logistica
+            logger.info("recupero informazioni aggiuntive per insegnamento: " + adContestualizzata.getChiaveAdContestualizzata().getAdDes());
+            Invocation.Builder invocationBuilderLogistica = logisticaWebTarget
+                    .path("logistica")
+                    .queryParam("adId", adContestualizzata.getChiaveAdContestualizzata().getAdId())
                     .request(MediaType.APPLICATION_JSON);
             Thread.sleep(1 * 1000);
-            AdLogConSyllabus[] syllabusBuffer = invocationBuilderSyllabus.get(AdLogConSyllabus[].class);
-            //se ho trovato le informazioni le aggiungo
-            if (syllabusBuffer.length > 0 && syllabusBuffer[0].getSyllabusAD().length > 0) {
+            AdLog[] buffer = invocationBuilderLogistica.get(AdLog[].class);
+            Thread.sleep(1 * 1000);
+
+            //se ho trovato dei dati di logistica, recupero le informazioni
+            if (buffer.length > 0) {
+                int adLogId = buffer[0].getChiavePartizione().getAdLogId();
+                //recupero descrizione
+                Invocation.Builder invocationBuilderSyllabus = logisticaWebTarget
+                        .path("logistica/" + adLogId + "/adLogConSyllabus")
+                        .queryParam("order", "-aaOffId")
+                        .request(MediaType.APPLICATION_JSON);
                 Thread.sleep(1 * 1000);
-                contenuti = syllabusBuffer[0].getSyllabusAD()[0].getContenuti();
-                metodiDidattici = syllabusBuffer[0].getSyllabusAD()[0].getContenuti();
-                modalitaVerificaApprendimento = syllabusBuffer[0].getSyllabusAD()[0].getModalitaVerificaApprendimento();
-                obiettivi = syllabusBuffer[0].getSyllabusAD()[0].getObiettiviFormativi();
-                prerequisiti = syllabusBuffer[0].getSyllabusAD()[0].getPrerequisiti();
+                AdLogConSyllabus[] syllabusBuffer = invocationBuilderSyllabus.get(AdLogConSyllabus[].class);
+                //se ho trovato le informazioni le aggiungo
+                if (syllabusBuffer.length > 0 && syllabusBuffer[0].getSyllabusAD().length > 0) {
+                    Thread.sleep(1 * 1000);
+                    contenuti = syllabusBuffer[0].getSyllabusAD()[0].getContenuti();
+                    metodiDidattici = syllabusBuffer[0].getSyllabusAD()[0].getContenuti();
+                    modalitaVerificaApprendimento = syllabusBuffer[0].getSyllabusAD()[0].getModalitaVerificaApprendimento();
+                    obiettivi = syllabusBuffer[0].getSyllabusAD()[0].getObiettiviFormativi();
+                    prerequisiti = syllabusBuffer[0].getSyllabusAD()[0].getPrerequisiti();
+                }
             }
+            return attivitaDidatticheUtil.makeAttivitaDidattica(
+                    unitaDidattiche.size() > 1 ? unitaDidattiche : null,
+                    adContestualizzata,
+                    cfu,
+                    settore,
+                    programmata,
+                    contenuti,
+                    metodiDidattici,
+                    modalitaVerificaApprendimento,
+                    obiettivi,
+                    prerequisiti
+            );
+        } catch (ProcessingException e) {
+            Thread.sleep(10 * 1000);
+            logger.error("timeout nel recupero delle informaizoni aggiuntive, riprovo");
+            return this.getInfoAggiuntiveAttivitaDidattica(
+                    adContestualizzata,
+                    unitaDidattiche,
+                    cfu,
+                    settore,
+                    contenuti,
+                    metodiDidattici,
+                    modalitaVerificaApprendimento,
+                    obiettivi,
+                    prerequisiti,
+                    programmata,
+                    logisticaWebTarget
+            );
         }
-        return attivitaDidatticheUtil.makeAttivitaDidattica(
-                unitaDidattiche,
-                adContestualizzata,
-                tipoCorsoDiLaurea,
-                programmata,
-                contenuti,
-                metodiDidattici,
-                modalitaVerificaApprendimento,
-                obiettivi,
-                prerequisiti
-        );
     }
 
     private void getSegmentiContestualizzati(boolean programmata, int year, ADContestualizzata adContestualizzata, WebTarget webTarget, TipoCorsoDiLaurea tipoCorsoDiLaurea) throws InterruptedException {
@@ -487,6 +524,7 @@ public class SADService {
             Thread.sleep(1 * 1000);
             //ho tutte le unita didattiche
             SEGContestualizzato[] segContestualizzati = invocationBuilder.get(SEGContestualizzato[].class);
+
             this.addInsegnamenti(
                     segContestualizzati,
                     adContestualizzata,

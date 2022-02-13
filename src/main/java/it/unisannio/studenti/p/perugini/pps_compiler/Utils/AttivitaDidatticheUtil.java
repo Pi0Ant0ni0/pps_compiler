@@ -16,7 +16,7 @@ public class AttivitaDidatticheUtil {
     private ReadCorsoDiStudioPort readCorsoDiStudioPort;
 
 
-    public AttivitaDidattica makeUnitaDidattica(SEGContestualizzato segContestualizzato, ADContestualizzata adContestualizzata, TipoCorsoDiLaurea l2, boolean programmato, String contenuti, String metodiDidattici, String modalitaVerificaApprendimento, String obiettivi, String prerequisiti) {
+    public AttivitaDidattica makeUnitaDidattica(SEGContestualizzato segContestualizzato, ADContestualizzata adContestualizzata, boolean programmato, String contenuti, String metodiDidattici, String modalitaVerificaApprendimento, String obiettivi, String prerequisiti) {
         //creo l'insegnamento
         AttivitaDidattica attivitaDidattica = new AttivitaDidattica();
         attivitaDidattica.setDenominazioneAttivitaDidattica(segContestualizzato.getChiaveSegContestualizzato().getChiaveUdContestualizzata().getUdDes());
@@ -45,19 +45,19 @@ public class AttivitaDidatticheUtil {
     }
 
 
-    public AttivitaDidattica makeAttivitaDidattica(List<AttivitaDidattica> unitaDidattiche, ADContestualizzata adContestualizzata, TipoCorsoDiLaurea l2, boolean programmato, String contenuti, String metodiDidattici, String modalitaVerificaApprendimento, String obiettivi, String prerequisiti) {
+    public AttivitaDidattica makeAttivitaDidattica(List<AttivitaDidattica> unitaDidattiche, ADContestualizzata adContestualizzata,int cfu,String settore,  boolean programmato, String contenuti, String metodiDidattici, String modalitaVerificaApprendimento, String obiettivi, String prerequisiti) {
         //creo l'insegnamento
         AttivitaDidattica attivitaDidattica = new AttivitaDidattica();
         attivitaDidattica.setDenominazioneAttivitaDidattica(adContestualizzata.getChiaveAdContestualizzata().getAdDes());
         attivitaDidattica.setCodiceAttivitaDidattica(adContestualizzata.getChiaveAdContestualizzata().getAdCod());
         attivitaDidattica.setCorsoDiStudio(this.readCorsoDiStudioPort.findCorsoDiStudioById(adContestualizzata.getChiaveAdContestualizzata().getCdsCod()).get());
-        attivitaDidattica.setCfu(unitaDidattiche.stream().mapToInt(AttivitaDidattica::getCfu).sum());
+        attivitaDidattica.setCfu(cfu);
         if (adContestualizzata.getNonErogabileOdFlg()==0) {
             attivitaDidattica.setNonErogabile(false);
         }else{
             attivitaDidattica.setNonErogabile(true);
         }
-        attivitaDidattica.setSettoreScientificoDisciplinare(unitaDidattiche.get(0).getSettoreScientificoDisciplinare());
+        attivitaDidattica.setSettoreScientificoDisciplinare(settore);
         attivitaDidattica.setProgrammato(programmato);
         attivitaDidattica.setContenuti(contenuti);
         attivitaDidattica.setMetodiDidattici(metodiDidattici);

@@ -32,9 +32,9 @@ public class AttivitaDidatticaEntity {
     private String modalitaVerificaApprendimento;
     private String obiettivi;
     private String prerequisiti;
-    private List<AttivitaDidattica> unitaDidattiche;
+    private List<AttivitaDidatticaEntity> unitaDidattiche;
 
-    public Optional<List<AttivitaDidattica>> getUnitaDidattiche(){
+    public Optional<List<AttivitaDidatticaEntity>> getUnitaDidattiche(){
         return Optional.ofNullable(unitaDidattiche);
     }
 }

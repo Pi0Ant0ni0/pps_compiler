@@ -58,7 +58,7 @@ public class AttivitaDidatticheController {
         logger.info("Aggiornamento del database iniziato");
         CompletableFuture<Void> result = sadService.updateDatabse();
         return result
-                .thenApply(unused -> Response.ok().entity(ERR_MESSAGES.DB_UPDATING).build())
+                .thenApply(unused -> Response.ok().entity("Aggiornamento del database concluso").build())
                 .exceptionally(throwable -> Response.serverError().entity(throwable.getMessage()).build());
     }
 
