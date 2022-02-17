@@ -88,8 +88,22 @@ public class PPSService implements CompilaPPSUseCase,
             throw new RegolaNotFoundException(ERR_MESSAGES.MANIFESTO_NOT_FOUND+chiaveManifestoDegliStudi.getCodiceCorsoDiStudio()+", "+chiaveManifestoDegliStudi.getCoorte());
 
 
+        //nel PPS  va specificata la scelta solo se nel singolo anno di studio ci sono almeno 2 orientamenti
+        //altrimenti non si ha scelta
+        boolean orientamentoFlag =false;
+        for(Integer anno : manifesto.get().getAnniAccademici().keySet()){
+            Optional<List<Orientamento>> optionalOrientamento = manifesto.get().getAnniAccademici().get(anno).getOrientamenti();
+            int conteggio =0;
+            if(optionalOrientamento.isPresent()){
+                for(Orientamento orientamento: optionalOrientamento.get()){
+                    conteggio++;
+                }
+                if(conteggio>1)
+                    orientamentoFlag=true;
+            }
+        }
         //controllo che quanto passato sia coerente con la regola
-        if(!pps.getOrientamento().isPresent() && manifesto.get().getCfuOrientamento()!= 0)
+        if(!pps.getOrientamento().isPresent() &&orientamentoFlag)
             throw new PPSNonValidoException(ERR_MESSAGES.PPS_ORIENTAMENTO_NOT_FOUND);
         if(pps.getOrientamento().isPresent() && manifesto.get().getCfuOrientamento()==0)
             throw new PPSNonValidoException(ERR_MESSAGES.PPS_ORIENTAMENTO_NOT_REQUIRED);
@@ -159,9 +173,11 @@ public class PPSService implements CompilaPPSUseCase,
             throw new PPSNonValidoException(ERR_MESSAGES.PPS_AUTOMATICA_APPROVAZIONE);
 
         //controllo che effettivamente lo studente possa compilare il modulo
-        if(LocalDate.now().isBefore(manifesto.get().getDataInizioCompilazionePiano()) ||
-                LocalDate.now().isAfter(manifesto.get().getDataFineCompilazionePiano()))
-            throw new PPSNonValidoException(ERR_MESSAGES.PPS_FINESTRA_COMPILAZIONE);
+        for(ManifestoDegliStudi.FinestraDiCompilazione finestraDiCompilaizone: manifesto.get().getFinestreDiCompilazione()) {
+            if (LocalDate.now().isBefore(finestraDiCompilaizone.getDataInizioCompilazione()) ||
+                    LocalDate.now().isAfter(finestraDiCompilaizone.getDataFineCompilazione()))
+                throw new PPSNonValidoException(ERR_MESSAGES.PPS_FINESTRA_COMPILAZIONE);
+        }
 
     }
 

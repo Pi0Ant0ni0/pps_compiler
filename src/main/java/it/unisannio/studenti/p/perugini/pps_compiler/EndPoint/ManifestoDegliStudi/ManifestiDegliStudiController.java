@@ -17,6 +17,7 @@ import it.unisannio.studenti.p.perugini.pps_compiler.Services.StudentiService;
 import it.unisannio.studenti.p.perugini.pps_compiler.Utils.SHARED;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.AggiungiManfiestoUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.ManifestoPDFUseCase;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.UpdateManifestoUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.VisualizzaManifestoUseCase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,8 +35,7 @@ import javax.ws.rs.core.StreamingOutput;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role.ADMINstr;
-import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role.SADstr;
+import static it.unisannio.studenti.p.perugini.pps_compiler.API.ValueObject.Role.*;
 
 @RestController
 @Path("/manifestideglistudi")
@@ -51,6 +51,8 @@ public class ManifestiDegliStudiController {
     private VisualizzaManifestoUseCase visualizzaManifestoUseCase;
     @Autowired
     private AggiungiManfiestoUseCase aggiungiManfiestoUseCase;
+    @Autowired
+    private UpdateManifestoUseCase updateManifestoUseCase;
     @Autowired
     private StudentiService studentiService;
 
@@ -77,13 +79,13 @@ public class ManifestiDegliStudiController {
     @Produces(MediaType.TEXT_PLAIN)
     @RolesAllowed(value = {ADMINstr, SADstr})
     public Response aggiungiManifesto(@Parameter(required = true, schema = @Schema(implementation = ManifestoDegliStudiDTO.class))
-                                          @RequestBody @Valid ManifestoDegliStudiDTO regola) {
+                                          @RequestBody @Valid ManifestoDegliStudiDTO manifesto) {
         if(SHARED.updatingDatabase){
             return Response.status(Response.Status.BAD_REQUEST).entity(ERR_MESSAGES.DB_UPDATING).build();
         }
         try {
-            logger.info("è arrivata una nuova regola: "+regola);
-            this.aggiungiManfiestoUseCase.addManifesto(ManifestiDegliStudiMapper.fromRegolaDTOToRegola(regola));
+            logger.info("è arrivato un nuovo manifesto: "+manifesto);
+            this.aggiungiManfiestoUseCase.addManifesto(ManifestiDegliStudiMapper.toManifestoDegliStudi(manifesto));
             return Response.status(Response.Status.OK)
                     .entity("Manifesto degli studi aggiunto correttamente")
                     .build();
@@ -115,7 +117,7 @@ public class ManifestiDegliStudiController {
                 .ok()
                 .entity(this.visualizzaManifestoUseCase.getManifesti(codiceCorsoDiSudio)
                         .stream()
-                        .map(ManifestiDegliStudiMapper::fromManifestoToPreview)
+                        .map(ManifestiDegliStudiMapper::toManifestoPreview)
                         .collect(Collectors.toList())
                 ).build();
     }
@@ -135,7 +137,7 @@ public class ManifestiDegliStudiController {
     @GET
     @Produces(org.springframework.http.MediaType.APPLICATION_PDF_VALUE)
     @PermitAll()
-    @Path("/{codiceCorsoDiStudio}/{coorte}/")
+    @Path("/{codiceCorsoDiStudio}/{coorte}/pdf")
     public StreamingOutput getManifesto(@Parameter(required = true)
                                             @PathParam("coorte")int anno,
                                         @Parameter(required = true,description = "codice del corso di studio")
@@ -150,6 +152,46 @@ public class ManifestiDegliStudiController {
             };
         }else {
             return null;
+        }
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @PermitAll()
+    @Path("/{codiceCorsoDiStudio}/{coorte}/")
+    public Response getManifestoDettagliato(@Parameter(required = true)
+                                        @PathParam("coorte")int anno,
+                                        @Parameter(required = true,description = "codice del corso di studio")
+                                        @PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio,
+                                        @Parameter(required = false, description = "curriculum del manifesto degli studi")
+                                        @QueryParam("curriculum") @DefaultValue("") String curriculum) {
+        logger.info("Arrivata una richiesta per il manifesto degli studi della corte: "+anno+" per il corso di studi: "+codiceCorsoDiStudio);
+        Optional<ManifestoDegliStudi> manifestoDegliStudi = this.manifestoPDFUseCase.manifestoPDF(anno,codiceCorsoDiStudio,curriculum);
+        if(manifestoDegliStudi.isPresent())
+            return Response.ok().entity(ManifestiDegliStudiMapper.toManifestoDegliStudiDTO(manifestoDegliStudi.get())).build();
+        return Response.status(Response.Status.NOT_FOUND).entity(ERR_MESSAGES.MANIFESTO_NOT_FOUND).build();
+    }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed(value = {DOCENTEStr,SADstr})
+    @Path("/{codiceCorsoDiStudio}/{coorte}/")
+    public Response updateManifesto(@Parameter(required = true) @PathParam("coorte")int anno,
+                                    @Parameter(required = true,description = "codice del corso di studio") @PathParam("codiceCorsoDiStudio")String codiceCorsoDiStudio,
+                                    @Parameter(required = false, description = "curriculum del manifesto degli studi") @QueryParam("curriculum") @DefaultValue("") String curriculum,
+                                    @Parameter(required = true, schema = @Schema(implementation = ManifestoDegliStudiDTO.class)) @RequestBody @Valid ManifestoDegliStudiDTO manifestoDegliStudiDTO
+                                    ) {
+        logger.info("Arrivata una richiesta per l'aggiornamento  del manifesto degli studi della corte: "+anno+" per il corso di studi: "+codiceCorsoDiStudio);
+        try {
+            ChiaveManifestoDegliStudi chiaveManifestoDegliStudi = new ChiaveManifestoDegliStudi(
+                    anno,
+                    codiceCorsoDiStudio,
+                    curriculum.length()==0?null:curriculum
+            );
+            this.updateManifestoUseCase.update(chiaveManifestoDegliStudi,ManifestiDegliStudiMapper.toManifestoDegliStudi(manifestoDegliStudiDTO));
+            return Response.ok().build();
+        } catch (ManifestoDegliStudiNonValidoException e) {
+            return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
         }
     }
 

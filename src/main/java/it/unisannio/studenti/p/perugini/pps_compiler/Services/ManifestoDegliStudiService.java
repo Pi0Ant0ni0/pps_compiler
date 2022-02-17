@@ -8,11 +8,10 @@ import it.unisannio.studenti.p.perugini.pps_compiler.Exception.constants.ERR_MES
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.OrdinamentoNotFoundException;
 import it.unisannio.studenti.p.perugini.pps_compiler.Exception.ManifestoDegliStudiNonValidoException;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.attivitaDidattica.port.ReadAttivitaDidatticaPort;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.CreateManifestoPort;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ListManifestiDegliStudiPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.*;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.AggiungiManfiestoUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.ManifestoPDFUseCase;
-import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.port.ReadManifestoDegliStudiPort;
+import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.UpdateManifestoUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.manifestiDegliStudi.usecase.VisualizzaManifestoUseCase;
 import it.unisannio.studenti.p.perugini.pps_compiler.core.ordinamento.port.ReadOrdinamentoPort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class ManifestoDegliStudiService implements ManifestoPDFUseCase, AggiungiManfiestoUseCase, VisualizzaManifestoUseCase {
+public class ManifestoDegliStudiService implements ManifestoPDFUseCase, AggiungiManfiestoUseCase, VisualizzaManifestoUseCase, UpdateManifestoUseCase {
     @Autowired
     private ReadManifestoDegliStudiPort readManifestoDegliStudiPort;
     @Autowired
@@ -36,6 +35,8 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
     private ReadAttivitaDidatticaPort readAttivitaDidatticaPort;
     @Autowired
     private CreateManifestoPort createManifestoPort;
+    @Autowired
+    private UpdateManifestoPort updateManifestoPort;
 
     @Override
     public Optional<ManifestoDegliStudi> manifestoPDF(int coorte, String codiceCorsoDiStudio, String curricula) {
@@ -159,8 +160,10 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
         }
 
         //controllo che le date di compilazioni siano corrette
-        if(manifestoDegliStudi.getDataInizioCompilazionePiano().isAfter(manifestoDegliStudi.getDataFineCompilazionePiano()))
-            throw new ManifestoDegliStudiNonValidoException(ERR_MESSAGES.MANIFESTO_FINESTRA_COMPILAZIONE_NON_VALIDA);
+        for(ManifestoDegliStudi.FinestraDiCompilazione finestraDiCompilaizone : manifestoDegliStudi.getFinestreDiCompilazione()) {
+            if (finestraDiCompilaizone.getDataInizioCompilazione().isAfter(finestraDiCompilaizone.getDataFineCompilazione()))
+                throw new ManifestoDegliStudiNonValidoException(ERR_MESSAGES.MANIFESTO_FINESTRA_COMPILAZIONE_NON_VALIDA);
+        }
         this.createManifestoPort.save(manifestoDegliStudi);
     }
 
@@ -170,5 +173,13 @@ public class ManifestoDegliStudiService implements ManifestoPDFUseCase, Aggiungi
                 .stream()
                 .filter(manifestoDegliStudi -> manifestoDegliStudi.getChiaveManifestoDegliStudi().getCodiceCorsoDiStudio().equals(codiceCorsoDiStudio))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void update(ChiaveManifestoDegliStudi chiaveManifestoDegliStudi, ManifestoDegliStudi manifestoDegliStudi) throws ManifestoDegliStudiNonValidoException {
+        //controllo che il manifesto sia presente;
+        ManifestoDegliStudi manifestoDegliStudi1=this.readManifestoDegliStudiPort.findManifestoById(chiaveManifestoDegliStudi)
+                .orElseThrow(()-> new ManifestoDegliStudiNonValidoException("manifesto inesistente"));
+        this.updateManifestoPort.update(chiaveManifestoDegliStudi,manifestoDegliStudi);
     }
 }

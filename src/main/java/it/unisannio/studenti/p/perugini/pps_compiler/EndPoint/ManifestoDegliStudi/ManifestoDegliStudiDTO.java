@@ -1,6 +1,7 @@
 package it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.ManifestoDegliStudi;
 
 import it.unisannio.studenti.p.perugini.pps_compiler.API.AnnoAccademico;
+import it.unisannio.studenti.p.perugini.pps_compiler.API.ManifestoDegliStudi;
 import it.unisannio.studenti.p.perugini.pps_compiler.EndPoint.AttivitaDidattiche.AttivitaDidatticaPPSDTO;
 import lombok.*;
 
@@ -12,6 +13,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ManifestoDegliStudiDTO {
 
     @NotNull @Min(value = 1, message = "la coorte non puo' essere negativa")
@@ -32,9 +35,7 @@ public class ManifestoDegliStudiDTO {
     private Map<Integer, AnnoAccademico> anniAccademici;
     private String curricula;
     private List<AttivitaDidatticaPPSDTO> attivitaDidatticheAScelta;
-    @NotNull
-    private LocalDate dataInizioCompilazionePiano;
-    @NotNull
-    private LocalDate dataFineCompilazionePiano;
+    @NotNull @NotEmpty
+    private List<ManifestoDegliStudi.FinestraDiCompilazione> finestreDiCompilazione;
 
 }

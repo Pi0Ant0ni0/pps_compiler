@@ -5,6 +5,7 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -34,13 +35,18 @@ public class ManifestoDegliStudi {
     private Map<Integer, AnnoAccademico> anniAccademici;
     @Setter
     private List<AttivitaDidatticaPPSDTO> attivitaDidatticheAScelta;
-    @Setter @Getter @NonNull
-    private LocalDate dataInizioCompilazionePiano;
-    @Setter @Getter @NonNull
-    private LocalDate dataFineCompilazionePiano;
+    @Getter  @NonNull @Setter
+    private List<FinestraDiCompilazione> finestreDiCompilazione;
 
     public Optional<List<AttivitaDidatticaPPSDTO>>getAttivitaDidatticheAScelta(){
         return Optional.ofNullable(attivitaDidatticheAScelta);
     }
 
+
+    @Data
+    @ToString
+    public static class FinestraDiCompilazione {
+        private LocalDate dataInizioCompilazione;
+        private LocalDate dataFineCompilazione;
+    }
 }

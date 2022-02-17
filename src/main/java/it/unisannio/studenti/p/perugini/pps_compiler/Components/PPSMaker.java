@@ -40,7 +40,7 @@ public class PPSMaker {
         PdfDocument pdfDocument = new PdfDocument( new PdfWriter(outputStream));
         Document document = new Document(pdfDocument);
         //metto il logo a sinistra
-        ImageData imageData = ImageDataFactory.create("C:\\Users\\Pio Antonio\\Desktop\\pps_compiler\\src\\main\\resources\\logoUnisannio.png");
+        ImageData imageData = ImageDataFactory.create("C:\\Users\\Pio Antonio\\Desktop\\PPS_Helper\\pps_compiler\\src\\main\\resources\\logoUnisannio.png");
         Image pdfImg = new Image(imageData).setMaxWidth(60)
                 .setTextAlignment(TextAlignment.LEFT);
         document.add(pdfImg);

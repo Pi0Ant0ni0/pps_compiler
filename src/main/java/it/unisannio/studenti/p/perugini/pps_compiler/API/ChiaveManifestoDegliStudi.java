@@ -6,6 +6,8 @@ import java.util.Optional;
 
 @Data
 @EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
 public class ChiaveManifestoDegliStudi {
     private int coorte;
     private String codiceCorsoDiStudio;
